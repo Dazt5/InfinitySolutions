@@ -1,4 +1,12 @@
-form input[type="text"], form input[type="email"], form input[type="password"] {
+:root {
+    --primary:#ffffff;
+    --secondary:#8899A6;
+    --btnPrimary:#404040;
+    --btnHover:#282828;
+    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap);
+}
+
+form input{
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -6,14 +14,14 @@ form input[type="text"], form input[type="email"], form input[type="password"] {
     border: 1px solid #c4c4c4;
     padding: 1em;
     margin-bottom: 1.25rem;
-    font-size: 00.875rem;
+    font-size: 1rem;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.75rem;
-    color: white;
+    color:var(--primary);
 }
 
 .input-container.password {
@@ -44,8 +52,8 @@ label {
 }
 
 .checkbox-container input:checked~.checkmark {
-    background-color: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
+    background-color: var(--secondary);
+    border: 1px solid var(--secondary);
 }
 
 .checkmark {
@@ -82,7 +90,7 @@ label {
 .signup-btn {
     display: block;
     width: 100%;
-    background: var(--primary-blue);
+    background: var(--btnPrimary);
     color: white;
     font-weight: 700;
     border: none;
@@ -94,6 +102,6 @@ label {
 }
 
 .signup-btn:hover {
-    background: #2c4893;
+    background: var(--btnHover);
     cursor: pointer;
 }

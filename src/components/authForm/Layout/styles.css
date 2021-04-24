@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500&display=swap');
+:root {
+    --background: #15202B;
+    --secondary: #b3b3b3;
+    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap);
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -18,7 +23,7 @@ h2 {
 
 a {
     text-decoration: none;
-    color: var(--primary-blue)
+    color: var(--b3b3b3)
 }
 
 a:hover {
@@ -36,14 +41,15 @@ a:hover {
 }
 
 .right {
-    background-color: #0a041f;
+    min-height: 70vh;
+    background: var(--background);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .left {
-    height: 200px;
+    min-height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +59,7 @@ a:hover {
 }
 
 .left .copy {
-    color: white;
+    color: var(--primary);
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -64,7 +70,7 @@ a:hover {
 }
 
 .right .copy {
-    color: white;
+    color: var(--primary);
     text-align: center;
 }
 
