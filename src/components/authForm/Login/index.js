@@ -12,12 +12,12 @@ export const LoginForm = () => {
             </section>
 
             <div className="input-container email">
-                <label for="email">Email</label>
+                <label>Email</label>
                 <input type="email" id="email" name="email" />
             </div>
 
             <div className="input-container password">
-                <label for="password">Password</label>
+                <label>Password</label>
                 <input type="password" id="password" name="password" placeholder="Must be at least 6 characters" />
                 <i className="far fa-eye-slash"></i>
             </div>

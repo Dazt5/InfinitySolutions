@@ -1,12 +1,11 @@
 :root {
-    --primary:#ffffff;
-    --secondary:#8899A6;
-    --btnPrimary:#404040;
-    --btnHover:#282828;
-    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap);
+    --primary: #ffffff;
+    --secondary: #8899A6;
+    --btnPrimary: #404040;
+    --btnHover: #282828;
 }
 
-form input{
+form input {
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -21,17 +20,19 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.75rem;
-    color:var(--primary);
+    color: var(--primary);
 }
 
 .input-container.password {
     position: relative;
+    z-index: 0;
 }
 
 .input-container.password i {
     position: absolute;
     top: 42px;
     right: 16px;
+    z-index: 0;
 }
 
 .checkbox-container input {
