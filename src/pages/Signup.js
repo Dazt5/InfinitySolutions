@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import { NavBar } from '../components/common/NavBar'
 import { SignUpForm, Layout } from '../components/authForm';
 
 const Signup = () => (
-
-    <Layout>
-        <SignUpForm />
-    </Layout>
+    <Fragment>
+        <NavBar signup={true} />
+        <Layout>
+            <SignUpForm />
+        </Layout>
+    </Fragment>
 );
 
 export default Signup;

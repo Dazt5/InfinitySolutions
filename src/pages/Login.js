@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import { NavBar } from '../components/common/NavBar'
 import { LoginForm, Layout } from '../components/authForm';
 
 const Login = () => (
 
-    <Layout>
-        <LoginForm />
-    </Layout>
+    <Fragment>
+        <NavBar login={true}/>
+        <Layout>
+            <LoginForm />
+        </Layout>
+    </Fragment>
 );
 
 export default Login;
