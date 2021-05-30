@@ -1,0 +1,97 @@
+:root {
+    --background: #15202B;
+    --secondary: #b3b3b3;
+    src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--b3b3b3)
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.small {
+    font-size: 80%;
+    text-align: center;
+}
+
+.split-screen {
+    display: flex;
+    flex-direction: column;
+    max-height: 89.9vh;
+}
+
+.right {
+    min-height: 70vh;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(https://cdn.pixabay.com/photo/2015/01/08/18/26/man-593333_960_720.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.left .copy {
+    color: var(--primary);
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.left p {
+    font-weight: 400;
+}
+
+.right .copy {
+    color: var(--primary);
+    text-align: center;
+}
+
+.right .copy p {
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+}
+
+.right form {
+    width: 328px;
+}
+
+@media screen and (min-width: 900px) {
+    .split-screen {
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left, .right {
+        display: flex;
+        width: 50%;
+        height: auto;
+    }
+}
