@@ -1,24 +1,32 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './styles.css';
 
-export const Layout = ({ children }) => (
+const layout = ({props,children}) => {
 
-    <div className="split-screen">
-        <div className="left">
+    if (localStorage.getItem('token')) {
+        props.history.push('/dashboard');
+    }
+    
+    return (
+        <div className="split-screen">
+            <div className="left">
 
-            <section className="copy">
-                <h1>Lorem ipsum dolor sit </h1>
-                <p>amet consectetur adipisicing elit.</p>
-            </section>
+                <section className="copy">
+                    <h1>Lorem ipsum dolor sit </h1>
+                    <p>amet consectetur adipisicing elit.</p>
+                </section>
+
+            </div>
+
+            <div className="right">
+                {children}
+            </div>
 
         </div>
+    )
 
-        <div className="right">
-            {children}
-        </div>
+};
 
-    </div>
-
-
-);
+export const Layout = withRouter(layout)
 
