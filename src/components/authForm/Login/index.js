@@ -1,14 +1,14 @@
-import React, { useState,useEffect,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Swal from 'sweetalert2';
 import { Link, withRouter } from 'react-router-dom';
 import { Context } from '../../../context/Context';
 
-import {apiAxios} from '../../../config/api';
+import { apiAxios } from '../../../config/api';
 
 const Login = props => {
 
-    const [auth,saveAuth] = useContext(Context);
-    
+    const [auth, saveAuth] = useContext(Context);
+
     const [credentials, saveCredentials] = useState({});
 
     const readData = e => {

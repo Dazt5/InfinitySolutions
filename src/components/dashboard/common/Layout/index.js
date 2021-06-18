@@ -5,6 +5,8 @@ import {apiAxios} from '../../../../config/api';
 
 const layout = ({ props, children }) => {
 
+    console.log(props);
+
     if (!localStorage.getItem('token')) {
         props.history.push('/login');
     }
@@ -45,7 +47,5 @@ const layout = ({ props, children }) => {
         </Fragment>
     )
 }
-
-
 
 export const Layout = withRouter(layout)

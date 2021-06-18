@@ -8,8 +8,9 @@ export const RecoverAccountForm = ({props}) => {
     const [passwords, savePasswords] = useState({});
     const [validToken, setValid] = useState(false);
 
-    console.log(props);
     const { token } = props.match.params;
+
+    console.log(props);
 
     const readData = e => {
         savePasswords({

@@ -7,7 +7,7 @@ const SendRecoverAccount = (props) => {
     return (
         <Fragment>
             <NavBar login={true} />
-            <Layout>
+            <Layout props={props}>
                 <RecoverAccountForm
                     props={props}
                 />

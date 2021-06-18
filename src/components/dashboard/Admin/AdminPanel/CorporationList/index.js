@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { apiAxios ,config} from '../../../../../config/api';
+import { apiAxios } from '../../../../../config/api';
 import CompanyCard from './CompanyCard';
 
 export const CorporationList = () => {
