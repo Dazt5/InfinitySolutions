@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Sidebar = ({props, user }) => {
-
-    console.log(props);
+export const Sidebar = ({ user }) => {
 
     return (
         <Fragment>

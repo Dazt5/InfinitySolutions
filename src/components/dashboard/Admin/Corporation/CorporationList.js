@@ -19,8 +19,6 @@ export const CorporationAdminList = () => {
 
                 saveCorporation(corporation);
 
-                console.log(corporation);
-
             } catch (error) {
                 console.log(error);
             }

@@ -5,8 +5,6 @@ import {apiAxios} from '../../../../config/api';
 
 const layout = ({ props, children }) => {
 
-    console.log(props);
-
     if (!localStorage.getItem('token')) {
         props.history.push('/login');
     }

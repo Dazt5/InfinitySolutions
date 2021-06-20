@@ -2,8 +2,6 @@ import React from 'react';
 
 const TicketList = ({ticket}) => {
 
-    console.log(ticket);
-
     return (
         <tr>
             <td><a className="ticket-link" href="#">{ticket.subject}</a></td>
