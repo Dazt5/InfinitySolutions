@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { CorporationForm, Layout } from '../../../components/dashboard/'
+import { NewCorporationForm, Layout } from '../../../components/dashboard/'
 
-const CorporationList = (props) => {
+const newCorporation = (props) => {
 
     return (
         <Fragment>
             <Layout props={props}>
-                <CorporationForm new={true}/>
+                <NewCorporationForm/>
             </Layout>
         </Fragment>
     )
 }
 
-export default withRouter(CorporationList)
+export default withRouter(newCorporation)
 
