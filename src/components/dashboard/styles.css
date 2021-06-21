@@ -550,13 +550,15 @@ td .status{
 }
 
 .img-table {
+    text-align: left!important;
     width: 125px;
     height: 100px;
     border-radius: 5px 5px 0 0;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .img-form{
+
     width: 150px;
     height: 150px;
 }
