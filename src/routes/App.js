@@ -18,7 +18,8 @@ import RecoverAccount from '../pages/authentication/RecoverAccount';
 /* Admin Components */
 import Dashboard from '../pages/admin/Dashboard'
 import CorporationList from '../pages/admin/Corporation/CorporationsList';
-import newCorporation from '../pages/admin/Corporation/newCorporation'
+import newCorporation from '../pages/admin/Corporation/newCorporation';
+import editCorporation from '../pages/admin/Corporation/editCorporation';
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
                     <Route exact path="/dashboard" component={Dashboard} />
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
+                    <Route exact path="/admin/corporation/edit/:id" component={editCorporation} />
                     {/*<Route exact path="/corporation/:id" component={} />*/}
                 </Switch>
             </Provider>
