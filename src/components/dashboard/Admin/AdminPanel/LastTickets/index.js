@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
-import TicketList from './TicketList';
+import TicketRow from './TicketList';
 
 export const LastTickets = () => {
 
@@ -51,7 +51,7 @@ export const LastTickets = () => {
                                 </thead>
                                 <tbody>
                                     {tickets.map(ticket => (
-                                        <TicketList
+                                        <TicketRow
                                             key={ticket._id}
                                             ticket={ticket} />
                                     ))}
@@ -64,32 +64,3 @@ export const LastTickets = () => {
         </div>
     )
 }
-
-/**
-                       <table>
-                            <thead>
-                                <tr>
-                                    <td>Titulo</td>
-                                    <td>Corporacion</td>
-                                    <td>Status</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-
-                                </tr>
-                                <tr>
-
-
-                                </tr>
-                                <tr>
-                                    <td><a className="ticket-link" href="#">Sin internet por 2 años</a></td>
-                                    <td>Cantv</td>
-                                    <td>
-                                        <span className="status pending"></span>
-                                        En Espera
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
- */

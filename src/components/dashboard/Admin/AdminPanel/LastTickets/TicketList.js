@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TicketList = ({ticket}) => {
+const TicketRow = ({ticket}) => {
 
     return (
         <tr>
@@ -12,5 +12,5 @@ const TicketList = ({ticket}) => {
 
 }
 
-export default TicketList;
+export default TicketRow;
 
