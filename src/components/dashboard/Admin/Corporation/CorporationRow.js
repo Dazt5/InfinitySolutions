@@ -1,9 +1,9 @@
 import React from 'react';
-import { config } from '../../../../config/api';
-import { Link } from 'react-router-dom';
+import { apiAxios, config } from '../../../../config/api';
+import { Link, withRouter } from 'react-router-dom';
 
+const corporationRow = ({ desactiveCorporation, corp }) => {
 
-export const CorporationRow = ({ corp }) => {
 
     return (
         <tr>
@@ -23,10 +23,20 @@ export const CorporationRow = ({ corp }) => {
                 <span>
                     <Link to={`/admin/corporation/edit/${corp._id}`}><i className="las la-pen"></i></Link>
                 </span>
-                <span className="">
-                    <i className="las la-toggle-off"></i>
-                </span>
+                {corp.active === 1
+                    ?
+                    <span className="">
+                        <i className="las la-toggle-off" onClick={() => desactiveCorporation(corp._id)}></i>
+                    </span>
+                    :
+                    <span className="">
+                        <i className="las la-toggle-on" onClick={() => desactiveCorporation(corp._id)}></i>
+                    </span>
+                }
+
             </td>
         </tr>
     )
 }
+
+export const CorporationRow = withRouter(corporationRow)

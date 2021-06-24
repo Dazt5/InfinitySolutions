@@ -1,32 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { CorporationRow } from './';
 import { apiAxios } from '../../../../config/api';
 
-export const CorporationAdminList = () => {
+export const corporationAdminList = () => {
 
     const [corporation, saveCorporation] = useState([]);
 
-    useEffect(() => {
 
-        const getCorporations = async () => {
+    const desactiveCorporation = async (idCorporation) => {
 
-            try {
+        try {
 
-                const { data } = await apiAxios.get('/corporation');
+            await apiAxios.patch(`/desactivate/corporation/${idCorporation}`);
 
-                const corporation = data.corporation;
+            getCorporations();
 
-                saveCorporation(corporation);
-
-            } catch (error) {
-                console.log(error);
-            }
+        } catch (error) {
+            console.log(error);
         }
+    }
 
+    const getCorporations = async () => {
+
+        try {
+
+            const { data } = await apiAxios.get('/corporation');
+
+            const corporation = data.corporation;
+
+            saveCorporation(corporation);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
         getCorporations();
-
-
 
     }, [])  
 
@@ -78,6 +89,7 @@ export const CorporationAdminList = () => {
                                         <CorporationRow
                                             key={corp._id}
                                             corp={corp}
+                                            desactiveCorporation={desactiveCorporation}
                                         />
                                     ))}
                                 </tbody>
@@ -90,3 +102,6 @@ export const CorporationAdminList = () => {
     )
 
 }
+
+
+export const CorporationAdminList = withRouter(corporationAdminList)
