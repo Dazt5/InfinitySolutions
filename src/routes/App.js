@@ -20,6 +20,7 @@ import Dashboard from '../pages/admin/Dashboard'
 import CorporationList from '../pages/admin/Corporation/CorporationsList';
 import newCorporation from '../pages/admin/Corporation/newCorporation';
 import editCorporation from '../pages/admin/Corporation/editCorporation';
+import UsersList from '../pages/admin/Users/UsersList';
 
 const App = () => {
 
@@ -39,6 +40,8 @@ const App = () => {
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
                     <Route exact path="/admin/corporation/edit/:id" component={editCorporation} />
+                    <Route exact path="/admin/users" component={UsersList} />
+
                     {/*<Route exact path="/corporation/:id" component={} />*/}
                 </Switch>
             </Provider>

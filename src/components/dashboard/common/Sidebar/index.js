@@ -51,7 +51,7 @@ export const Sidebar = ({ user }) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to={""}>
+                                    <Link to={"/admin/users"}>
                                         <span className="las la-user-circle"></span>
                                         <span>Usuarios</span>
                                     </Link>
