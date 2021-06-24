@@ -3,10 +3,10 @@ import { withRouter } from 'react-router';
 import { Sidebar, Header } from '../../';
 import {apiAxios} from '../../../../config/api';
 
-const layout = ({ props, children }) => {
+const layout = ({ history, children }) => {
 
     if (!localStorage.getItem('token')) {
-        props.history.push('/login');
+        history.push('/login');
     }
 
     const [user, saveUser] = useState({
