@@ -28,7 +28,7 @@ export const CorporationList = () => {
 
     return (
             <div className="customers">
-                <div className="card">
+                <div className="card-table">
                     <div className="card-header">
                         <h2>Ultimas Empresas registradas</h2>
                     </div>

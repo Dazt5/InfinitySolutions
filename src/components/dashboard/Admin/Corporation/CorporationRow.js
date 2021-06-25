@@ -12,7 +12,7 @@ const corporationRow = ({ desactiveCorporation, corp }) => {
             </td>
             <td><Link to={`/corporation/${corp._id}`}>{corp.name} </Link></td>
             <td>{corp.rif}</td>
-            <td>{corp.description}</td>
+            <td>{corp.type}</td>
             {corp.active === 1
                 ?
                 <td><span className="status resolve"></span>Activa</td>
@@ -26,11 +26,11 @@ const corporationRow = ({ desactiveCorporation, corp }) => {
                 {corp.active === 1
                     ?
                     <span className="">
-                        <i className="las la-toggle-off" onClick={() => desactiveCorporation(corp._id)}></i>
+                        <i className="las la-toggle-on" onClick={() => desactiveCorporation(corp._id)}></i>
                     </span>
                     :
                     <span className="">
-                        <i className="las la-toggle-on" onClick={() => desactiveCorporation(corp._id)}></i>
+                        <i className="las la-toggle-off" onClick={() => desactiveCorporation(corp._id)}></i>
                     </span>
                 }
 

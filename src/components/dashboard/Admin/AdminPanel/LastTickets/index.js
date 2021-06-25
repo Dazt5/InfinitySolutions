@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
-import TicketRow from './TicketList';
+import TicketRow from './TicketRow';
 
 export const LastTickets = () => {
 
@@ -14,9 +14,7 @@ export const LastTickets = () => {
 
                 const { data } = await apiAxios.get('/ticket/status/waiting');
 
-                const allTickets = data.allTickets;
-
-                saveTickets(allTickets);
+                saveTickets(data.allTickets);
 
             } catch (error) {
                 console.log(error.request);
@@ -29,7 +27,7 @@ export const LastTickets = () => {
 
     return (
         <div className="projects">
-            <div className="card">
+            <div className="card-table">
                 <div className="card-header">
                     <h2>Ultimos Tickets Pendientes</h2>
 

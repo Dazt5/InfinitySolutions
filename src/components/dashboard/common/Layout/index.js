@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { Sidebar, Header } from '../../';
 import {apiAxios} from '../../../../config/api';
@@ -28,6 +28,7 @@ const layout = ({ history, children }) => {
                 console.log(error);
             }
         }
+
 
         getUser();
 

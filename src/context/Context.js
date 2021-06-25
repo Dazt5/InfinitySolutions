@@ -8,6 +8,7 @@ const Provider = props => {
     const [auth, saveAuth] = useState({
         token: '',
         auth: false,
+        user:{}
     });
 
     useEffect(() => {
@@ -17,21 +18,24 @@ const Provider = props => {
                 try {
                     const { data } = await apiAxios.get('/user');
 
-                    const user = data.user
+                    const {user} = data
 
                     if (user) {
                         saveAuth({
                             auth: true,
-                            token
+                            token,
+                            user
                         })
                     }
+
 
                 } catch (error) {
                     console.log(error);
                     localStorage.removeItem('token');
                     saveAuth({
                         token: '',
-                        auth: false
+                        auth: false,
+                        user:{}
                     })
                 }
             }

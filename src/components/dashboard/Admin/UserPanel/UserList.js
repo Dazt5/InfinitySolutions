@@ -21,7 +21,7 @@ export const UserList = () => {
 
     return (
         <main>
-            <div className="card">
+            <div className="card-table">
                 <div className="card-header">
                     <h2>Usuarios registrados</h2>
 
@@ -38,7 +38,6 @@ export const UserList = () => {
                             <table className="fl-table">
                                 <thead>
                                     <tr>
-                                        <th></th>
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Email</th>

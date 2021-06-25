@@ -43,25 +43,8 @@ export const corporationAdminList = () => {
 
     return (
         <main>
-            {/* STYLE FOR USERS
-            <div className="card-header">
-                <h2 className="header-text">Compañias registradas</h2>
-
-                <Link to={'/admin/corporation/new'}><button className="header-button">Agregar una<span className="las-la-arrow-right">
-
-                </span> </button></Link>
-            </div>
-            <div className="cards">
-                {corporation.map(corp => (
-                    <CorporationCard
-                        key={corp._id}
-                        corp={corp}
-                    />
-                ))}
-            </div>
-            */}
-
-            <div className="card">
+ 
+            <div className="card-table">
                 <div className="card-header">
                     <h2>Compañias registradas</h2>
 
@@ -91,7 +74,7 @@ export const corporationAdminList = () => {
                                             corp={corp}
                                             desactiveCorporation={desactiveCorporation}
                                         />
-                                    ))}
+                                ))}
                                 </tbody>
                             </table>
                         </div>

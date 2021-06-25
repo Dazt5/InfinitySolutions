@@ -1,4 +1,2 @@
-//FAVORITE LIST
-//ULTIMOS TICKETS DEL USUARIO 
-//OTRA COSA QUE NO RECUERDO EN ESTE INSTANTE AHHHHHHH
-
+export * from './UserPanel';
+export * from './Corporation'

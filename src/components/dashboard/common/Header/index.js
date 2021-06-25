@@ -31,7 +31,7 @@ const header = ({user, history}) => {
                 <img src="https://avatars.githubusercontent.com/u/63359361?s=400&u=91c4c50b44f291274d094deb78cd02f4ab2a1c6a&v=4" width="30px" height="40px" alt="Avatar" />
 
                 <div>
-                    <h4>{`${user.name} ${user.lastname}`}</h4>
+                    <h6>{`${user.name} ${user.lastname}`}</h6>
                     <small onClick={logout}
                         className="logout-btn"
                     >Cerrar Sesión</small>

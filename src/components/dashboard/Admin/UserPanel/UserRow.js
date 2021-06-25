@@ -6,10 +6,6 @@ export const UserRow = ({ user }) => {
     return (
         <tr>
             <td>
-
-            </td>
-
-            <td>
                 <p>{user.name}</p>
             </td>
 

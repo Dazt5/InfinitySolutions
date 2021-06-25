@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { config } from '../../../../config/api';
+import { config } from '../../../../../config/api';
 
 export const CorporationCard = ({ corp }) => {
 
@@ -12,7 +12,7 @@ export const CorporationCard = ({ corp }) => {
                 <img className="img-corp" src={`${config.RESOURCES_API_URL}/${corp.image}`} width="100%" height="100px" />
                 <div className="container">
                     <h4><b>{corp.name}</b></h4>
-                    {corp.description && <p>{corp.description}</p>}
+                    {corp.type && <p>{corp.type}</p>}
                 </div>
             </div>
         </Link>

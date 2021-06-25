@@ -10,7 +10,7 @@ export const editCorporationForm = ({props}) => {
     const [corporation, saveCorporation] = useState({
         name: '',
         rif: '',
-        description: ''
+        type: ''
     });
 
     const [image, saveImage] = useState('');
@@ -24,7 +24,7 @@ export const editCorporationForm = ({props}) => {
 
         corporationData.append('name', corporation.name);
         corporationData.append('rif', corporation.rif);
-        corporationData.append('description', corporation.description);
+        corporationData.append('type', corporation.type);
         corporationData.append('image', image);
 
         try {
@@ -113,10 +113,10 @@ export const editCorporationForm = ({props}) => {
                         <div className="input-box">
                             <span className="details">Descripción</span>
                             <select
-                                name="description"
+                                name="type"
                                 onChange={readData}
                                 required
-                                value={corporation.description}
+                                value={corporation.type}
                             >
                                 <option value="Telecomunicaciones">Telecomunicaciónes</option>
                                 <option value="Televisión">Televisión</option>
