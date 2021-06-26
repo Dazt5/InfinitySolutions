@@ -45,7 +45,7 @@ export const Sidebar = ({ user }) => {
                         {user.auth_level == 2 &&
                             <Fragment>
                                 <li>
-                                    <Link to={""}>
+                                    <Link to={"/admin/document"}>
                                         <span className="las la-clipboard"></span>
                                         <span>Documentos</span>
                                     </Link>

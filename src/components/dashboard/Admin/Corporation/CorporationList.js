@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { CorporationRow } from './';
+import { CorporationRow } from '.';
 import { apiAxios } from '../../../../config/api';
 
 export const corporationAdminList = () => {

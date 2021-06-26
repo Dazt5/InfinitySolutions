@@ -24,6 +24,8 @@ import CorporationList from '../pages/admin/Corporation/CorporationsList';
 import newCorporation from '../pages/admin/Corporation/newCorporation';
 import editCorporation from '../pages/admin/Corporation/editCorporation';
 import UsersList from '../pages/admin/Users/UsersList';
+import DocumentLists from '../pages/admin/Documents/DocumentLists';
+import SelectCorporation from '../pages/admin/Documents/SelectCorporation';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/ListCardCorporation';
@@ -52,7 +54,9 @@ const App = () => {
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
                     <Route exact path="/admin/corporation/edit/:id" component={editCorporation} />
                     <Route exact path="/admin/users" component={UsersList} />
+                    <Route exact path="/admin/document" component={SelectCorporation} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
+                    <Route exact path="/admin/document/:idCorporation" component={DocumentLists} />
 
                 </Switch>
             </Provider>
