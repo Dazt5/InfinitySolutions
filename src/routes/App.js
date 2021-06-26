@@ -29,6 +29,7 @@ import SelectCorporation from '../pages/admin/Documents/SelectCorporation';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/ListCardCorporation';
+import Tickets from '../pages/Tickets/Tickets';
 
 const App = () => {
 
@@ -58,6 +59,7 @@ const App = () => {
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
                     <Route exact path="/admin/document/:idCorporation" component={DocumentLists} />
 
+                    <Route exact path="/admin/tickets" component={Tickets} />
                 </Switch>
             </Provider>
         </Router>

@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { apiAxios } from '../../../../../config/api';
-import TicketRow from './TicketRow';
+import { apiAxios } from '../../../../config/api';
+import TicketRow from '../AdminPanel/LastTickets/TicketRow';
 
-export const LastTickets = () => {
-
+export const Tickets = () => {
+  
     const [ticket, saveTicket] = useState([]);
 
     useEffect(() => {
 
-        const lastTickets = async () => {
+        const getticket = async () => {
 
             try {
 
-                const { data } = await apiAxios.get('/ticket/status/waiting');
+                const { data } = await apiAxios.get('/ticket');
 
-                saveTickets(data.allTicket);
+                saveTicket(data.ticket);
 
             } catch (error) {
                 console.log(error.request);
             }
         }
-
-        lastTickets();
-
+        
+        getticket();
+    
     }, []);
 
-    return (
-        <div className="projects">
+    return (   
+  
+     <main>
+    
+<div className="projects">
             <div className="card-table">
                 <div className="card-header">
                     <h2>Ultimos Tickets Pendientes</h2>
@@ -48,7 +51,7 @@ export const LastTickets = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {tickets.map(ticket => (
+                                    {ticket.map(ticket => (
                                         <TicketRow
                                             key={ticket._id}
                                             ticket={ticket} />
@@ -60,5 +63,10 @@ export const LastTickets = () => {
                 </div>
             </div>
         </div>
-    )
+     
+        </main>
+         
+   
+         )
+       
 }
