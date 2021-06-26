@@ -27,6 +27,7 @@ import UsersList from '../pages/admin/Users/UsersList';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/ListCardCorporation';
+import Tickets from '../pages/Tickets/Tickets';
 
 const App = () => {
 
@@ -54,6 +55,7 @@ const App = () => {
                     <Route exact path="/admin/users" component={UsersList} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
 
+                    <Route exact path="/admin/tickets" component={Tickets} />
                 </Switch>
             </Provider>
         </Router>
