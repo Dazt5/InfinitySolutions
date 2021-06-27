@@ -1,8 +1,12 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Context } from '../../../../context/Context';
+import adminIcon from '../../../../assets/static/admin.png';
+import userIcon from '../../../../assets/static/user.jpg';
+import gravatar from '../../../../utils/gravatar';
 
-const header = ({user, history}) => {
+
+const header = ({ user, history }) => {
 
     const [auth, saveAuth] = useContext(Context);
 
@@ -24,11 +28,20 @@ const header = ({user, history}) => {
                 <label htmlFor="nav-toggle">
                     <span className="nav-menu las la-bars"></span>
                 </label>
-                    Dashboard
+                Dashboard
             </h2>
 
             <div className="user-wrapper">
-                <img src="https://avatars.githubusercontent.com/u/63359361?s=400&u=91c4c50b44f291274d094deb78cd02f4ab2a1c6a&v=4" width="30px" height="40px" alt="Avatar" />
+                {user
+                    ?
+                    user.auth_level === 1
+                        ?
+                        <img src={gravatar(user.email)} width="50px" height="50px" alt="Avatar" />
+                        :
+                        <img src={adminIcon} width="30px" height="40px" alt="Avatar" />
+                    :
+                    <img src={userIcon} width="30px" height="40px" alt="Avatar" />
+                }
 
                 <div>
                     <h6>{`${user.name} ${user.lastname}`}</h6>

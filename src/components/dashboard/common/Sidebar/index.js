@@ -20,10 +20,22 @@ export const Sidebar = ({ user }) => {
                             </Link>
                         </li>
                         <li>
-                            <Link to={""}>
-                                <span className="las la-users"></span>
-                                {user.auth_level == 2 ? <span>Tickets</span> : <span>Mis Tickets</span>}
-                            </Link>
+
+                            {
+                                user.auth_level == 2
+                                    ?
+                                    <Link to={"/admin/ticket"}>
+                                        <span className="las la-users"></span>
+                                        <span>Tickets</span>
+                                    </Link>
+                                    :
+                                    <Link to={"/ticket"}>
+                                        <span className="las la-users"></span>
+                                        <span>Mis Tickets</span>
+                                    </Link>
+                            }
+
+
                         </li>
                         <li>
 

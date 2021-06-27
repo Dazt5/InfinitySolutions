@@ -269,8 +269,9 @@ main {
     background: var(--color-dark);
     border-radius: 10px;
     color: #fff;
-    font-size: .8rem;
+    font-size: 1rem;
     padding: .5rem 1rem;
+
     border: 1px solid var(--main-color);
 }
 
@@ -665,6 +666,13 @@ i{
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
+
+}
+
+
+
+button i{
+    font-size: 17px;
 }
 
 i.la-toggle-on{

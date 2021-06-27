@@ -54,7 +54,7 @@ export const CorporationForm = (props) => {
 
         } catch (error) {
             Swal.fire(
-                'Error en inicio de sesión',
+                'Error en registro',
                 error.response.data.message,
                 'error'
             );

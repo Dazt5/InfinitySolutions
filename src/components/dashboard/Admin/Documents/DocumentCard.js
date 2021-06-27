@@ -14,8 +14,6 @@ export const DocumentCard = ({ doc }) => {
                 responseType: 'blob'
             });
 
-            console.log(document);
-
             FileDownload(document.data, `${doc.name}.pdf`);
 
 

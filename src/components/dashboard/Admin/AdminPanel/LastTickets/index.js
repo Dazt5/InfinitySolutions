@@ -4,7 +4,7 @@ import TicketRow from './TicketRow';
 
 export const LastTickets = () => {
 
-    const [ticket, saveTicket] = useState([]);
+    const [tickets, saveTickets] = useState([]);
 
     useEffect(() => {
 
@@ -13,8 +13,8 @@ export const LastTickets = () => {
             try {
 
                 const { data } = await apiAxios.get('/ticket/status/waiting');
-
-                saveTickets(data.allTicket);
+                
+                saveTickets(data.allTickets);
 
             } catch (error) {
                 console.log(error.request);

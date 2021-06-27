@@ -25,8 +25,6 @@ export const FavoriteCorporations = () => {
 
     }, [])
 
-    console.log(favorites);
-
     return (
         <div className="customers">
             <div className="card-table">
