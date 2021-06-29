@@ -15,7 +15,7 @@ const ticketForm = ({props}) => {
     });
 
     const [corporation, saveCorporation] = useState([]);
-    const [corporationp, saveCorporationp] = useState([]);
+    const [corporationp, saveCorporationp] = useState({});
     useEffect( () => {
        
         
@@ -131,7 +131,7 @@ const ticketForm = ({props}) => {
             );
             
         }
-        props.history.push('/admin/corporation')
+        props.history.push('/admin/ticket')
   
 
     }
@@ -163,20 +163,20 @@ const ticketForm = ({props}) => {
                         </div>
                         <div className="input-box">
                          
-                    {corporation != undefined
+                    {corporationp != undefined
 
 
                         ?
                         <select onChange={readData} >
                         
-                        <option key={corporation._id} value={corporation._id}>{corporation.name}</option>
+                        <option key={corporationp._id} value={corporationp._id}>{corporationp.name}</option>
 
                         </select>
 
-: 
+                        : 
                            <select name="corporation" onChange={readData} >
                            
-                           {corporationp.map(corp => (
+                           {corporation.map(corp => (
                                      
                                      <option key={corp._id} value={corp._id}>{corp.name}</option>
                                      
