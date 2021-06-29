@@ -28,7 +28,7 @@ import DocumentLists from '../pages/admin/Documents/DocumentLists';
 import SelectCorporation from '../pages/admin/Documents/SelectCorporation';
 import NewDocument from '../pages/admin/Documents/newDocument';
 import TicketsList from '../pages/admin/Tickets/TicketList';
-
+import newticket from '../pages/admin/Tickets/newTicket';
 /* User Components */
 import ListCardCorporation from '../pages/User/ListCardCorporation';
 
@@ -61,7 +61,8 @@ const App = () => {
                     <Route exact path="/admin/document/:idCorporation" component={DocumentLists} />
                     <Route exaxt path="/admin/document/new/:idCorporation" component={NewDocument} />
                     <Route exact path="/admin/ticket" component={TicketsList} />
-
+                    <Route exact path="/admin/ticket/new" component={newticket} />
+                    <Route exact path="/admin/ticket/new/:idCorporation" component={newticket} />
                 </Switch>
             </Provider>
         </Router>

@@ -6,7 +6,7 @@ export const TicketList = () => {
 
     const [ticket, saveTicket] = useState([]);
     const [status, setStatus] = useState('all')
-
+    
     useEffect(() => {
 
         const getAllTickets = async () => {

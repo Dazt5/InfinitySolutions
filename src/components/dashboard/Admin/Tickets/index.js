@@ -1,1 +1,2 @@
-export * from './TicketList'
+export * from './TicketList';
+export * from './newTicket';
