@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
 import TicketRow from '../AdminPanel/LastTickets/TicketRow';
 
-export const TicketList = () => {
+export const AdminTicketList = () => {
 
     const [ticket, saveTicket] = useState([]);
     const [status, setStatus] = useState('all')

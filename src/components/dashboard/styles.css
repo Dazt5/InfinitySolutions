@@ -666,9 +666,13 @@ i{
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
-
+    justify-content: ;
 }
 
+.time{
+    margin-left: 10px;
+
+}
 
 
 button i{

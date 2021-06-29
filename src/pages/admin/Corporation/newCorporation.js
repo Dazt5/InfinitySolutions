@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import { NewCorporationForm, Layout } from '../../../components/dashboard/'
 
-const newCorporation = (props) => {
+const NewCorporation = (props) => {
 
     return (
         <Fragment>
@@ -13,5 +13,5 @@ const newCorporation = (props) => {
     )
 }
 
-export default withRouter(newCorporation)
+export default withRouter(NewCorporation)
 

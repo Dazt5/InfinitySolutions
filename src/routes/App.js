@@ -30,7 +30,8 @@ import NewDocument from '../pages/admin/Documents/newDocument';
 import TicketsList from '../pages/admin/Tickets/TicketList';
 import newticket from '../pages/admin/Tickets/newTicket';
 /* User Components */
-import ListCardCorporation from '../pages/User/ListCardCorporation';
+import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
+import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket'
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
         <Router>
             <Provider value={[auth, saveAuth]}>
                 <Switch>
+                    {/*Auth Routes */}
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/activate/:token" component={ActivateAccount} />
@@ -50,6 +52,7 @@ const App = () => {
 
                     {/*User Routes */}
                     <Route exact path="/corporation" component={ListCardCorporation} />
+                    <Route exact path="/ticket" component={ListUserTicket}/>
 
                     {/*Admin Routes*/}
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />

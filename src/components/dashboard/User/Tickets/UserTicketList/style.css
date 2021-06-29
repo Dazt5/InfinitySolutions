@@ -1,0 +1,57 @@
+.icons i {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+.activity-done {
+    font-weight: 600
+}
+
+.list-group li {
+    margin-bottom: 12px;
+    color:#fff;
+}
+
+h6.mb-0,.text-black-50{
+    color: #fff!important;
+}
+
+.list li {
+    list-style: none;
+    padding: 10px;
+    border: 1px solid #0c0f13;
+    margin-top: 12px;
+    border-radius: 5px;
+    background: #1D2231;
+}
+
+.checkicon {
+    color: green;
+    font-size: 19px;
+}
+
+.date-time {
+    font-size: 12px;
+}
+
+.profile-image img {
+    margin-left: 3px;
+}
+
+
+li.d-flex.justify-content-between{
+    transition: transform 1s ease;
+}
+
+li.d-flex.justify-content-between:hover{
+    transform: scale(1.1);
+}
+
+.btn.btn-secondary{
+    width: 20%;
+}
