@@ -1,1 +1,1 @@
-export * from './ListCorporation/CorporationCards'
+export * from './ListCorporation/'

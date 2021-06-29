@@ -4,7 +4,6 @@ import { CorporationCard } from './CorporationCard';
 
 export const CorporationCards = () => {
 
-
     const [corporation, saveCorporation] = useState([]);
 
     const getCorporations = async () => {
@@ -13,9 +12,7 @@ export const CorporationCards = () => {
 
             const { data } = await apiAxios.get('/corporation');
 
-            const corporation = data.corporation;
-
-            saveCorporation(corporation);
+            saveCorporation(data.corporation);
 
         } catch (error) {
             console.log(error);
@@ -26,7 +23,6 @@ export const CorporationCards = () => {
         getCorporations();
 
     }, [])
-
 
     return (
         <main>
@@ -47,5 +43,4 @@ export const CorporationCards = () => {
             </div>
         </main>
     )
-
 }

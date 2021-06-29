@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, CorporationCards } from '../../components/dashboard'
+import { Layout, CorporationCards } from '../../../components/dashboard'
 
 
 const ListCardCorporation = () => {
