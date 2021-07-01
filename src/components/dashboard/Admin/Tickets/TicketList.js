@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
+import { Ticket } from '../../User';
 import TicketRow from '../AdminPanel/LastTickets/TicketRow';
 
 export const AdminTicketList = () => {
 
     const [ticket, saveTicket] = useState([]);
-    const [status, setStatus] = useState('all')
-    
+    const [status, setStatus] = useState('all');
+
     useEffect(() => {
 
         const getAllTickets = async () => {
 
             try {
 
-                const { data } = await apiAxios.get('/ticket');
+                const { data } = await apiAxios.get('/admin/ticket');
 
-                saveTicket(data.ticket);
+                saveTicket(data.tickets);
 
             } catch (error) {
                 console.log(error.request);
@@ -26,29 +27,22 @@ export const AdminTicketList = () => {
 
     }, []);
 
+    const filterTickets = status => setStatus(status)
+
     return (
-
         <main>
-
             <div className="projects">
                 <div className="card-table">
                     <div className="card-header">
                         <h2>Ultimos Tickets Pendientes</h2>
 
-                        <button>En espera <i className="las la-clock">
+                        <button onClick={() => filterTickets("all")}>Todos</button>
 
-                        </i> </button>
+                        <button onClick={() => filterTickets("waiting")}>En espera</button>
 
-                        <button>Corregidos <i className="las la-check">
+                        <button onClick={() => filterTickets("success")}>Solucionados</button>
 
-                        </i> </button>
-
-
-                        <button>Anulados <i className="las la-times">
-
-                        </i> </button>
-
-
+                        <button onClick={() => filterTickets("reject")}>Rechazados</button>
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">
@@ -63,11 +57,22 @@ export const AdminTicketList = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {ticket.map(ticket => (
-                                            <TicketRow
-                                                key={ticket._id}
-                                                ticket={ticket} />
-                                        ))}
+                                        {ticket.map(ticket => {
+
+                                            if (ticket.status.name === status) {
+                                                return (
+                                                    <TicketRow
+                                                        key={ticket._id}
+                                                        ticket={ticket} />
+                                                )
+                                            } else if (status === "all") {
+                                                return (
+                                                    <TicketRow
+                                                        key={ticket._id}
+                                                        ticket={ticket} />
+                                                )
+                                            }
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
@@ -75,8 +80,6 @@ export const AdminTicketList = () => {
                     </div>
                 </div>
             </div>
-
         </main>
     )
-
 }

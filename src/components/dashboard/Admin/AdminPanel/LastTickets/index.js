@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { apiAxios } from '../../../../../config/api';
 import TicketRow from './TicketRow';
 
@@ -13,11 +14,11 @@ export const LastTickets = () => {
             try {
 
                 const { data } = await apiAxios.get('/ticket/status/waiting');
-                
+
                 saveTickets(data.allTickets);
 
             } catch (error) {
-                console.log(error.request);
+                
             }
         }
 
@@ -31,9 +32,9 @@ export const LastTickets = () => {
                 <div className="card-header">
                     <h2>Ultimos Tickets Pendientes</h2>
 
-                    <button>Ver todos <span className="las-la-arrow-right">
+                    <Link to={"/admin/ticket"}><button>Ver todos <span className="las-la-arrow-right">
 
-                    </span> </button>
+                    </span> </button></Link>
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">

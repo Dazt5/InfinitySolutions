@@ -1,12 +1,11 @@
 .icons i {
-    color: #fff;
-    border: 1px solid #fff;
     padding: 6px;
     margin-left: 4px;
     margin-right: 4px;
     border-radius: 5px;
     cursor: pointer
 }
+
 
 .activity-done {
     font-weight: 600
@@ -32,14 +31,30 @@ h6.mb-0,.text-black-50{
 
 .checkicon {
     color: green;
-    font-size: 19px;
+    font-size: 22px;
+}
+
+.waitingicon {
+    color: yellow;
+    font-size: 22px;
+}
+
+.rejecticon {
+    color: red;
+    font-size: 22px;
+}
+
+.allicon {
+    color: white;
+    font-size: 22px;
 }
 
 .date-time {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .profile-image img {
+    object-fit: contain;
     margin-left: 3px;
 }
 

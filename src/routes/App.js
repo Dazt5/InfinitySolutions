@@ -28,10 +28,11 @@ import DocumentLists from '../pages/admin/Documents/DocumentLists';
 import SelectCorporation from '../pages/admin/Documents/SelectCorporation';
 import NewDocument from '../pages/admin/Documents/newDocument';
 import TicketsList from '../pages/admin/Tickets/TicketList';
-import newticket from '../pages/admin/Tickets/newTicket';
+
 /* User Components */
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
-import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket'
+import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
+import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
 
 const App = () => {
 
@@ -52,7 +53,9 @@ const App = () => {
 
                     {/*User Routes */}
                     <Route exact path="/corporation" component={ListCardCorporation} />
-                    <Route exact path="/ticket" component={ListUserTicket}/>
+                    <Route exact path="/ticket" component={ListUserTicket} />
+                    <Route exact path="/ticket/new" component={NewTicket} />
+                    <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
 
                     {/*Admin Routes*/}
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
@@ -64,8 +67,6 @@ const App = () => {
                     <Route exact path="/admin/document/:idCorporation" component={DocumentLists} />
                     <Route exaxt path="/admin/document/new/:idCorporation" component={NewDocument} />
                     <Route exact path="/admin/ticket" component={TicketsList} />
-                    <Route exact path="/admin/ticket/new" component={newticket} />
-                    <Route exact path="/admin/ticket/new/:idCorporation" component={newticket} />
                 </Switch>
             </Provider>
         </Router>
