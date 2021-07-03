@@ -17,6 +17,7 @@ const FaqRow = ({faq}) => {
     }
     return (
         <tr>
+            <td></td>
             <td><a className="ticket-link" href="#">{faq.title}</a></td>
             <td>{faq.description}</td>
             <td><span>

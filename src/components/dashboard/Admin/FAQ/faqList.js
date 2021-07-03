@@ -66,11 +66,11 @@ console.log(idCorporation);
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>Nombre</th>
-                                        <th>RIF</th>
-                                        <th>Descripción</th>
-                                        <th>Activa</th>
-                                        <th>Acciones</th>
+                                        <th>Titulo</th>
+                                        <th>Descripcion</th>
+                                        <th>Mod</th>
+                                        <th>Del</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
