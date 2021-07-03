@@ -4,3 +4,4 @@ export * from './UserPanel';
 export * from './Documents';
 export * from './CorporationMenu';
 export * from './Tickets';
+export * from './FAQ';

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiAxios, config } from '../../../../config/api';
+import FaqRow from '../../Admin/FAQ/FaqRow';
 import './style.css';
 
 
@@ -10,7 +11,8 @@ export const CorporationProfiles = ({ props }) => {
 
     const [corporation, saveCorporation] = useState({});
     const [contactInfo, saveContactInfo] = useState([]);
-
+    const [faq, saveFaq] = useState([]);
+ 
     useEffect(() => {
 
         const getCorporationData = async () => {
@@ -25,10 +27,23 @@ export const CorporationProfiles = ({ props }) => {
 
         getCorporationData();
 
+        const Faqs = async () => {
+
+            try {
+
+                const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
+                
+                saveFaq(data.faq);
+
+            } catch (error) {
+                console.log(error.request);
+            }
+        }
+
+        Faqs();
+
     }, []);
-
-    console.log(corporation);
-
+console.log(faq);
     return (
         <main>
             <div className="container">
@@ -81,6 +96,15 @@ export const CorporationProfiles = ({ props }) => {
                                     <h2 className="text-center">Preguntas frecuentes</h2>
                                     <div className="questions">
                                         <div className="row">
+                                        <div className="col-sm-12">
+                                        <tbody>
+                                    {faq.map(faq => (
+                                        <FaqRow
+                                            key={faq._id}
+                                            faq={faq} />
+                                    ))}
+                                </tbody>
+                                            </div>
                                             <div className="col-sm-12">
                                                 <h4 className="mb-0">Actualizar tu información de cuenta es fácil</h4>
                                             </div>
