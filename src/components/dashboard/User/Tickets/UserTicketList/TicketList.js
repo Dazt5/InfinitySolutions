@@ -24,7 +24,7 @@ export const TicketList = () => {
             }
         }
         getTickets();
-    })
+    }, []);
 
     const filterTickets = status => setStatus(status)
 

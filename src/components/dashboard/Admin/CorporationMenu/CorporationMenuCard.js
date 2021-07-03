@@ -29,7 +29,7 @@ export const CorporationMenuCard = () => {
 
     return (
         <main>
-            <div className="card-header">
+            <div className="card-header sections">
                 <h2 className="header-text">Selecciona una compañia</h2>
 
             </div>

@@ -18,6 +18,7 @@ import RecoverAccount from '../pages/authentication/RecoverAccount';
 /* Common Components */
 import Dashboard from '../pages/common/Dashboard'
 import CorporationProfile from '../pages/common/CorporationProfile';
+import TicketDetails from '../pages/common/TicketDetails/TicketDetails';
 
 /* Admin Components */
 import CorporationList from '../pages/admin/Corporation/CorporationsList';
@@ -51,14 +52,15 @@ const App = () => {
                     <Route exact path="/recover/:token" component={RecoverAccount} />
                     <Route exact path="/dashboard" component={Dashboard} />
 
-                    {/*User Routes */}
+                    {/*User Routes and Common Routes*/}
                     <Route exact path="/corporation" component={ListCardCorporation} />
+                    <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
                     <Route exact path="/ticket" component={ListUserTicket} />
+                    <Route exact path="/ticket/:idTicket" component={TicketDetails} />
                     <Route exact path="/ticket/new" component={NewTicket} />
                     <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
 
                     {/*Admin Routes*/}
-                    <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
                     <Route exact path="/admin/corporation/edit/:id" component={editCorporation} />
@@ -71,8 +73,6 @@ const App = () => {
             </Provider>
         </Router>
     )
-
 }
-
 
 export default App;

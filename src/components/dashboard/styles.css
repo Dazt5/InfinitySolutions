@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 :root {
     --main-color: #0c0f13;
     --body-color:#0B0C10;
@@ -249,16 +249,13 @@ main {
     background: #fff;
 }
 
-.card-header{
-    padding: 1rem;
-}
-
-.card-header{
+.card-header.sections{
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.5px solid #f0f0f0;
     text-align: center;
+    padding: 1rem;
 }
 
 .card-header h2{
@@ -666,7 +663,6 @@ i{
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
-    justify-content: ;
 }
 
 .time{
