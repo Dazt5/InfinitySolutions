@@ -33,7 +33,9 @@ import TicketsList from '../pages/admin/Tickets/TicketList';
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
-
+import newfaq from '../pages/admin/FAQ/newFAQ';
+import Faqlist from '../pages/admin/FAQ/Faqlist';
+import editFaq from '../pages/admin/FAQ/editFaq';
 const App = () => {
 
     const [auth, saveAuth] = useContext(Context);
@@ -67,6 +69,9 @@ const App = () => {
                     <Route exact path="/admin/document/:idCorporation" component={DocumentLists} />
                     <Route exaxt path="/admin/document/new/:idCorporation" component={NewDocument} />
                     <Route exact path="/admin/ticket" component={TicketsList} />
+                    <Route exact path="/admin/faq/new/:idCorporation" component={newfaq} />
+                    <Route exact path="/admin/faq/:idCorporation" component={Faqlist} />
+                    <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
                 </Switch>
             </Provider>
         </Router>
