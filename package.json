@@ -1,0 +1,40 @@
+{
+  "name": "infinitysolutions",
+  "version": "1.0.0",
+  "description": "webclient for infinitysolutions",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack --mode production",
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+  "repository": "https://github.com/Dazt5/infinitysolutions",
+  "author": "David Alvarez <alvarezdavidt15@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^1.5.0",
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.14.0",
+    "axios": "^0.21.1",
+    "dayjs": "^1.10.5",
+    "js-file-download": "^0.4.12",
+    "md5": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.3",
+    "sweetalert2": "^11.0.16"
+  }
+}
