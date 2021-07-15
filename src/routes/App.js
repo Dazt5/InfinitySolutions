@@ -29,14 +29,15 @@ import DocumentLists from '../pages/admin/Documents/DocumentLists';
 import SelectCorporation from '../pages/admin/Documents/SelectCorporation';
 import NewDocument from '../pages/admin/Documents/newDocument';
 import TicketsList from '../pages/admin/Tickets/TicketList';
+import newfaq from '../pages/admin/FAQ/newFAQ';
+import Faqlist from '../pages/admin/FAQ/Faqlist';
+import editFaq from '../pages/admin/FAQ/editFaq';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
-import newfaq from '../pages/admin/FAQ/newFAQ';
-import Faqlist from '../pages/admin/FAQ/Faqlist';
-import editFaq from '../pages/admin/FAQ/editFaq';
+
 const App = () => {
 
     const [auth, saveAuth] = useContext(Context);
