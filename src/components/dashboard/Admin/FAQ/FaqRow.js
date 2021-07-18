@@ -18,8 +18,19 @@ const FaqRow = ({faq}) => {
     return (
         <tr>
             <td></td>
-            <td><a className="ticket-link" href="#">{faq.title}</a></td>
+            <td><a className="ticket-link" href="#">
+                
+                <h4>{faq.title}</h4>
+                </a>
+              
+                </td>
+                <br></br>
+                <br></br>
             <td>{faq.description}</td>
+            <br></br>
+            <br></br>
+
+
             <td><span>
                     <Link to={`/admin/faq/edit/${faq._id}`}><i className="las la-pen"></i></Link>
                 </span></td>

@@ -32,11 +32,13 @@ import TicketsList from '../pages/admin/Tickets/TicketList';
 import newfaq from '../pages/admin/FAQ/newFAQ';
 import Faqlist from '../pages/admin/FAQ/Faqlist';
 import editFaq from '../pages/admin/FAQ/editFaq';
+import AdminUserForm from '../pages/admin/Users/AdminUserForm';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
+
 
 const App = () => {
 
@@ -75,6 +77,7 @@ const App = () => {
                     <Route exact path="/admin/faq/new/:idCorporation" component={newfaq} />
                     <Route exact path="/admin/faq/:idCorporation" component={Faqlist} />
                     <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
+                    <Route exact path="/admin/user" component={AdminUserForm} />
                 </Switch>
             </Provider>
         </Router>
