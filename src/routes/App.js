@@ -33,6 +33,7 @@ import newfaq from '../pages/admin/FAQ/newFAQ';
 import Faqlist from '../pages/admin/FAQ/Faqlist';
 import editFaq from '../pages/admin/FAQ/editFaq';
 import AdminUserForm from '../pages/admin/Users/AdminUserForm';
+import Chats from '../pages/admin/Chats/Chats';
 
 /* User Components */
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
@@ -78,6 +79,7 @@ const App = () => {
                     <Route exact path="/admin/faq/:idCorporation" component={Faqlist} />
                     <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
                     <Route exact path="/admin/user" component={AdminUserForm} />
+                    <Route exact path="/admin/chats" component={Chats} />
                 </Switch>
             </Provider>
         </Router>

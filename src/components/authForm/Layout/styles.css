@@ -59,7 +59,7 @@ a:hover {
 }
 
 .left .copy {
-    color: var(--primary);
+    color: var(--text-white);
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -70,7 +70,7 @@ a:hover {
 }
 
 .right .copy {
-    color: var(--primary);
+    color: var(--text-white);
     text-align: center;
 }
 

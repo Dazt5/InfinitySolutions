@@ -1,5 +1,5 @@
 :root {
-    --primary: #ffffff;
+    --text-white: #ffffff;
     --secondary: #8899A6;
     --btnPrimary: #404040;
     --btnHover: #282828;
@@ -20,7 +20,7 @@ label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.75rem;
-    color: var(--primary);
+    color: var(--text-white);
 }
 
 .input-container.password {

@@ -15,35 +15,36 @@ const layout = ({ history, children }) => {
         lastname: '...'
     });
 
-
     const [auth, saveAuth] = useContext(Context);
 
-    useEffect(() => {
+    
+    const getUser = async () => {
+        try {
+            const { data } = await apiAxios.get('/user');
 
-        const getUser = async () => {
-            try {
-                const { data } = await apiAxios.get('/user');
+            const { user } = data;
 
-                const {user} = data;
+            saveUser(user)
 
-                saveUser(user)
-
-                if (user) {
-                    saveAuth({
-                        user
-                    })
-                }
-
-            } catch (error) {
-                console.log(error);
+            if (user) {
+                saveAuth({
+                    user
+                })
             }
-        }
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
 
         getUser();
 
     }, []);
 
+
+    console.log(auth.user);
 
     return (
 
@@ -53,6 +54,7 @@ const layout = ({ history, children }) => {
                 <Header user={user} />
                 {children}
             </div>
+
         </Fragment>
     )
 }
