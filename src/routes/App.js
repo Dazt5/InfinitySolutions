@@ -39,6 +39,8 @@ import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
 
+import Messenger from '../pages/chat';
+
 
 const App = () => {
 
@@ -78,6 +80,7 @@ const App = () => {
                     <Route exact path="/admin/faq/:idCorporation" component={Faqlist} />
                     <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
                     <Route exact path="/admin/user" component={AdminUserForm} />
+                    <Route exact path="/admin/chat" component={Messenger} />
                 </Switch>
             </Provider>
         </Router>
