@@ -1,12 +1,12 @@
 img{ max-width:100%;}
 .inbox_people {
-    background: #f8f8f8 none repeat scroll 0 0;
+    background: var(--color-dark) none repeat scroll 0 0;
     float: left;
     overflow: hidden;
     width: 40%; border-right:1px solid #c4c4c4;
   }
   .inbox_msg {
-    border: 1px solid #c4c4c4;
+    border: 1px solid #fff;
     clear: both;
     overflow: hidden;
   }
@@ -54,10 +54,11 @@ img{ max-width:100%;}
     border-bottom: 1px solid #c4c4c4;
     margin: 0;
     padding: 18px 16px 10px;
+    cursor: pointer;
   }
   .inbox_chat { height: 550px; overflow-y: scroll;}
   
-  .active_chat{ background:#ebebeb;}
+  .active_chat{ background:var(--body-color);}
   
   .incoming_msg_img {
     display: inline-block;
@@ -89,6 +90,7 @@ img{ max-width:100%;}
     float: left;
     padding: 30px 15px 0 25px;
     width: 60%;
+    background: var(--main-color);
   }
   
    .sent_msg p {
