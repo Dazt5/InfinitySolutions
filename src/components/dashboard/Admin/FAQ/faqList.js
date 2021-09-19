@@ -50,9 +50,6 @@ export const FaqList = (props) => {
             <div className="card-table">
                 <div className="card-header">
                     <h2>Compañias registradas</h2>
-
-
-
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
