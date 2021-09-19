@@ -22,7 +22,7 @@ export const UserList = () => {
     return (
         <main>
             <div className="card-table">
-                <div className="card-header">
+                <div className="card-header sections">
                     <h2>Usuarios registrados</h2>
 
                     {/*

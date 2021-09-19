@@ -1,16 +1,14 @@
 import React from 'react';
+import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
 
-
-export const TicketRow = ({ticket}) => {
+export const TicketRow = ({ ticket }) => {
 
     return (
         <tr>
-            <td><a className="ticket-link" href="#">{ticket.subject}</a></td>
+            <td><Link to={`/ticket/${ticket._id}`}>{ticket.subject}</Link></td>
             <td>{ticket.corporation.name}</td>
-            <td>{ticket.create_at}</td>
+            <td>{dayjs(ticket.create_at).format('DD/MM/YYYY')}</td>
         </tr>
     )
-
-
-
 }

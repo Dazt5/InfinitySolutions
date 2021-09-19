@@ -22,7 +22,7 @@ export const UserLastTicket = () => {
     return (
         <div className="projects">
             <div className="card-table">
-                <div className="card-header">
+                <div className="card-header sections">
                     <h2>Ultimos tickets realizados</h2>
 
                     <button>Ver todos <span className="las-la-arrow-right">

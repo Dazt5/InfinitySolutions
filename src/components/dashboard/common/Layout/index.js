@@ -1,7 +1,8 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { Sidebar, Header } from '../../';
-import {apiAxios} from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
+import { Context } from '../../../../context/Context';
 
 const layout = ({ history, children }) => {
 
@@ -14,27 +15,33 @@ const layout = ({ history, children }) => {
         lastname: '...'
     });
 
-    useEffect(() => {
+    const [auth, saveAuth] = useContext(Context);
 
-        const getUser = async () => {
-            try {
-                const { data } = await apiAxios.get('/user');
+    
+    const getUser = async () => {
+        try {
+            const { data } = await apiAxios.get('/user');
 
-                const user = data.user;
+            const { user } = data;
 
-                saveUser(user)
+            saveUser(user)
 
-            } catch (error) {
-                console.log(error);
+            if (user) {
+                saveAuth({
+                    user
+                })
             }
-        }
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
 
         getUser();
 
     }, []);
-
-
     return (
 
         <Fragment>

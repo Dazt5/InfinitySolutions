@@ -29,7 +29,7 @@ export const LastTickets = () => {
     return (
         <div className="projects">
             <div className="card-table">
-                <div className="card-header">
+                <div className="card-header sections">
                     <h2>Ultimos Tickets Pendientes</h2>
 
                     <Link to={"/admin/ticket"}><button>Ver todos <span className="las-la-arrow-right">

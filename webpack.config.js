@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const svgUrlLoader = require('svg-url-loader')
 
 module.exports = {
 
@@ -41,7 +42,7 @@ module.exports = {
                 type: 'asset/resource'
             },
             {
-                test: /\.css$/, //Identifica los archivos scss o css
+                test: /\.css$/, 
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -49,7 +50,15 @@ module.exports = {
                     'css-loader',
                 ]
             },
+            {
+                test: /\.svg$/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {
+                        encoding: 'base64'
+                    }
+                }
+            }
         ]
     }
-
 }

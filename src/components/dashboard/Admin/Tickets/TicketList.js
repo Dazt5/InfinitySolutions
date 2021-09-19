@@ -33,8 +33,8 @@ export const AdminTicketList = () => {
         <main>
             <div className="projects">
                 <div className="card-table">
-                    <div className="card-header">
-                        <h2>Ultimos Tickets Pendientes</h2>
+                    <div className="card-header sections">
+                        <h2>Lista completa de Tickets</h2>
 
                         <button onClick={() => filterTickets("all")}>Todos</button>
 

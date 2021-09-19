@@ -10,8 +10,6 @@ export const RecoverAccountForm = ({props}) => {
 
     const { token } = props.match.params;
 
-    console.log(props);
-
     const readData = e => {
         savePasswords({
             ...passwords,
