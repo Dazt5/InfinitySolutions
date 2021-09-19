@@ -16,22 +16,13 @@ const newAdminForm = ({props}) => {
         
     });
 
-
-
-    
     const readData = e => {
-
         saveAdminuser({
             ...adminUser,
             [e.target.name]: e.target.value
-        });
+        }); 
 
-        console.log(adminUser);
-       
-     
     }
-
-    
 
     const registeradminUser = async e => {
 
@@ -54,12 +45,8 @@ const newAdminForm = ({props}) => {
                 'Error en registro',
                 error.response.data.message,
                 'error'
-            );
-            
+            );    
         }
-       
-  
-
     }
 
     return (

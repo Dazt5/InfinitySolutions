@@ -42,10 +42,6 @@ const layout = ({ history, children }) => {
         getUser();
 
     }, []);
-
-
-    console.log(auth.user);
-
     return (
 
         <Fragment>
@@ -54,7 +50,6 @@ const layout = ({ history, children }) => {
                 <Header user={user} />
                 {children}
             </div>
-
         </Fragment>
     )
 }

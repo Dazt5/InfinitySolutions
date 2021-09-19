@@ -28,7 +28,6 @@ export const CorporationProfiles = ({ props }) => {
         getCorporationData();
 
         const Faqs = async () => {
-
             try {
 
                 const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
@@ -39,11 +38,8 @@ export const CorporationProfiles = ({ props }) => {
                 console.log(error.request);
             }
         }
-
         Faqs();
-
     }, []);
-console.log(faq);
     return (
         <main>
             <div className="container">

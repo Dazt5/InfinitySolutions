@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import {
     BrowserRouter as Router,
@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { Context, Provider } from '../context/Context';
-
+import dayjs from 'dayjs';
 /* Auth Components */
 import Login from '../pages/authentication/Login';
 import Signup from '../pages/authentication/Signup';
@@ -43,7 +43,10 @@ import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
 import Messenger from '../pages/chat';
 
 
+
 const App = () => {
+
+    dayjs.locale('es')
 
     const [auth, saveAuth] = useContext(Context);
 
