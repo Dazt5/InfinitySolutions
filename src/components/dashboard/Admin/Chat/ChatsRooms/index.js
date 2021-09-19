@@ -2,8 +2,6 @@ import React from 'react';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import gravatar from '../../../../../utils/gravatar';
 import dayjs from 'dayjs';
-import { hydrate } from 'react-dom';
-import { LibManifestPlugin } from 'webpack';
 
 export const ChatsRooms = ({ room }) => {
     const { user } = room
