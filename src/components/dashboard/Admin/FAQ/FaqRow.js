@@ -3,8 +3,8 @@ import { apiAxios, config } from '../../../../config/api';
 import { Link, withRouter } from 'react-router-dom';
 const FaqRow = ({ faq }) => {
 
-    const deletefaq = async () => {
 
+    const deletefaq = async () => {
         try {
 
             await apiAxios.delete(`/corporation/FAQ/${faq._id}`);
@@ -19,7 +19,6 @@ const FaqRow = ({ faq }) => {
         <tr>
             <td></td>
             <td><a className="ticket-link" href="#">
-
                 <h4>{faq.title}</h4>
             </a>
 
@@ -29,7 +28,6 @@ const FaqRow = ({ faq }) => {
             <td>{faq.description}</td>
             <br></br>
             <br></br>
-
 
             <td><span>
                 <Link to={`/admin/faq/edit/${faq._id}`}><i className="las la-pen"></i></Link>
@@ -54,6 +52,7 @@ const FaqRow = ({ faq }) => {
 
 
 
+            </td>
         </tr>
     )
 

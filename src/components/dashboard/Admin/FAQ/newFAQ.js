@@ -3,39 +3,26 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios } from '../../../../config/api';
 
-const faqForm = ({props}) => {
-  
-    const {idCorporation} = props.match.params;
+const faqForm = ({ props }) => {
 
-  
+    const { idCorporation } = props.match.params;
+
+
     const [Faq, saveFaq] = useState({
         title: '',
         description: ''
-        
     });
 
-    useEffect( () => {
-       
-        
+    useEffect(() => {
 
-
-
-   
-    
         const actualCorporation = async () => {
             try {
-                const {data}  = await apiAxios.get(`/corporation/${idCorporation}`);
-            
-    
-               
-    
+                const { data } = await apiAxios.get(`/corporation/${idCorporation}`);
+
             } catch (error) {
                 props.history.push('/dashboard')
-         
+
             }
-            
-          
-            
         }
       actualCorporation();
      }, []) 
@@ -53,7 +40,7 @@ const faqForm = ({props}) => {
 
         try {
 
-            const {data} = await apiAxios.post(`/corporation/${idCorporation}/FAQ`, Faq);
+            const { data } = await apiAxios.post(`/corporation/${idCorporation}/FAQ`, Faq);
 
             Swal.fire({
                 icon: 'success',
@@ -90,14 +77,12 @@ const faqForm = ({props}) => {
                                 type="text"
                                 name="description"
                                 placeholder="Descripcion de la incidencia"
-                                
                                 onChange={readData}
                                 required />
                         </div>
-                        
                     </div>
 
-                   
+
                     <div className="button-box">
                         <div className="button-form">
                             <input type="submit" value="Registrar" />
