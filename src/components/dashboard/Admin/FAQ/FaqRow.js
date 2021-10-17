@@ -3,13 +3,10 @@ import { apiAxios, config } from '../../../../config/api';
 import { Link, withRouter } from 'react-router-dom';
 const FaqRow = ({ faq }) => {
 
-
     const deletefaq = async () => {
         try {
 
             await apiAxios.delete(`/corporation/FAQ/${faq._id}`);
-
-
 
         } catch (error) {
             console.log(error);
@@ -33,25 +30,9 @@ const FaqRow = ({ faq }) => {
                 <Link to={`/admin/faq/edit/${faq._id}`}><i className="las la-pen"></i></Link>
             </span></td>
             <td>
-
-
-
                 <span className="">
                     <i className="las la-trash-alt" onClick={() => deletefaq()} ></i>
                 </span>
-
-
-
-
-
-
-
-
-
-            </td>
-
-
-
             </td>
         </tr>
     )
