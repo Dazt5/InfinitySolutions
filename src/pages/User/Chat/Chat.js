@@ -1,19 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Layout } from '../../../components/dashboard';
-import  {Message } from '../../../components/popup/message/message';
+import { Messenger } from '../../../components/popup/index';
 
-const Chating = () => {
+const Chat = () => {
 
     return (
-
         <Layout >
-    
-       <Message/>
-
+            <Messenger />
         </Layout>
-
     )
 }
 
-export default withRouter(Chating)
+export default withRouter(Chat)

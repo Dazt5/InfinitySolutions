@@ -38,28 +38,14 @@ const faqForm = ({props}) => {
             
         }
       actualCorporation();
-
-
-
-
-        
-
      }, []) 
-     
-
-
-    
+ 
     const readData = e => {
-
         saveFaq({
             ...Faq,
             [e.target.name]: e.target.value
         });
-        console.log(Faq);
-     
     }
-
-    
 
     const registerFaq = async e => {
 
@@ -74,20 +60,13 @@ const faqForm = ({props}) => {
                 title: 'Agregado Correctamente',
                 text: data.message
             });
-
-       
-
         } catch (error) {
             Swal.fire(
                 'Error en registro',
                 error.response.data.message,
                 'error'
-            );
-            
+            );  
         }
-       
-  
-
     }
 
     return (

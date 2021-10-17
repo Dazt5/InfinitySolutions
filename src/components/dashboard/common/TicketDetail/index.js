@@ -4,25 +4,21 @@ import { apiAxios } from '../../../../config/api';
 import { Context } from '../../../../context/Context';
 import gravatar from '../../../../utils/gravatar';
 import './style.css';
-import {CKEditor} from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 import TicketResponseRow from '../TicketDetail/TicketResponseRow';
 import parse from 'html-react-parser';
+import Swal from 'sweetalert2';
 
 export const TicketDetail = ({ props }) => {
+    
+    const { idTicket } = props.match.params;
 
     const [addData, saveData] = useState('');
 
-
-const [status, saveStatus] = useState({});
-
-    
+    const [status, saveStatus] = useState({});
 
     const [reply, saveReply] = useState('');
-
-   
-
-    const { idTicket } = props.match.params;
 
     const [ticket, saveTicket] = useState({
         corporation: {},
@@ -33,33 +29,26 @@ const [status, saveStatus] = useState({});
     });
     const [statuses, saveStatuses] = useState([]);
 
-    const [Response, saveResponse] = useState([]);
+    const [response, saveResponse] = useState([]);
 
     const [auth] = useContext(Context);
 
- const handleChange = (e,editor) => {
- saveData(editor.getData());
- saveReply({
-    ...reply,
-    message: addData
-});
+    const handleChange = (e, editor) => {
+        saveData(editor.getData());
+        saveReply({
+            ...reply,
+            message: addData
+        });
+    }
+    
+    const readStatus = e => {
+        saveStatus({
+            ...status,
+            [e.target.name]: e.target.value
+        });
+    }
 
-
-     }
-
-
-     const readStatus = e => {
-         saveStatus({
-           ...status,
-           [e.target.name]: e.target.value
-       });
-      console.log(status);
-      console.log(status);
-      
-       
-            }
-
-     const registerReply = async e => {
+    const registerReply = async e => {
         e.preventDefault();
 
         try {
@@ -69,7 +58,9 @@ const [status, saveStatus] = useState({});
                 title: 'Agregado Correctamente',
                 text: data.message
             });
-         
+            getResponse();
+            
+
         } catch (error) {
             Swal.fire(
                 'Error en registro',
@@ -77,9 +68,7 @@ const [status, saveStatus] = useState({});
                 'error'
             );
         }
-    
     }
-
 
     const ChangeStatus = async e => {
         e.preventDefault();
@@ -91,7 +80,7 @@ const [status, saveStatus] = useState({});
                 title: 'Agregado Correctamente',
                 text: data.message
             });
-         
+
         } catch (error) {
             Swal.fire(
                 'Error en registro',
@@ -99,9 +88,17 @@ const [status, saveStatus] = useState({});
                 'error'
             );
         }
-    
     }
+    
+    const getResponse = async () => {
+        try {
+            const { data } = await apiAxios.get(`/ticket/${idTicket}/response`);
+            saveResponse(data.ticketResponse);
 
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     useEffect(() => {
 
@@ -118,12 +115,14 @@ const [status, saveStatus] = useState({});
         }
         getTicket();
 
+
+        getResponse();
+
         if (auth.user.auth_level === 2) {
             const getStatuses = async () => {
                 try {
-                    const { data } = await apiAxios.get(`/status/`);
+                    const { data } = await apiAxios.get(`/status`);
                     saveStatuses(data.status);
-
                 } catch (error) {
                     console.log(error);
                 }
@@ -131,20 +130,7 @@ const [status, saveStatus] = useState({});
             getStatuses();
         }
 
-        const getResponse = async () => {
-
-            try {
-
-                const { data } = await apiAxios.get(`/ticket/${idTicket}/response`);
-                saveResponse(data.ticketResponse);
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getResponse();
-
-    }, [auth])
+    }, [])
 
     return (
         <main className="body ticket-details">
@@ -180,60 +166,52 @@ const [status, saveStatus] = useState({});
                                     <div className="px-4 pt-3"><i className="fa fa-check-times rejecticon"><p>Rechazado</p></i></div>
                                 }
                                 <div className="px-4 pt-3"> <button onClick={registerReply} type="submit" className="btn btn-primary">Reply</button> </div>
-                        </div>
-<div className="black-text">
-<CKEditor 
-editor={ClassicEditor}
- data={addData}
-  onChange={(e,editor)=>{handleChange(e,editor)}}
-  />
-</div>
-    
+                            </div>
+                            <div className="black-text">
+                                <CKEditor
+                                    editor={ClassicEditor}
+                                    data={addData}
+                                    onChange={(e, editor) => { handleChange(e, editor) }}
+                                />
+                            </div>
 
+
+                        </div>
                     </div>
+                    {
+                        auth.user.auth_level && auth.user.auth_level === 2 &&
+                        <div className="col-md-3">
+                            <div className="card ticket-detail mb-4">
+                                <div className="container-form">
+                                    <div className="title">Cambiar estado</div>
+                                    <form>
+                                        <div className="input-box">
+
+                                            <span>Seleccione una estado</span>
+                                            <select onChange={readStatus} name="idNewStatus" >
+                                                <option value="">Seleccione un estado</option>
+                                                {statuses.map(status => (
+                                                    <option key={status._id} value={status._id}>{status.name}</option>
+                                                ))}
+                                            </select>
+                                            <br></br>
+                                            <button onClick={ChangeStatus} type="submit" className="btn btn-primary">Reply</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
-                {
-                    auth.user.auth_level && auth.user.auth_level === 2 &&
-                    <div className="col-md-3">
-                        <div className="card ticket-detail mb-4">
-                            <div className="container-form">
-                                <div className="title">Cambiar estado</div>
-                                <form>
-                                    <div className="input-box">
-
-                                        <span>Seleccione una estado</span>
-                                        <select onChange={readStatus} name="idNewStatus" >
-                                            <option value="">Seleccione un estado</option>
-                                            {statuses.map(status => (
-                                                <option key={status._id} value={status._id}>{status.name}</option>
-                                            ))}
-                                        </select>
-                                        <br></br>
-                                        <button onClick={ChangeStatus} type="submit" className="btn btn-primary">Reply</button> 
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
-            </div>
-
+                <h3>Respuestas</h3>
             <br></br>
-            <div className="card ticket-detail mb-4">
-                                    {Response.map(ticketResponse => (
-                                        <TicketResponseRow
-                                            key={ticketResponse._id}
-                                            ticketResponse={ticketResponse}
-                                           
-                                          
-                                           
-                                        />
-                                ))}
-                            
- 
-                            </div>
-                         
+                {(response.length != 0) && response.map(ticketResponse => { 
+                    return <TicketResponseRow
+                        key={ticketResponse._id}
+                        ticketResponse={ticketResponse}
+                    />
+                })}
         </main>
     )
 }

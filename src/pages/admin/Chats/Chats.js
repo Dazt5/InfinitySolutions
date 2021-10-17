@@ -1,17 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { ChatPanel, Layout } from '../../../components/dashboard/'
+import { Layout, ChatsPanel } from '../../../components/dashboard/'
 
-const CorporationList = () => {
+
+const Chats = () => {
 
     return (
-        <Fragment>
             <Layout>
-                <ChatPanel/>
+                <ChatsPanel/>
             </Layout>
-        </Fragment>
     )
 }
 
-export default withRouter(CorporationList)
+export default withRouter(Chats)
 

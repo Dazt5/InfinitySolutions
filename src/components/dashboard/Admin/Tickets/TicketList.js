@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
-import { Ticket } from '../../User';
 import TicketRow from '../AdminPanel/LastTickets/TicketRow';
 
 export const AdminTicketList = () => {

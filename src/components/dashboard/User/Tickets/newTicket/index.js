@@ -74,8 +74,6 @@ const TicketForm = ({ props }) => {
         }
     }
 
-    console.log(ticket);
-
     return (
         <main>
             <div className="container-form">

@@ -5,4 +5,4 @@ export * from './Documents';
 export * from './CorporationMenu';
 export * from './Tickets';
 export * from './FAQ';
-export * from './Chat';
+export * from './Chat/';

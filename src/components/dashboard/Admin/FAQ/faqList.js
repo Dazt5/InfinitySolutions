@@ -16,14 +16,14 @@ export const FaqList = (props) => {
 
             const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
 
- 
+
             saveFaqs(data.faq);
-          
+
         } catch (error) {
             console.log(error);
         }
     }
-    
+
 
     const deletefaq = async (idFaq) => {
 
@@ -31,32 +31,28 @@ export const FaqList = (props) => {
 
             await apiAxios.delete(`/corporation/FAQ/${idFaq}`);
 
-           
+
 
         } catch (error) {
             console.log(error);
         }
     }
-useEffect(() => {
+    useEffect(() => {
 
-getFaqs();
-
-
-},[])
+        getFaqs();
 
 
-console.log(Faqs);
-console.log(idCorporation);
-   
+    }, [])
+
     return (
         <main>
- 
+
             <div className="card-table">
                 <div className="card-header">
                     <h2>Compañias registradas</h2>
 
-                  
-               
+
+
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
@@ -70,7 +66,7 @@ console.log(idCorporation);
                                         <th>Descripcion</th>
                                         <th>Mod</th>
                                         <th>Del</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,11 +74,11 @@ console.log(idCorporation);
                                         <FaqRow
                                             key={faq._id}
                                             faq={faq}
-                                           
-                                          
-                                           
+
+
+
                                         />
-                                ))}
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

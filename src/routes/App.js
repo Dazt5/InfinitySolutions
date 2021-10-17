@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import {
     BrowserRouter as Router,
@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { Context, Provider } from '../context/Context';
-
+import dayjs from 'dayjs';
 /* Auth Components */
 import Login from '../pages/authentication/Login';
 import Signup from '../pages/authentication/Signup';
@@ -39,11 +39,13 @@ import Chats from '../pages/admin/Chats/Chats';
 import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
+import Chat from '../pages/User/Chat/Chat';
 
-import Messenger from '../pages/chat';
 
 
 const App = () => {
+
+    dayjs.locale('es')
 
     const [auth, saveAuth] = useContext(Context);
 
@@ -67,7 +69,8 @@ const App = () => {
                     <Route exact path="/ticket/:idTicket" component={TicketDetails} />
                     <Route exact path="/ticket/new" component={NewTicket} />
                     <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
-
+                    <Route exact path="/chat" component={Chat} />
+                
                     {/*Admin Routes*/}
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
@@ -82,7 +85,6 @@ const App = () => {
                     <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
                     <Route exact path="/admin/user" component={AdminUserForm} />
                     <Route exact path="/admin/chats" component={Chats} />
-                    <Route exact path="/admin/chat" component={Messenger} />
                 </Switch>
             </Provider>
         </Router>
