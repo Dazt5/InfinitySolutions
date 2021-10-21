@@ -67,7 +67,7 @@ const App = () => {
                     <Route exact path="/corporation" component={ListCardCorporation} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
                     <Route exact path="/ticket" component={ListUserTicket} />
-                    <Route exact path="/ticket/:idTicket" component={TicketDetails} />
+                    <Route exact path="/ticket/details/:idTicket" component={TicketDetails} />
                     <Route exact path="/ticket/new" component={NewTicket} />
                     <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
                     <Route exact path="/chat" component={Chat} />

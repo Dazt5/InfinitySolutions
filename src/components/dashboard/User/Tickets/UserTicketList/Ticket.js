@@ -21,7 +21,7 @@ export const Ticket = ({ ticket }) => {
                     <i className="fa fa-check-times rejecticon"></i>
                 }
                 <div className="ml-2">
-                    <Link to={`/ticket/${ticket._id}`}><h6 className="mb-0">{ticket.subject}</h6></Link>
+                    <Link to={`/ticket/details/${ticket._id}`}><h6 className="mb-0">{ticket.subject}</h6></Link>
                     <div className="d-flex flex-row mt-1 text-black-50 date-time">
                         <div><i className="fa fa-calendar-o"></i><span>{dayjs(ticket.create_at).format('DD/MM/YYYY')}</span></div>
                         <div className="ml-2"><i className="fa fa-clock-o time"></i><span>{dayjs(ticket.create_at).format('hh:mm A')}</span></div>
