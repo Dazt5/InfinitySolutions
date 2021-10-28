@@ -6,24 +6,30 @@ export const FavoriteCorporations = () => {
 
     const [favorites, saveFavorites] = useState([]);
 
-    useEffect(() => {
+    const getFavoriteCorporations = async () => {
+        try {
+            const { data } = await apiAxios('/favorite');
+            saveFavorites(data.favorite);
+        } catch (error) {
 
-        const getFavoriteCorporations = async () => {
-
-            try {
-
-                const { data } = await apiAxios('/favorite');
-
-                saveFavorites(data.favorite);
-                
-            } catch (error) {
-
-            }
         }
+    }
+
+    useEffect(() => {
 
         getFavoriteCorporations();
 
     }, [])
+
+    const deleteFavorite = async (idCorp) => {
+        try {
+            const { data } = await apiAxios.delete(`/favorite/${idCorp}`);
+            getFavoriteCorporations();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className="customers">
@@ -32,12 +38,14 @@ export const FavoriteCorporations = () => {
                     <h2>Empresas Favoritas</h2>
                 </div>
 
-                {favorites.map(({corporation}) => (
+                {favorites.map(({ corporation }) => (
 
-                <CorporationCard
-                    key={corporation._id}
-                    corp={corporation} />
-            ))}
+                    <CorporationCard
+                        key={corporation._id}
+                        corp={corporation}
+                        deleteFavorite={deleteFavorite}
+                    />
+                ))}
 
             </div>
         </div>
