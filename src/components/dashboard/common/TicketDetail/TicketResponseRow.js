@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import parser from 'html-react-parser';
+import './style.css';
 
 const TicketResponseRow = ({ ticketResponse }) => {
 

@@ -1,22 +1,23 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 
 export const DashboardResume = () => {
-
+    const [Resume, saveResume] = useState({});
     const getResume = async () => {
 
         try {
 
             const { data } = await apiAxios.get('/admin/dashboard');
-
             console.log(data);
-
+            saveResume(data.resume);
+           
+           
         } catch (error) {
             console.log(error);
         }
     }
-
-
+    
+    
     useEffect(() => {
 
         getResume();
@@ -44,7 +45,7 @@ export const DashboardResume = () => {
 
                 <div className="card-single">
                     <div>
-                        <h1>4</h1>
+                        <h1>0</h1>
                         <span>Tickets resueltos</span>
                     </div>
 
@@ -52,7 +53,7 @@ export const DashboardResume = () => {
 
                 <div className="card-single">
                     <div>
-                        <h1>5</h1>
+                        <h1>{Resume.users}</h1>
                         <span>Usuarios registrados</span>
                     </div>
                 </div>

@@ -61,7 +61,9 @@ export const CorporationProfiles = ({ props }) => {
                                             <h4>{corporation.name}</h4>
                                             <p className="text-secondary mb-1">{corporation.description}</p>
                                             <Link to={`/ticket/new/${corporation._id}`}><button className="btn btn-primary">Crear Ticket</button></Link>
-                                            <button className="btn btn-outline-primary">Mis Tickets</button>
+                                            <Link to={`/ticket/`}><button className="btn btn-outline-primary">Mis Tickets</button></Link>
+                                            <Link to={`/admin/faq/new/${corporation._id}`}><button className="btn btn-outline-primary">Agregar FAQ</button></Link>
+                      
                                         </div>
                                     </div>
                                 </div>

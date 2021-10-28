@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios,config } from '../../../../config/api';
 
+
+
 export const editFaqForm = ({props}) => {
 
     const {idFaq} = props.match.params;
@@ -92,7 +94,7 @@ export const editFaqForm = ({props}) => {
                 >
                     <div className="user-details">
                         <div className="input-box">
-                            <span className="details">Nombre de la empresa</span>
+                            <span className="details">FAQ</span>
                             <input
                                 type="text"
                                 name="title"
@@ -102,7 +104,7 @@ export const editFaqForm = ({props}) => {
                                 required />
                         </div>
                         <div className="input-box">
-                            <span className="details">RIF</span>
+                            <span className="details">Descripcion</span>
                             <input
                                 type="text"
                                 name="description"

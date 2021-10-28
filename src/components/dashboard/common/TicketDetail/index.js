@@ -28,8 +28,12 @@ export const TicketDetail = ({ props }) => {
         status: {}
     });
     const [statuses, saveStatuses] = useState([]);
-
+    const message = {
+        message : 'Chat Elevado Por el administrador <a href="/chat">Click aqui para acceder</a>'
+    };
     const [response, saveResponse] = useState([]);
+
+    const [room, saveRoom] = useState([]);
 
     const [auth] = useContext(Context);
 
@@ -46,6 +50,7 @@ export const TicketDetail = ({ props }) => {
             ...status,
             [e.target.name]: e.target.value
         });
+        console.log(messi);
     }
 
     const registerReply = async e => {
@@ -60,6 +65,50 @@ export const TicketDetail = ({ props }) => {
             });
             getResponse();
             
+
+        } catch (error) {
+            Swal.fire(
+                'Error en registro',
+                error.response.data.message,
+                'error'
+            );
+        }
+    }
+
+    const ReplyDefault = async e => {
+      
+  
+        try {
+            const { data } = await apiAxios.post(`/ticket/${idTicket}/response`, message);
+        
+         console.log(data.message);
+            
+
+        } catch (error) {
+            Swal.fire(
+                'Error en registro',
+                error.response.data.message,
+                'error'
+            );
+        }
+    }
+
+    const ElevarChat = async e => {
+        e.preventDefault();
+    
+        
+        try {
+            ReplyDefault();
+            const { data } = await apiAxios.post(`/admin/chat/activate/${idTicket}`);
+            Swal.fire({
+                icon: 'success',
+                title: 'Elevado Correctamente',
+                text: data.message
+            }
+           
+            );
+        
+           
 
         } catch (error) {
             Swal.fire(
@@ -115,7 +164,7 @@ export const TicketDetail = ({ props }) => {
         }
         getTicket();
 
-
+  
         getResponse();
 
         if (auth.user.auth_level === 2) {
@@ -123,6 +172,7 @@ export const TicketDetail = ({ props }) => {
                 try {
                     const { data } = await apiAxios.get(`/status`);
                     saveStatuses(data.status);
+                    console.log(statuses);
                 } catch (error) {
                     console.log(error);
                 }
@@ -202,6 +252,26 @@ export const TicketDetail = ({ props }) => {
                             </div>
                         </div>
                     }
+
+{
+                        auth.user.auth_level && auth.user.auth_level === 2 &&
+                        <div className="col-md-6">
+                            <div className="card ticket-detail mb-4">
+                                <div className="container-form">
+                                    <div className="title">elevar chat </div>
+                                    <form>
+                                        <div className="input-box">
+
+                                            <br></br>
+                                            <button onClick={ElevarChat} type="submit" className="btn btn-primary">Elevar Chat</button>
+                                           
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
                 </div>
             </div>
                 <h3>Respuestas</h3>

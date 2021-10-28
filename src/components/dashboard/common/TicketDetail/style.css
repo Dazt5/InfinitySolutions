@@ -4,6 +4,7 @@
     font-weight: 400;
     line-height: 1.5;
 }
+
 .black-text{
     
     color: #000;
@@ -17,6 +18,15 @@
 .card.ticket-detail {
     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     border-width: 0;
+    padding: 10px;
+    transition: all .2s
+}
+.card.ticket-detaill {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    border-width: 0;
+    padding-left: 30 px;
+    border-radius: 25%;
+    padding: 10px;
     transition: all .2s
 }
 

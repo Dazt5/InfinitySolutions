@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Context } from '../../../../context/Context';
 import adminIcon from '../../../../assets/static/admin.png';
 import userIcon from '../../../../assets/static/user.jpg';
@@ -9,7 +9,7 @@ import gravatar from '../../../../utils/gravatar';
 const header = ({ user, history }) => {
 
     const [auth, saveAuth] = useContext(Context);
-
+    console.log(auth.user._id);
     const logout = () => {
         saveAuth({
             auth: false,
@@ -30,17 +30,18 @@ const header = ({ user, history }) => {
                 </label>
                 Dashboard
             </h2>
-
+          
             <div className="user-wrapper">
+            
                 {user
                     ?
                     user.auth_level === 1
                         ?
-                        <img src={gravatar(user.email)} width="50px" height="50px" alt="Avatar" />
+                        <Link to={`/profile/${auth.user._id}`}><img    src={gravatar(user.email)} width="50px" height="50px" alt="Avatar" /></Link>    
                         :
-                        <img src={adminIcon} width="30px" height="40px" alt="Avatar" />
+                        <Link to={`/profile/${auth.user._id}`}><img src={adminIcon} width="30px" height="40px" alt="Avatar" /></Link>       
                     :
-                    <img src={userIcon} width="30px" height="40px" alt="Avatar" />
+                    <Link to={`/profile/${auth.user._id}`}><img src={userIcon} width="30px" height="40px" alt="Avatar" /></Link>  
                 }
 
                 <div>

@@ -18,6 +18,8 @@ import RecoverAccount from '../pages/authentication/RecoverAccount';
 /* Common Components */
 import Dashboard from '../pages/common/Dashboard'
 import CorporationProfile from '../pages/common/CorporationProfile';
+import UserProfile from '../pages/common/UserProfiles';
+
 import TicketDetails from '../pages/common/TicketDetails/TicketDetails';
 
 /* Admin Components */
@@ -40,6 +42,8 @@ import ListCardCorporation from '../pages/User/Corporation/ListCardCorporation';
 import ListUserTicket from '../pages/User/Ticket/ListUserTicket/ListUserTicket';
 import NewTicket from '../pages/User/Ticket/NewTicket/NewTicket';
 import Chat from '../pages/User/Chat/Chat';
+import ChangeProfile from '../pages/editProfile';
+
 
 
 
@@ -66,6 +70,8 @@ const App = () => {
                     {/*User Routes and Common Routes*/}
                     <Route exact path="/corporation" component={ListCardCorporation} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
+                    <Route exact path="/profile/:idUser" component={UserProfile} />
+                    <Route exact path="/edit/profile" component={ChangeProfile} />
                     <Route exact path="/ticket" component={ListUserTicket} />
                     <Route exact path="/ticket/details/:idTicket" component={TicketDetails} />
                     <Route exact path="/ticket/new" component={NewTicket} />
