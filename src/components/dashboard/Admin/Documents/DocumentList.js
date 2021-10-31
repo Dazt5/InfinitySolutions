@@ -12,23 +12,23 @@ export const DocumentList = ({ props }) => {
     const [corporation, saveCorporation] = useState({});
     const [documents, saveDocuments] = useState([]);
 
-    useEffect(() => {
+    const getCorporationDocuments = async () => {
+        try {
 
-        const getCorporationDocuments = async () => {
-            try {
+            const corporation = await apiAxios.get(`/corporation/${idCorporation}`);
+            const { data } = await apiAxios.get(`/corporation/${idCorporation}/document`)
 
-                const corporation = await apiAxios.get(`/corporation/${idCorporation}`);
-                const { data } = await apiAxios.get(`/corporation/${idCorporation}/document`)
+            saveDocuments(data.document);
+            saveCorporation(corporation.data.corporation)
 
-                saveDocuments(data.document);
-                saveCorporation(corporation.data.corporation)
-
-            } catch (error) {
-                console.log(error);
-
-            }
+        } catch (error) {
+            console.log(error);
 
         }
+
+    }
+
+    useEffect(() => {
 
         getCorporationDocuments();
 
@@ -47,6 +47,7 @@ export const DocumentList = ({ props }) => {
                             <DocumentCard
                                 key={doc._id}
                                 doc={doc}
+                                getCorporationDocuments={getCorporationDocuments}
                             />
                         ))
                     }
