@@ -8,8 +8,8 @@ import gravatar from '../../../../utils/gravatar';
 
 const header = ({ user, history }) => {
 
-    const [auth, saveAuth] = useContext(Context);
-    console.log(auth.user._id);
+    const [saveAuth] = useContext(Context);
+
     const logout = () => {
         saveAuth({
             auth: false,
@@ -19,8 +19,6 @@ const header = ({ user, history }) => {
         localStorage.setItem('token', '');
         history.push('/login');
     }
-
-
 
     return (
         <header>
@@ -37,11 +35,11 @@ const header = ({ user, history }) => {
                     ?
                     user.auth_level === 1
                         ?
-                        <Link to={`/profile/${auth.user._id}`}><img    src={gravatar(user.email)} width="50px" height="50px" alt="Avatar" /></Link>    
+                        <Link to={`/profile/${user._id}`}><img    src={gravatar(user.email)} width="50px" height="50px" alt="Avatar" /></Link>    
                         :
-                        <Link to={`/profile/${auth.user._id}`}><img src={adminIcon} width="30px" height="40px" alt="Avatar" /></Link>       
+                        <Link to={`/profile/${user._id}`}><img src={adminIcon} width="30px" height="40px" alt="Avatar" /></Link>       
                     :
-                    <Link to={`/profile/${auth.user._id}`}><img src={userIcon} width="30px" height="40px" alt="Avatar" /></Link>  
+                    <Link to={`/profile/${user._id}`}><img src={userIcon} width="30px" height="40px" alt="Avatar" /></Link>  
                 }
 
                 <div>
