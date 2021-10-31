@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 import { Room } from './Room';
+import socket from '../../../../../utils/socket';
 
 export const ChatsRooms = ({selectRoom}) => {
 
@@ -10,7 +11,7 @@ export const ChatsRooms = ({selectRoom}) => {
         try {
             const { data } = await apiAxios.get('/admin/chat/room');
             setRooms(data.rooms);
-            console.log(data);
+            
 
         } catch (error) {
             console.log(error)
@@ -20,6 +21,10 @@ export const ChatsRooms = ({selectRoom}) => {
     useEffect(() => {
 
         getRooms();
+
+        socket.on("salas", salas => {
+            setRooms(salas);
+        })
 
     },[])
 
