@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const UserRow = ({ user }) => {
+export const AdminUserRow = ({ user }) => {
 
 
     return (
@@ -30,7 +30,18 @@ export const UserRow = ({ user }) => {
             <td>
                 <p>{user.last_access}</p>
             </td>
-        
+        <td>
+            <span>
+               <i className="las la-pen"></i>
+            </span>
+            
+                <span className="">
+                    <i className="las la-toggle-on" ></i>
+                </span>
+           
+         
+
+        </td>
     </tr>
 
        

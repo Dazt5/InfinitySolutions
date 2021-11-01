@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
-import { UserRow } from './UserRow';
+import { AdminUserRow } from './AdminUserRow';
 import { Link } from 'react-router-dom';
 export const AdminUserList = () => {
 
@@ -49,7 +49,7 @@ export const AdminUserList = () => {
                                 <tbody>
                                     {
                                         users.map(user => (
-                                            <UserRow
+                                            <AdminUserRow
                                                 key={user._id}
                                                 user={user}
                                             />
