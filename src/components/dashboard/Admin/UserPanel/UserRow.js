@@ -4,8 +4,10 @@ export const UserRow = ({ user }) => {
 
 
     return (
+
         <tr>
-            <td>
+    
+        <td>
                 <p>{user.name}</p>
             </td>
 
@@ -28,8 +30,21 @@ export const UserRow = ({ user }) => {
             <td>
                 <p>{user.last_access}</p>
             </td>
+        <td>
+            <span>
+               <i className="las la-pen"></i>
+            </span>
+            
+                <span className="">
+                    <i className="las la-toggle-on" ></i>
+                </span>
+           
+         
 
-        </tr>
+        </td>
+    </tr>
+
+       
     )
 
 }

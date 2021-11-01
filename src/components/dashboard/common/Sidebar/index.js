@@ -77,6 +77,17 @@ export const Sidebar = ({ user }) => {
                         {user && user.auth_level == 2 &&
                             <Fragment>
                                 <li>
+                                    <Link to={"/admin/adminusers"}>
+                                        <span className="las la-user-astronaut"></span>
+                                        <span>Admins</span>
+                                    </Link>
+                                </li>
+                            </Fragment>
+                        }
+
+                        {user && user.auth_level == 2 &&
+                            <Fragment>
+                                <li>
                                     <Link to={"/admin/chats"}>
                                         <span className="las la-clipboard"></span>
                                         <span>Chats</span>
@@ -84,6 +95,8 @@ export const Sidebar = ({ user }) => {
                                 </li>
                             </Fragment>
                         }
+
+                        
 
                     </ul>
                 </div>
