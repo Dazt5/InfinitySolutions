@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 
 export const Sidebar = ({ user }) => {
 
+    if (!user) {
+        return null;
+    }
+
+
     return (
         <Fragment>
             <input type="checkbox" id="nav-toggle" />
@@ -20,41 +25,39 @@ export const Sidebar = ({ user }) => {
                             </Link>
                         </li>
                         <li>
-
-                            {
-                                user.auth_level == 2
-                                    ?
-                                    <Link to={"/admin/ticket"}>
-                                        <span className="las la-users"></span>
-                                        <span>Tickets</span>
-                                    </Link>
-                                    :
-                                    <Link to={"/ticket"}>
-                                        <span className="las la-users"></span>
-                                        <span>Mis Tickets</span>
-                                    </Link>
+                            {user && user.auth_level == 2
+                                &&
+                                <Link to={"/admin/ticket"}>
+                                    <span className="las la-users"></span>
+                                    <span>Tickets</span>
+                                </Link>
                             }
+                            {user && user.auth_level === 1 &&
 
+                                <Link to={"/ticket"}>
+                                    <span className="las la-users"></span>
+                                    <span>Mis Tickets</span>
+                                </Link>
+                            }
 
                         </li>
                         <li>
-
-                            {user.auth_level === 2 ?
+                            {user && user.auth_level === 2 &&
                                 <Link to={"/admin/corporation"}>
                                     <span className="las la-clipboard-list"></span>
                                     <span>Corporaciones</span>
                                 </Link>
-                                :
+                            }
+
+                            {user && user.auth_level === 1 &&
                                 <Link to={"/corporation"}>
                                     <span className="las la-clipboard-list"></span>
                                     <span>Corporaciones</span>
                                 </Link>
-
                             }
-
                         </li>
 
-                        {user.auth_level == 2 &&
+                        {user && user.auth_level == 2 &&
                             <Fragment>
                                 <li>
                                     <Link to={"/admin/document"}>
@@ -71,7 +74,7 @@ export const Sidebar = ({ user }) => {
                             </Fragment>
                         }
 
-                        {user.auth_level == 2 &&
+                        {user && user.auth_level == 2 &&
                             <Fragment>
                                 <li>
                                     <Link to={"/admin/chats"}>
