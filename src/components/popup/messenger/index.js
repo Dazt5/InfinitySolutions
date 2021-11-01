@@ -1,15 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { apiAxios } from '../../../config/api';
+import socket from '../../../utils/socket';
 import { Message } from '../message/'
 
 export const Messenger = () => {
-  const [messages, savemessages] = useState([]);
-  const [message, savenewmessage] = useState("");
+
+  const [messages, setMessages] = useState([]);
+  const [message, saveMessage] = useState("");
+  const [idRoom, setRoom] = useState("");
 
   const getMessages = async () => {
     try {
       const message = await apiAxios.get('/chat');
-      savemessages(message.data.messages);
+      setRoom(message.data.room._id);
+      setMessages(message.data.messages);
     } catch (error) {
       console.log(error);
     }
@@ -24,9 +28,13 @@ export const Messenger = () => {
     }
   }
 
+  socket.on(`room-${idRoom}`, messages => {
+    setMessages(messages);
+  });
+
   useEffect(() => {
     getMessages();
-  }, [])
+  }, [idRoom])
 
   return (
     <div>
@@ -34,12 +42,14 @@ export const Messenger = () => {
         <div className="chatBoxWrapper">
 
           <div className="chatBoxTop">
-            {messages.map(message => (
-              <Message
-                key={message._id}
-                message={message}
-              />
-            ))}
+            {messages.length > 0 &&
+              messages.map(message => (
+                <Message
+                  key={message._id}
+                  message={message}
+                />
+              ))
+            }
           </div>
         </div>
       </div>
@@ -48,7 +58,7 @@ export const Messenger = () => {
           <textarea
             className="chatMessageInput"
             placeholder="Escribe Algo..."
-            onChange={(e) => savenewmessage(e.target.value)}
+            onChange={(e) => saveMessage(e.target.value)}
           ></textarea>
           <button onClick={handleSubmit} className="chatSubmitButton">
             Enviar

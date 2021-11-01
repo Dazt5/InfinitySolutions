@@ -1,15 +1,16 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
+import socket from '../../../../../utils/socket';
 import { Message } from './Message';
 
 export const ChatsMessages = ({ idRoom }) => {
 
-    const [messages, saveMessages] = useState([]);
+    const [messages, setMessages] = useState([]);
 
     const getMessages = async () => {
         try {
             const { data } = await apiAxios.get(`/admin/chat/${idRoom}`)
-            saveMessages(data.messages);
+            setMessages(data.messages);
 
         } catch (error) {
             console.log("Error in get Messages type: " + error);
@@ -20,6 +21,10 @@ export const ChatsMessages = ({ idRoom }) => {
     useEffect(() => {
 
         getMessages();
+
+        socket.on(`room-${idRoom}`, messages => {
+            setMessages(messages);
+          });
 
     }, [idRoom])
 

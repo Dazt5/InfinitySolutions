@@ -13,7 +13,7 @@ export const Room = ({ room, selectRoom }) => {
             <div className="chat_people">
                 <div className="chat_img"> <img src={gravatar(user.email)} alt={"user profile " + user.name + " " + user.lastname} /> </div>
                 <div className="chat_ib">
-                    <h5>{user.name} {user.lastname} <span className="chat_date">{last_message != null && dayjs().to(dayjs(last_message.create_at))}</span></h5>
+                    <h5>{user.name} {user.lastname} <span className="chat_date">{last_message != null && dayjs().to(dayjs(room.last_message_at))}</span></h5>
 
                     {last_message != null ?
                         last_message.user.auth_level == 1 ?
