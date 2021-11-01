@@ -212,8 +212,8 @@ export const TicketDetail = ({ props }) => {
                                     <div className="px-4 pt-3"><i className="las la-check-circle checkicon"><p>Solucionado</p></i></div>
                                 }
                                 {
-                                    ticket.status.name === "reject" &&
-                                    <div className="px-4 pt-3"><i className="fa fa-check-times rejecticon"><p>Rechazado</p></i></div>
+                                    ticket.status.name === "rejected" &&
+                                    <div className="px-4 pt-3"><i className="las la-check-times rejecticon"><p>Rechazado</p></i></div>
                                 }
                                 <div className="px-4 pt-3"> <button onClick={registerReply} type="submit" className="btn btn-primary">Reply</button> </div>
                             </div>

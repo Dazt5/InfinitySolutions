@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 
 export const DashboardUserResume = () => {
@@ -10,10 +10,9 @@ export const DashboardUserResume = () => {
             success: 0
         }
     });
+
     const getResume = async () => {
-
         try {
-
             const { data } = await apiAxios.get('/user/dashboard');
             saveResume(data.resume);
 
@@ -22,7 +21,9 @@ export const DashboardUserResume = () => {
         }
     }
 
-    console.log(resume)
+    useEffect(() => {
+        getResume();
+    }, [])
 
     return (
         <div className="cards">

@@ -41,7 +41,7 @@ export const AdminTicketList = () => {
 
                         <button onClick={() => filterTickets("success")}>Solucionados</button>
 
-                        <button onClick={() => filterTickets("reject")}>Rechazados</button>
+                        <button onClick={() => filterTickets("rejected")}>Rechazados</button>
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">

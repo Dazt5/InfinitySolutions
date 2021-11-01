@@ -8,7 +8,7 @@ import gravatar from '../../../../utils/gravatar';
 
 const header = ({ user, history }) => {
 
-    const [saveAuth] = useContext(Context);
+    const [auth,saveAuth] = useContext(Context);
 
     const logout = () => {
         saveAuth({
