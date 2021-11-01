@@ -17,8 +17,8 @@ export const Ticket = ({ ticket }) => {
                     <i className="las la-check-circle checkicon"></i>
                 }
                 {
-                    ticket.status.name === "reject" &&
-                    <i className="fa fa-check-times rejecticon"></i>
+                    ticket.status.name === "rejected" &&
+                    <i class="las la-times rejecticon"></i>
                 }
                 <div className="ml-2">
                     <Link to={`/ticket/details/${ticket._id}`}><h6 className="mb-0">{ticket.subject}</h6></Link>
