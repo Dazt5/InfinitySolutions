@@ -58,7 +58,7 @@ export const editFaqForm = ({props}) => {
         });
    saveFaqs({
 
-...Faq,
+...Faqs,
 [e.target.name]: e.target.value
 
 

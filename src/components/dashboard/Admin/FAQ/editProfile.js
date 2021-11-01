@@ -56,7 +56,7 @@ export const changeinfo = ({props}) => {
         });
    saveInfos({
 
-...Info,
+...Infos,
 [e.target.name]: e.target.value
 
 
