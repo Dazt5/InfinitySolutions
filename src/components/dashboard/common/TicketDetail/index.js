@@ -50,7 +50,7 @@ export const TicketDetail = ({ props }) => {
             ...status,
             [e.target.name]: e.target.value
         });
-        console.log(messi);
+      
     }
 
     const registerReply = async e => {
