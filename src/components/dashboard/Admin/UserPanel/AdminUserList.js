@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
-import { UserRow } from './UserRow';
-
-export const UserList = () => {
+import { AdminUserRow } from './AdminUserRow';
+import { Link } from 'react-router-dom';
+export const AdminUserList = () => {
 
     const [users, saveUsers] = useState([]);
 
@@ -10,7 +10,7 @@ export const UserList = () => {
 
         const getAllUsers = async () => {
 
-            const { data } = await apiAxios.get('/users');
+            const { data } = await apiAxios.get('/admins');
 
             saveUsers(data.users);
         }
@@ -24,7 +24,7 @@ export const UserList = () => {
             <div className="card-table">
                 <div className="card-header">
                     <h2>Usuarios registrados</h2>
-
+                    <Link to={"/admin/user"} className="btn btn-secondary">Crear Nuevo Admin</Link>
                     {/*
             <Link to={'/admin/corporation/new'}><button className="header-button">Agregar una<span className="las-la-arrow-right">
 
@@ -49,7 +49,7 @@ export const UserList = () => {
                                 <tbody>
                                     {
                                         users.map(user => (
-                                            <UserRow
+                                            <AdminUserRow
                                                 key={user._id}
                                                 user={user}
                                             />
