@@ -73,6 +73,7 @@ export const TicketDetail = ({ props }) => {
                 'error'
             );
         }
+        saveData('');
     }
 
     const ReplyDefault = async e => {
@@ -199,8 +200,19 @@ export const TicketDetail = ({ props }) => {
                                 </div>
                             </div>
                             <div className="card-body ticket-detail">
+                            {
+                        auth.user.auth_level && auth.user.auth_level === 2 &&
+                            <form>
+                               <span>
+                               <i onClick={ElevarChat} className="las la-comments float-right"></i>
+                           
+                                </span>      
+                            
+                             </form>
+}
                                 <h4> {ticket.subject}</h4>
                                 <p> {ticket.description} </p>
+                              
                             </div>
                             <div className="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                                 {
@@ -253,24 +265,7 @@ export const TicketDetail = ({ props }) => {
                         </div>
                     }
 
-{
-                        auth.user.auth_level && auth.user.auth_level === 2 &&
-                        <div className="col-md-6">
-                            <div className="card ticket-detail mb-4">
-                                <div className="container-form">
-                                    <div className="title">elevar chat </div>
-                                    <form>
-                                        <div className="input-box">
 
-                                            <br></br>
-                                            <button onClick={ElevarChat} type="submit" className="btn btn-primary">Elevar Chat</button>
-                                           
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    }
 
                 </div>
             </div>

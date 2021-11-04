@@ -9,6 +9,11 @@ export const CorporationCard = ({ corp }) => {
         const idCorporation = corp._id;
         try {
             const { data } = await apiAxios.post('/favorite/new', { idCorporation });
+            Swal.fire({
+                icon: 'success',
+                title: 'Agregado Correctamente',
+                text: data.message
+            });
         } catch (error) {
             if (error.response) {
                 if (error.response.status) {

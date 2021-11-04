@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 import { CorporationCard } from './CorporationCard';
+import Swal from 'sweetalert2';
 
 export const FavoriteCorporations = () => {
 
@@ -25,6 +26,11 @@ export const FavoriteCorporations = () => {
         try {
             const { data } = await apiAxios.delete(`/favorite/${idCorp}`);
             getFavoriteCorporations();
+            Swal.fire({
+                icon: 'success',
+                title: 'Eliminada Correctamente',
+                text: data.message
+            });
             console.log(data);
         } catch (error) {
             console.log(error);

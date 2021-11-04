@@ -89,6 +89,10 @@ export const CorporationProfiles = ({ props }) => {
                         </div>
 
                         <div className="col-md-12">
+                            <br/>
+                        </div>
+                        
+                        <div className="col-md-12">
                             <div className="card mb-3">
                                 <div className="card-body">
                                     <h2 className="text-center">Preguntas frecuentes</h2>
@@ -103,35 +107,13 @@ export const CorporationProfiles = ({ props }) => {
                                     ))}
                                 </tbody>
                                             </div>
-                                            <div className="col-sm-12">
-                                                <h4 className="mb-0">Actualizar tu información de cuenta es fácil</h4>
-                                            </div>
+                                           
                                         </div>
 
-                                        <div className="row">
-                                            <div className="col-sm-12 text-secondary">
-                                                <p>Para actualizar la información de pago, entra a la sección de Administración de Cuenta desde un navegador web
-                                                    de un computador y sigue las indicaciones </p>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
 
-                                    <div className="questions">
-                                        <div className="row">
-                                            <div className="col-sm-12">
-                                                <h4 className="mb-0">Métodos de pago para Cantv</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className="row">
-                                            <div className="col-sm-12 text-secondary">
-                                                <p>Conocer los métodos de pago para DIRECTV GO es estar un paso adelante en tu programación mensual.
-                                                    Recuerda que los cobros de DIRECTV GO serán facturados al comienzo de cada ciclo de facturación y serán tomados del método de pago establecido cuando configuras tu cuenta.
-                                                    Métodos de pago aceptados:
-                                                    Solo puedes registrarte con tarjetas de crédito Mastercard o Visa (nacionales que acepten cobros internacionales). </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
