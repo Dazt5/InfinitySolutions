@@ -191,19 +191,19 @@ export const TicketDetail = ({ props }) => {
                                 </div>
                             </div>
                             <div className="card-body ticket-detail">
-                            {
-                        auth.user.auth_level && auth.user.auth_level === 2 &&
-                            <form>
-                               <span>
-                               <i onClick={ElevarChat} className="las la-comments float-right"></i>
-                           
-                                </span>      
-                            
-                             </form>
-}
+                                {
+                                    user && user.auth_level === 2 &&
+                                    <form>
+                                        <span>
+                                            <i onClick={ElevarChat} className="las la-comments float-right"></i>
+
+                                        </span>
+
+                                    </form>
+                                }
                                 <h4> {ticket.subject}</h4>
                                 <p> {ticket.description} </p>
-                              
+
                             </div>
                             <div className="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
                                 {
