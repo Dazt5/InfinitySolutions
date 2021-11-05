@@ -6,19 +6,36 @@ export const AdminUserList = () => {
 
     const [users, saveUsers] = useState([]);
 
+    const getAllUsers = async () => {
+
+        const { data } = await apiAxios.get('/admins');
+
+        saveUsers(data.users);
+    }
+
     useEffect(() => {
 
-        const getAllUsers = async () => {
-
-            const { data } = await apiAxios.get('/admins');
-
-            saveUsers(data.users);
-        }
+     
 
         getAllUsers();
 
     }, [])
 
+    
+    const desactiveUser = async (userid) => {
+
+        try {
+
+            await apiAxios.post(`/admin/activate/${userid}`);
+
+            getAllUsers();
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+console.log(users);
     return (
         <main>
             <div className="card-table">
@@ -52,6 +69,7 @@ export const AdminUserList = () => {
                                             <AdminUserRow
                                                 key={user._id}
                                                 user={user}
+                                                desactiveUser={desactiveUser}
                                             />
                                         ))
                                     }
