@@ -1,11 +1,11 @@
 import React from 'react';
-
-export const AdminUserRow = ({ user }) => {
+import "./style.css";
+export const AdminUserRow = ({ user,desactiveUser }) => {
 
 
     return (
 
-        <tr>
+        <tr >
     
         <td>
                 <p>{user.name}</p>
@@ -31,16 +31,16 @@ export const AdminUserRow = ({ user }) => {
                 <p>{user.last_access}</p>
             </td>
         <td>
-            <span>
-               <i className="las la-pen"></i>
-            </span>
-            
-                <span className="">
-                    <i className="las la-toggle-on" ></i>
-                </span>
-           
-         
-
+        {user.activated === 1
+                    ?
+                    <span className={user.email === "admin@infinitysolutions.com" ? "master" : "admin"}>
+                        <i className="las la-toggle-on" onClick={() => desactiveUser(user._id)}></i>
+                    </span>
+                    :
+                    <span className="">
+                        <i className="las la-toggle-off" onClick={() => desactiveUser(user._id)}></i>
+                    </span>
+                }
         </td>
     </tr>
 

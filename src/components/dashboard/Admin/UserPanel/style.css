@@ -1,7 +1,9 @@
 .user{
     visibility: hidden;
 }
-
+.master{
+    visibility: hidden;
+}
 .description{
     padding-left: 5px;
 }
