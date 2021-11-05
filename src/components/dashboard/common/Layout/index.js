@@ -23,6 +23,7 @@ const layout = ({ history, children }) => {
             saveUser(user)
 
         } catch (error) {
+            history.push('/login');
             console.log(error);
         }
     }

@@ -11,7 +11,7 @@ import parse from 'html-react-parser';
 import Swal from 'sweetalert2';
 
 export const TicketDetail = ({ props }) => {
-    
+
     const { idTicket } = props.match.params;
 
     const [addData, saveData] = useState('');
@@ -29,13 +29,11 @@ export const TicketDetail = ({ props }) => {
     });
     const [statuses, saveStatuses] = useState([]);
     const message = {
-        message : 'Chat Elevado Por el administrador <a href="/chat">Click aqui para acceder</a>'
+        message: 'Chat Elevado Por el administrador <a href="/chat">Click aqui para acceder</a>'
     };
     const [response, saveResponse] = useState([]);
 
-    const [room, saveRoom] = useState([]);
-
-    const [auth] = useContext(Context);
+    const user = JSON.parse(sessionStorage.getItem("user"));
 
     const handleChange = (e, editor) => {
         saveData(editor.getData());
@@ -44,13 +42,13 @@ export const TicketDetail = ({ props }) => {
             message: addData
         });
     }
-    
+
     const readStatus = e => {
         saveStatus({
             ...status,
             [e.target.name]: e.target.value
         });
-      
+
     }
 
     const registerReply = async e => {
@@ -64,7 +62,7 @@ export const TicketDetail = ({ props }) => {
                 text: data.message
             });
             getResponse();
-            
+
 
         } catch (error) {
             Swal.fire(
@@ -76,13 +74,9 @@ export const TicketDetail = ({ props }) => {
     }
 
     const ReplyDefault = async e => {
-      
-  
         try {
             const { data } = await apiAxios.post(`/ticket/${idTicket}/response`, message);
-        
-         console.log(data.message);
-            
+
 
         } catch (error) {
             Swal.fire(
@@ -95,8 +89,7 @@ export const TicketDetail = ({ props }) => {
 
     const ElevarChat = async e => {
         e.preventDefault();
-    
-        
+
         try {
             ReplyDefault();
             const { data } = await apiAxios.post(`/admin/chat/activate/${idTicket}`);
@@ -104,12 +97,7 @@ export const TicketDetail = ({ props }) => {
                 icon: 'success',
                 title: 'Elevado Correctamente',
                 text: data.message
-            }
-           
-            );
-        
-           
-
+            });
         } catch (error) {
             Swal.fire(
                 'Error en registro',
@@ -138,7 +126,7 @@ export const TicketDetail = ({ props }) => {
             );
         }
     }
-    
+
     const getResponse = async () => {
         try {
             const { data } = await apiAxios.get(`/ticket/${idTicket}/response`);
@@ -151,33 +139,36 @@ export const TicketDetail = ({ props }) => {
 
     useEffect(() => {
 
-        const getTicket = async () => {
+        if (user) {
 
-            try {
+            const getTicket = async () => {
 
-                const { data } = await apiAxios.get(`/ticket/${idTicket}`);
-                saveTicket(data.ticket);
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getTicket();
-
-  
-        getResponse();
-
-        if (auth.user.auth_level === 2) {
-            const getStatuses = async () => {
                 try {
-                    const { data } = await apiAxios.get(`/status`);
-                    saveStatuses(data.status);
-                    console.log(statuses);
+
+                    const { data } = await apiAxios.get(`/ticket/${idTicket}`);
+                    saveTicket(data.ticket);
+
                 } catch (error) {
                     console.log(error);
                 }
             }
-            getStatuses();
+            getTicket();
+
+
+            getResponse();
+
+            if (user && user.auth_level === 2) {
+                const getStatuses = async () => {
+                    try {
+                        const { data } = await apiAxios.get(`/status`);
+                        saveStatuses(data.status);
+                        console.log(statuses);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+                getStatuses();
+            }
         }
 
     }, [])
@@ -186,7 +177,7 @@ export const TicketDetail = ({ props }) => {
         <main className="body ticket-details">
             <div className="container-fluid mt-100">
                 <div className="row">
-                    <div className={auth.user.auth_level && auth.user.auth_level === 2 ? "col-md-9" : "col-md-12"}>
+                    <div className={user && user.auth_level === 2 ? "col-md-9" : "col-md-12"}>
                         <div className="card ticket-detail mb-4">
                             <div className="card-header ticket-detail">
                                 <div className="media flex-wrap w-100 align-items-center"> <img src={gravatar(ticket.user.email)} className="d-block ui-w-40 rounded-circle" alt="" />
@@ -229,7 +220,7 @@ export const TicketDetail = ({ props }) => {
                         </div>
                     </div>
                     {
-                        auth.user.auth_level && auth.user.auth_level === 2 &&
+                        user && user.auth_level === 2 &&
                         <div className="col-md-3">
                             <div className="card ticket-detail mb-4">
                                 <div className="container-form">
@@ -253,8 +244,8 @@ export const TicketDetail = ({ props }) => {
                         </div>
                     }
 
-{
-                        auth.user.auth_level && auth.user.auth_level === 2 &&
+                    {
+                        user && user.auth_level === 2 &&
                         <div className="col-md-6">
                             <div className="card ticket-detail mb-4">
                                 <div className="container-form">
@@ -264,7 +255,7 @@ export const TicketDetail = ({ props }) => {
 
                                             <br></br>
                                             <button onClick={ElevarChat} type="submit" className="btn btn-primary">Elevar Chat</button>
-                                           
+
                                         </div>
                                     </form>
                                 </div>
@@ -274,14 +265,14 @@ export const TicketDetail = ({ props }) => {
 
                 </div>
             </div>
-                <h3>Respuestas</h3>
+            <h3>Respuestas</h3>
             <br></br>
-                {(response.length != 0) && response.map(ticketResponse => { 
-                    return <TicketResponseRow
-                        key={ticketResponse._id}
-                        ticketResponse={ticketResponse}
-                    />
-                })}
+            {(response.length != 0) && response.map(ticketResponse => {
+                return <TicketResponseRow
+                    key={ticketResponse._id}
+                    ticketResponse={ticketResponse}
+                />
+            })}
         </main>
     )
 }

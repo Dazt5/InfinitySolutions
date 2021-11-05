@@ -17,6 +17,7 @@ const header = ({ user, history }) => {
         });
 
         localStorage.setItem('token', '');
+        sessionStorage.removeItem("user")
         history.push('/login');
     }
 

@@ -18,7 +18,6 @@ const Provider = props => {
         if (token) {
             try {
                 const { data } = await apiAxios.get('/user');
-
                 const {user} = data
 
                 if (user) {
@@ -26,25 +25,23 @@ const Provider = props => {
                         auth: true,
                         token,
                         user
-                    })
+                    });
+                    sessionStorage.setItem("user", JSON.stringify(user));
                 }
-
-
             } catch (error) {
                 console.log(error);
                 localStorage.removeItem('token');
                 saveAuth({
                     token: '',
                     auth: false,
-                    user:{}
-                })
+                    user: {}
+                });
+                sessionStorage.removeItem("user")
             }
         }
     }
 
     useEffect(() => {
-
-
         verifySession();
     }, [])
 

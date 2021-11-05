@@ -7,7 +7,6 @@ export const Sidebar = ({ user }) => {
         return null;
     }
 
-
     return (
         <Fragment>
             <input type="checkbox" id="nav-toggle" />

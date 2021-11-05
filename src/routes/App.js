@@ -56,17 +56,16 @@ const App = () => {
 
     return (
         <Router>
-            <Provider value={[auth, saveAuth]}>
-                <Switch>
-                    {/*Auth Routes */}
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/signup" component={Signup} />
-                    <Route exact path="/activate/:token" component={ActivateAccount} />
-                    <Route exact path="/send/activate" component={ResendActivateAccount} />
-                    <Route exact path="/send/recover" component={SendRecoverAccount} />
-                    <Route exact path="/recover/:token" component={RecoverAccount} />
-                    <Route exact path="/dashboard" component={Dashboard} />
-
+            <Switch>
+                {/*Auth Routes */}
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/signup" component={Signup} />
+                <Route exact path="/activate/:token" component={ActivateAccount} />
+                <Route exact path="/send/activate" component={ResendActivateAccount} />
+                <Route exact path="/send/recover" component={SendRecoverAccount} />
+                <Route exact path="/recover/:token" component={RecoverAccount} />
+                <Provider value={[auth, saveAuth]}>
+                    
                     {/*User Routes and Common Routes*/}
                     <Route exact path="/corporation" component={ListCardCorporation} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
@@ -77,7 +76,8 @@ const App = () => {
                     <Route exact path="/ticket/new" component={NewTicket} />
                     <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
                     <Route exact path="/chat" component={Chat} />
-                
+                    <Route exact path="/dashboard" component={Dashboard} />
+                    
                     {/*Admin Routes*/}
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
@@ -93,8 +93,9 @@ const App = () => {
                     <Route exact path="/admin/faq/edit/:idFaq" component={editFaq} />
                     <Route exact path="/admin/user" component={AdminUserForm} />
                     <Route exact path="/admin/chats" component={Chats} />
-                </Switch>
-            </Provider>
+                </Provider>
+            </Switch>
+
         </Router>
     )
 }
