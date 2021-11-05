@@ -23,9 +23,12 @@ export const Messenger = () => {
     e.preventDefault();
     try {
       const res = await apiAxios.post('/chat', { message });
+      saveMessage('');
     } catch (error) {
       console.log(error);
+    
     }
+    saveMessage('');
   }
 
   socket.on(`room-${idRoom}`, messages => {
@@ -56,6 +59,7 @@ export const Messenger = () => {
       <div>
         <div className="chatBoxBottom">
           <textarea
+          value={message}
             className="chatMessageInput"
             placeholder="Escribe Algo..."
             onChange={(e) => saveMessage(e.target.value)}

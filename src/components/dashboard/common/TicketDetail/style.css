@@ -65,7 +65,15 @@
     flex: 1 1 auto;
     padding: 1.25rem
 }
-
+.messi{
+    margin-bottom: 40px;
+    
+    
+}
+.divi{
+    border-right: 1px solid grey;
+    height: 100px;
+}
 .card-body p {
     font-size: 13px
 }
@@ -75,7 +83,9 @@
     padding: 10px;
 }
 
-
+.Container-reply{
+    background-color: #1D2231;
+}
 .media img {
     width: 40px;
     height: 40px
@@ -85,4 +95,20 @@ i.las p{
     display: inline;
     color: white;
     font-size: 16px;
+}
+.InfoUser{
+    margin-top: 10px;
+    margin-left: 25px;
+   min-height: 175px;
+ 
+}
+.top{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.top h5{
+margin-left: 10px;
+}
+
+.reply{
+    margin-top: 4%;
 }

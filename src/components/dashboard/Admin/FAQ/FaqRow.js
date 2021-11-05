@@ -17,23 +17,33 @@ const FaqRow = ({ faq }) => {
     }
     return (
         <tr>
-            <td></td>
-            <td><a className="ticket-link" href="#">
-                <h4>{faq.title}</h4>
-            </a>
-            </td>
-            <br />
-            <td className="description">{faq.description}</td>
-            <div className={user && user.auth_level === 2 ? "admin" : "user"}>
-                <td><span>
-                    <Link to={`/admin/faq/edit/${faq._id}`}><i className="las la-pen"></i></Link>
-                </span></td>
-                <td >
-                    <span >
-                        <i className="las la-trash-alt" onClick={() => deletefaq()} ></i>
-                    </span>
-                </td>
+
+            <div className="row">
+
+                <div className="col-sm-12">
+                    <h4 className="mb-0">{faq.title}</h4>
+                </div>
+
             </div>
+
+
+            <div className="row">
+                <div className="col-sm-12 text-secondary">
+                    <td>{faq.description}</td>
+                    <div className={user.auth_level === 2 ? "admin" : "user"}>
+                        <td><span>
+                            <Link to={`/admin/faq/edit/${faq._id}`}><i className="las la-pen"></i></Link>
+                        </span></td>
+                        <td >
+                            <span >
+                                <i className="las la-trash-alt" onClick={() => deletefaq()} ></i>
+                            </span>
+                        </td>
+
+                    </div>
+                </div>
+            </div>
+
         </tr>
     )
 
