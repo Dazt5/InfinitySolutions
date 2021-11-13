@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../../../assets/static/logo-blanco.png';
+import Logosmall from '../../../../assets/static/logo-small.png';
 
 export const Sidebar = ({ user }) => {
 
@@ -12,7 +14,7 @@ export const Sidebar = ({ user }) => {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <h2><span className="las la-infinity"></span> <span>Infinity Solutions</span></h2>
+                <img src={Logo} alt="Logo infinity Solutions" />
                 </div>
 
                 <div className="sidebar-menu">

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Swal from 'sweetalert2';
 import { Link, withRouter } from 'react-router-dom';
 import { Context } from '../../../context/Context';
-
+import './style.css';
 import { apiAxios } from '../../../config/api';
 
 const Login = props => {
@@ -45,9 +45,9 @@ const Login = props => {
     }
 
     return (
-        <form onSubmit={login}>
+        <form  className="colors" onSubmit={login}>
             <section className="copy">
-                <h2>Iniciar sesion</h2>
+                <h2>INICIAR SESIÓN</h2>
                 <div className="login-container">
                     <p>¿No estas registrado? <Link to={"/signup"}> <strong>Registrate</strong> </Link> </p>
                     <p>¿Su cuenta está desactivada? <Link to={"/send/activate"}> <strong>Active su cuenta</strong> </Link> </p>
@@ -55,12 +55,13 @@ const Login = props => {
             </section>
 
             <div className="input-container email">
-                <label>Correo Electronico</label>
+                <label>Correo Electrónico</label>
                 <input
                     type="email"
                     id="email"
                     name="email"
                     onChange={readData}
+            
                 />
             </div>
 
@@ -73,7 +74,7 @@ const Login = props => {
                     placeholder="Minimo 8 caracteres"
                     onChange={readData}
                 />
-                <i className="far fa-eye-slash"></i>
+                
             </div>
 
             <button
@@ -84,7 +85,7 @@ const Login = props => {
             </button>
             <section className="copy">
                 <div className="login-container">
-                    <p> <Link to={"/send/recover"}> <strong>He olvidado mi contraseña</strong> </Link> </p>
+                    <p> <Link to={"/send/recover"}> <strong>¿He olvidado mi contraseña?</strong> </Link> </p>
                 </div>
             </section>
         </form>

@@ -1,5 +1,5 @@
 :root {
-    --main-color: #0c0f13;
+    --main-color: #1D2231;
     --body-color:#0B0C10;
     --color-dark: #1D2231;
     --text-grey: #8390A2;
@@ -138,7 +138,7 @@ button{
 
 /*Header brand superior*/
 header {
-    background: var(--main-color);
+    background: #06266D;
     display: flex;
     justify-content: space-between;
     padding: 1rem 1.5rem;
@@ -535,17 +535,20 @@ td .status{
 .fl-table td {
     border-right: 1px solid #1D2231;
     font-size: 16px;
+    color: #ffff;
 }
 
 .fl-table thead th {
     color: #ffffff;
     background: #1D2231;
+    font-size: 16px;
 
 }
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
     background: #0c0f13;
+    font-size: 16px;
 
 }
 
@@ -801,6 +804,7 @@ form input[type="file"]{
     border:none;
     cursor: pointer;
     width: 60%;
+    height: 45px;
 }
 
 form .button-form input{
@@ -813,6 +817,7 @@ form .button-form input{
     letter-spacing: 1px;
     background: var(--body-color);
     cursor: pointer;
+    height: 60px;
 }
 
 form .button-form input:hover{

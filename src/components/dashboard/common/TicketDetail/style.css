@@ -65,7 +65,7 @@
     flex: 1 1 auto;
     padding: 1.25rem
 }
-.messi{
+.Response{
     margin-bottom: 40px;
     
     
@@ -83,8 +83,15 @@
     padding: 10px;
 }
 
-.Container-reply{
+.Container-reply-user{
+    background-color: #06266D;
+    height: auto;
+    width: 100%;
+}
+.Container-reply-admin{
     background-color: #1D2231;
+    height: auto;
+    width: 100%;
 }
 .media img {
     width: 40px;
@@ -99,8 +106,8 @@ i.las p{
 .InfoUser{
     margin-top: 10px;
     margin-left: 25px;
-   min-height: 175px;
- 
+  
+
 }
 .top{
     background-color: rgba(0, 0, 0, 0.2);
@@ -108,7 +115,34 @@ i.las p{
 .top h5{
 margin-left: 10px;
 }
-
 .reply{
-    margin-top: 4%;
+    margin-top: 2%;
+    
 }
+.replybox{
+    border-left: grey 1px solid;
+   
+}
+@media (max-width:600px) {
+  .InfoUser{
+    
+     width: 30%;
+  }
+  .replybox h3{
+      font-size: 15pt;
+    
+      padding-top: 15%;
+  }
+  .replybox{
+      width:70%;
+      border-left: none;
+  
+  }
+  .col-sm-2{
+      max-width: 50%;
+  }
+  .col-sm-10{
+max-width:50% ;
+  }
+}
+

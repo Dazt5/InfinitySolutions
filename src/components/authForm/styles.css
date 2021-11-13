@@ -14,6 +14,7 @@ form input {
     padding: 1em;
     margin-bottom: 1.25rem;
     font-size: 1rem;
+    height: 25px;
 }
 
 label {
@@ -21,6 +22,7 @@ label {
     margin-bottom: 0.5rem;
     font-size: 0.75rem;
     color: var(--text-white);
+    color: grey;
 }
 
 .input-container.password {
@@ -90,16 +92,20 @@ label {
 
 .signup-btn {
     display: block;
-    width: 100%;
+margin-left: 70px;
+    width: 50%;
     background: var(--btnPrimary);
     color: white;
-    font-weight: 700;
+    font-weight: 200;
+    text-align: center;
     border: none;
-    padding: 1rem;
+ 
+    margin-top: 15px;
     border-radius: 8px;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    height: 25px;
 }
 
 .signup-btn:hover {
