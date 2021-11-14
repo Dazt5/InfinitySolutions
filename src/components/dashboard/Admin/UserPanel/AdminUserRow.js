@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.css";
+import dayjs from 'dayjs';
 export const AdminUserRow = ({ user,desactiveUser }) => {
 
 
@@ -24,11 +25,11 @@ export const AdminUserRow = ({ user,desactiveUser }) => {
             </td>
 
             <td>
-                <p>{user.create_at}</p>
+                <p>{dayjs(user.create_at).format('DD/MM/YYYY h:mm A')}</p>
             </td>
 
             <td>
-                <p>{user.last_access}</p>
+                <p>{dayjs(user.last_access).format('DD/MM/YYYY h:mm A')}</p>
             </td>
         <td>
         {user.activated === 1

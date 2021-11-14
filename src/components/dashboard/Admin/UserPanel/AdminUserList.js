@@ -42,11 +42,6 @@ console.log(users);
                 <div className="card-header">
                     <h2>Usuarios registrados</h2>
                     <Link to={"/admin/user"} className="btn btn-secondary">Crear Nuevo Admin</Link>
-                    {/*
-            <Link to={'/admin/corporation/new'}><button className="header-button">Agregar una<span className="las-la-arrow-right">
-
-                    </span> </button></Link>
-                */}
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
