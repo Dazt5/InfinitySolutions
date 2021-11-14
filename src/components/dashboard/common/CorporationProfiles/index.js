@@ -12,7 +12,9 @@ export const CorporationProfiles = ({ props }) => {
     const [corporation, saveCorporation] = useState({});
     const [contactInfo, saveContactInfo] = useState([]);
     const [faq, saveFaq] = useState([]);
- 
+
+    const user = JSON.parse(sessionStorage.getItem("user"));
+
     useEffect(() => {
 
         const getCorporationData = async () => {
@@ -31,7 +33,7 @@ export const CorporationProfiles = ({ props }) => {
             try {
 
                 const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
-                
+
                 saveFaq(data.faq);
 
             } catch (error) {
@@ -62,8 +64,10 @@ export const CorporationProfiles = ({ props }) => {
                                             <p className="text-secondary mb-1">{corporation.description}</p>
                                             <Link to={`/ticket/new/${corporation._id}`}><button className="btn btn-primary">Crear Ticket</button></Link>
                                             <Link to={`/ticket/`}><button className="btn btn-outline-primary">Mis Tickets</button></Link>
-                                            <Link to={`/admin/faq/new/${corporation._id}`}><button className="btn btn-outline-primary">Agregar FAQ</button></Link>
-                      
+                                            {
+                                                user && user.auth_level == 2 &&
+                                                <Link to={`/admin/faq/new/${corporation._id}`}><button className="btn btn-outline-primary">Agregar FAQ</button></Link>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -89,31 +93,31 @@ export const CorporationProfiles = ({ props }) => {
                         </div>
 
                         <div className="col-md-12">
-                            <br/>
+                            <br />
                         </div>
-                        
+
                         <div className="col-md-12">
                             <div className="card mb-3">
                                 <div className="card-body">
                                     <h2 className="text-center">Preguntas frecuentes</h2>
                                     <div className="questions">
                                         <div className="row">
-                                        <div className="col-sm-12">
-                                        <tbody>
-                                    {faq.map(faq => (
-                                        <FaqRow
-                                            key={faq._id}
-                                            faq={faq} />
-                                    ))}
-                                </tbody>
+                                            <div className="col-sm-12">
+
+                                                {faq.map(faq => (
+                                                    <FaqRow
+                                                        key={faq._id}
+                                                        faq={faq} />
+                                                ))}
+
                                             </div>
-                                           
+
                                         </div>
 
-                                       
+
                                     </div>
 
-                                   
+
                                 </div>
                             </div>
                         </div>
