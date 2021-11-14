@@ -102,7 +102,7 @@ export const changeinfo = ({props}) => {
                                 required />
                         </div>
                         <div className="input-box">
-                            <span className="details">Nombre </span>
+                            <span className="details">Apellido</span>
                             <input
                                 type="text"
                                 name="lastname"
