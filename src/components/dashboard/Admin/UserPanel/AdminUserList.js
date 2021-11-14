@@ -15,13 +15,13 @@ export const AdminUserList = () => {
 
     useEffect(() => {
 
-     
+
 
         getAllUsers();
 
     }, [])
 
-    
+
     const desactiveUser = async (userid) => {
 
         try {
