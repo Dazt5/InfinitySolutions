@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Context } from '../../../../context/Context';
 import adminIcon from '../../../../assets/static/admin.png';
@@ -6,10 +6,11 @@ import userIcon from '../../../../assets/static/user.jpg';
 import gravatar from '../../../../utils/gravatar';
 
 
-const header = ({ user, history }) => {
+const header = ({ user, history, toggleMenu }) => {
 
-    const [auth,saveAuth] = useContext(Context);
-
+    const [auth, saveAuth] = useContext(Context);
+    
+    
     const logout = () => {
         saveAuth({
             auth: false,
@@ -21,13 +22,14 @@ const header = ({ user, history }) => {
         history.push('/login');
     }
 
+
+
     return (
         <header>
-            <h2>
+            <h2 className="header-menu">
                 <label htmlFor="nav-toggle">
-                    <span className="nav-menu las la-bars"></span>
+                    <span className="nav-menu las la-bars" onClick={toggleMenu}></span>
                 </label>
-                Dashboard
             </h2>
           
             <div className="user-wrapper">

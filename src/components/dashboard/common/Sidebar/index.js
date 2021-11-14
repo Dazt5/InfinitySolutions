@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../../../assets/static/logo-blanco.png';
 import Logosmall from '../../../../assets/static/logo-small.png';
 
-export const Sidebar = ({ user }) => {
+export const Sidebar = ({ user, stateMenu }) => {
 
     if (!user) {
         return null;
@@ -14,7 +14,12 @@ export const Sidebar = ({ user }) => {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                <img src={Logo} alt="Logo infinity Solutions" />
+                    {stateMenu ?
+                        <img src={Logosmall} alt="Logo infinity Solutions" />
+                        :
+                        <img src={Logo} alt="Logo pequeño infinity Solutions" />
+                    }
+
                 </div>
 
                 <div className="sidebar-menu">
@@ -97,7 +102,7 @@ export const Sidebar = ({ user }) => {
                             </Fragment>
                         }
 
-                        
+
 
                     </ul>
                 </div>

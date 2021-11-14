@@ -13,7 +13,14 @@ const layout = ({ history, children }) => {
         name: '...',
         lastname: '...'
     });
+
+    const [stateMenu, setMenu] = useState(false);
  
+    const toggleMenu = () => {
+        setMenu(!stateMenu);
+        console.log("le di al menú")
+    }
+
     const getUser = async () => {
         try {
             const { data } = await apiAxios.get('/user');
@@ -36,9 +43,14 @@ const layout = ({ history, children }) => {
     return (
 
         <Fragment>
-            <Sidebar user={user} />
+            <Sidebar
+                user={user}
+                stateMenu={stateMenu}
+            />
             <div className="main-content">
-                <Header user={user} />
+                <Header user={user}
+                toggleMenu={toggleMenu}
+                />
                 {children}
             </div>
         </Fragment>

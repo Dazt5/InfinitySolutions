@@ -863,3 +863,16 @@ form .button-form input:hover{
     font-size: .9rem;
     color: white;
 }
+
+.las.la-bars{
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.header-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
