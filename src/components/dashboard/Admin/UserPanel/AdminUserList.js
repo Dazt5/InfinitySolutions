@@ -35,12 +35,11 @@ export const AdminUserList = () => {
         }
     }
 
-console.log(users);
     return (
         <main>
             <div className="card-table">
                 <div className="card-header">
-                    <h2>Usuarios registrados</h2>
+                    <h2>Administradores registrados</h2>
                     <Link to={"/admin/user"} className="btn btn-secondary">Crear Nuevo Admin</Link>
                 </div>
                 <div className="card-body">
