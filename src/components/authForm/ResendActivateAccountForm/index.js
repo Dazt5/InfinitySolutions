@@ -37,9 +37,9 @@ export const ResendActivateAccountForm = () => {
         <Fragment>
             <form onSubmit={sendLink}>
                 <section className="copy">
-                    <h2>Ingrese su email</h2>
+                    <h2 className="authText">Ingrese su email</h2>
                     <div className="login-container">
-                        <p>Ingrese el email registrado para reenvíar el link de activación</p>
+                        <p className="authText">Ingrese el email registrado para reenvíar el link de activación</p>
                     </div>
                 </section>
 

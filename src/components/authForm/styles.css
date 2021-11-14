@@ -1,8 +1,12 @@
 :root {
-    --text-white: #ffffff;
+    --text-black: #000000;
     --secondary: #8899A6;
     --btnPrimary: #404040;
     --btnHover: #282828;
+}
+
+h1{
+    color: #000;
 }
 
 form input {
@@ -20,9 +24,18 @@ form input {
 label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 0.75rem;
-    color: var(--text-white);
-    color: grey;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+
+}
+
+.authText{
+    color: #000;
+}
+
+.small{
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .input-container.password {

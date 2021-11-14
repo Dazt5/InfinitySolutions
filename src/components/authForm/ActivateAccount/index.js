@@ -46,12 +46,12 @@ export const ActivateAcc = ({token,history}) => {
             {activate ?
                 <div class="success-msg">
                     <i class="fa fa-check"></i>
-                    Su cuenta ha sido activada satisfactoriamente
+                    <p className="authText">Su cuenta ha sido activada satisfactoriamente</p>
                 </div>
                 :
                 <div class="error-msg">
                     <i class="fa fa-times-circle"></i>
-                    No se ha podido activar su cuenta
+                    <p className="authText">No se ha podido activar su cuenta</p>
                 </div>
             }
         </Fragment>

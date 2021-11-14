@@ -49,8 +49,8 @@ const Login = props => {
             <section className="copy">
                 <h2>INICIAR SESIÓN</h2>
                 <div className="login-container">
-                    <p>¿No estas registrado? <Link to={"/signup"}> <strong>Registrate</strong> </Link> </p>
-                    <p>¿Su cuenta está desactivada? <Link to={"/send/activate"}> <strong>Active su cuenta</strong> </Link> </p>
+                    <p className="authText">¿No estas registrado? <Link to={"/signup"}> <strong>Registrate</strong> </Link> </p>
+                    <p className="authText">¿Su cuenta está desactivada? <Link to={"/send/activate"}> <strong>Active su cuenta</strong> </Link> </p>
                 </div>
             </section>
 
@@ -85,7 +85,7 @@ const Login = props => {
             </button>
             <section className="copy">
                 <div className="login-container">
-                    <p> <Link to={"/send/recover"}> <strong>¿He olvidado mi contraseña?</strong> </Link> </p>
+                    <p className="authText"> <Link to={"/send/recover"}> <strong>¿He olvidado mi contraseña?</strong> </Link> </p>
                 </div>
             </section>
         </form>

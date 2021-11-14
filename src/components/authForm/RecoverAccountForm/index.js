@@ -69,7 +69,7 @@ export const RecoverAccountForm = ({props}) => {
                 ?
                 <form onSubmit={recoverPassword}>
                     <section className="copy">
-                        <h2>Recuperación de Contraseña</h2>
+                        <h2 className="authText">Recuperación de Contraseña</h2>
                         <div className="login-container">
                             <p></p>
                         </div>
@@ -84,7 +84,6 @@ export const RecoverAccountForm = ({props}) => {
                             placeholder="Minimo 8 caracteres"
                             onChange={readData}
                         />
-                        <i className="far fa-eye-slash"></i>
                     </div>
 
                     <div className="input-container password">
@@ -96,7 +95,6 @@ export const RecoverAccountForm = ({props}) => {
                             placeholder="Minimo 8 caracteres"
                             onChange={readData}
                         />
-                        <i className="far fa-eye-slash"></i>
                     </div>
 
                     <button className="signup-btn" type="submit">
