@@ -50,7 +50,7 @@ export const CorporationProfiles = ({ props }) => {
                 <div className="main-body">
                     <nav aria-label="breadcrumb" className="main-breadcrumb">
                         <ol className="breadcrumb">
-                            <li className="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li className="breadcrumb-item"><a href="/corporation">Home</a></li>
                             <li className="breadcrumb-item active" aria-current="page">User Profile</li>
                         </ol>
                     </nav>
