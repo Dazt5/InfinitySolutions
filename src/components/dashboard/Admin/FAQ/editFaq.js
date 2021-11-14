@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { apiAxios,config } from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 
 
 
 export const editFaqForm = ({props}) => {
 
     const {idFaq} = props.match.params;
-  
-
   
     const [Faq, saveFaq] = useState({
         title: '',
@@ -24,7 +22,6 @@ export const editFaqForm = ({props}) => {
         e.preventDefault();
 
         try {
-
             const {data} = await apiAxios.put(`/corporation/FAQ/${idFaq}`, Faq);
 
             Swal.fire({
@@ -43,12 +40,7 @@ export const editFaqForm = ({props}) => {
             );
             
         }
-       
-  
-
     }
-
-   
 
     const readData = e => {
 

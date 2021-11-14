@@ -15,6 +15,18 @@ export const CorporationProfiles = ({ props }) => {
 
     const user = JSON.parse(sessionStorage.getItem("user"));
 
+    const Faqs = async () => {
+        try {
+
+            const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
+
+            saveFaq(data.faq);
+
+        } catch (error) {
+            console.log(error.request);
+        }
+    }
+
     useEffect(() => {
 
         const getCorporationData = async () => {
@@ -29,17 +41,7 @@ export const CorporationProfiles = ({ props }) => {
 
         getCorporationData();
 
-        const Faqs = async () => {
-            try {
 
-                const { data } = await apiAxios.get(`/corporation/${idCorporation}/FAQ`);
-
-                saveFaq(data.faq);
-
-            } catch (error) {
-                console.log(error.request);
-            }
-        }
         Faqs();
     }, []);
     return (
@@ -107,7 +109,9 @@ export const CorporationProfiles = ({ props }) => {
                                                 {faq.map(faq => (
                                                     <FaqRow
                                                         key={faq._id}
-                                                        faq={faq} />
+                                                        faq={faq}
+                                                        getFaqs={Faqs}
+                                                        />
                                                 ))}
 
                                             </div>

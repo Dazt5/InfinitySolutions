@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { apiAxios, config } from '../../../../config/api';
 import { Link, withRouter } from 'react-router-dom';
 import './style.css';
-const FaqRow = ({ faq }) => {
+const FaqRow = ({ faq, getFaqs }) => {
 
     const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -10,6 +10,7 @@ const FaqRow = ({ faq }) => {
         try {
 
             await apiAxios.delete(`/corporation/FAQ/${faq._id}`);
+            getFaqs();
 
         } catch (error) {
             console.log(error);
