@@ -15,11 +15,12 @@ const layout = ({ history, children }) => {
     });
 
     const [stateMenu, setMenu] = useState(false);
- 
+
     const toggleMenu = () => {
         setMenu(!stateMenu);
-        console.log("le di al menú")
     }
+
+    const storedUser = JSON.parse(sessionStorage.getItem("user"));
 
     const getUser = async () => {
         try {
@@ -36,9 +37,11 @@ const layout = ({ history, children }) => {
     }
 
     useEffect(() => {
-
-        getUser();
-
+        if (storedUser) {
+            saveUser(storedUser);
+        } else {
+            getUser();
+        }
     }, []);
     return (
 
@@ -49,7 +52,7 @@ const layout = ({ history, children }) => {
             />
             <div className="main-content">
                 <Header user={user}
-                toggleMenu={toggleMenu}
+                    toggleMenu={toggleMenu}
                 />
                 {children}
             </div>
