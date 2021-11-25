@@ -2,13 +2,15 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Layout, Changeinfo } from '../components/dashboard';
 
-const ChangeProfile = () => {
+const ChangeProfile = (props ) => {
     return (
         <Layout>
             <main>
-         <Changeinfo/>
-              </main>
-        
+                <Changeinfo
+                    props={props}
+                />
+            </main>
+
         </Layout>
     )
 }

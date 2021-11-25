@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { apiAxios, config } from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 
 export const changeinfo = ({ props }) => {
 
     const [Info, saveInfo] = useState({
-
         name: '',
         lastname: '',
         phone_number: ''
-
     });
-    const [Infos, saveInfos] = useState({});
+ 
+    const actualInfo = async () => {
+        const { data } = await apiAxios.get(`/user`)
+
+        const { name, lastname, phone_number } = data.user;
+
+        saveInfo({ name, lastname, phone_number });
+    }
+
+    useEffect(() => {
+
+        actualInfo();
+
+    }, []);
 
     const editInfo = async e => {
         e.preventDefault();
@@ -26,7 +37,10 @@ export const changeinfo = ({ props }) => {
                 text: data.message
             });
 
+            props.history.push("/dashboard");
+
         } catch (error) {
+            console.log(error.request);
             Swal.fire(
                 'Error en registro',
                 error.response.data.message,
@@ -41,28 +55,9 @@ export const changeinfo = ({ props }) => {
             ...Info,
             [e.target.name]: e.target.value
         });
-        saveInfos({
-
-            ...Infos,
-            [e.target.name]: e.target.value
-
-
-        });
-
-        console.log(Info);
     }
 
-    useEffect(() => {
 
-        const actualInfo = async () => {
-            const { data } = await apiAxios.get(`/user`)
-
-            saveInfos(data.user)
-        }
-
-        actualInfo();
-
-    }, [])
 
     return (
         <div className="container-form">
@@ -78,7 +73,7 @@ export const changeinfo = ({ props }) => {
                             name="name"
                             placeholder="title C.A"
                             onChange={readData}
-                            value={Infos.name}
+                            value={Info.name}
                             required />
                     </div>
                     <div className="input-box">
@@ -88,7 +83,7 @@ export const changeinfo = ({ props }) => {
                             name="lastname"
                             placeholder="title C.A"
                             onChange={readData}
-                            value={Infos.lastname}
+                            value={Info.lastname}
                             required />
                     </div>
                     <div className="input-box">
@@ -97,7 +92,7 @@ export const changeinfo = ({ props }) => {
                             type="text"
                             name="phone_number"
                             placeholder="0414-777777"
-                            value={Infos.phone_number}
+                            value={Info.phone_number}
                             onChange={readData}
                             required />
                     </div>

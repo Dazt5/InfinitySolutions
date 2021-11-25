@@ -20,8 +20,6 @@ const layout = ({ history, children }) => {
         setMenu(!stateMenu);
     }
 
-    const storedUser = JSON.parse(sessionStorage.getItem("user"));
-
     const getUser = async () => {
         try {
             const { data } = await apiAxios.get('/user');
@@ -37,11 +35,9 @@ const layout = ({ history, children }) => {
     }
 
     useEffect(() => {
-        if (storedUser) {
-            saveUser(storedUser);
-        } else {
-            getUser();
-        }
+
+        getUser();
+
     }, []);
     return (
 
