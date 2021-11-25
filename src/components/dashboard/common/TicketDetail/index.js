@@ -201,13 +201,18 @@ export const TicketDetail = ({ props }) => {
                                 }
                                 <div className="px-4 pt-3"> <button onClick={registerReply} type="submit" className="btn btn-primary">Reply</button> </div>
                             </div>
-                            <div className="black-text">
-                                <CKEditor
-                                    editor={ClassicEditor}
-                                    data={addData}
-                                    onChange={(e, editor) => { handleChange(e, editor) }}
-                                />
-                            </div>
+
+                            {ticket.status.name === "waiting" &&
+
+                                <div className="black-text">
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={addData}
+                                        onChange={(e, editor) => { handleChange(e, editor) }}
+                                    />
+                                </div>
+                            }
+
 
 
                         </div>
@@ -229,7 +234,7 @@ export const TicketDetail = ({ props }) => {
                                                         {
                                                             status.name === "waiting" ? "En espera" :
                                                                 status.name === "success" ? "Solucionado" :
-                                                                    status.name==="rejected" && "Rechazado"
+                                                                    status.name === "rejected" && "Rechazado"
                                                         }
                                                     </option>
                                                 ))}
