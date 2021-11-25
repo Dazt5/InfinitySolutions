@@ -26,9 +26,7 @@ export const TicketDetail = ({ props }) => {
         status: {}
     });
     const [statuses, saveStatuses] = useState([]);
-    const message = {
-        message: 'Chat Elevado Por el administrador <a href="/chat">Click aqui para acceder</a>'
-    };
+
     const [response, saveResponse] = useState([]);
 
     const user = JSON.parse(sessionStorage.getItem("user"));
@@ -72,25 +70,10 @@ export const TicketDetail = ({ props }) => {
         saveData('');
     }
 
-    const ReplyDefault = async e => {
-        try {
-            const { data } = await apiAxios.post(`/ticket/${idTicket}/response`, message);
-
-
-        } catch (error) {
-            Swal.fire(
-                'Error en registro',
-                error.response.data.message,
-                'error'
-            );
-        }
-    }
-
     const ElevarChat = async e => {
         e.preventDefault();
 
         try {
-            ReplyDefault();
             const { data } = await apiAxios.post(`/admin/chat/activate/${idTicket}`);
             Swal.fire({
                 icon: 'success',
@@ -99,7 +82,7 @@ export const TicketDetail = ({ props }) => {
             });
         } catch (error) {
             Swal.fire(
-                'Error en registro',
+                'Ha ocurrido un error',
                 error.response.data.message,
                 'error'
             );
@@ -242,7 +225,13 @@ export const TicketDetail = ({ props }) => {
                                             <select onChange={readStatus} name="idNewStatus" >
                                                 <option value="">Seleccione un estado</option>
                                                 {statuses.map(status => (
-                                                    <option key={status._id} value={status._id}>{status.name}</option>
+                                                    <option key={status._id} value={status._id}>
+                                                        {
+                                                            status.name === "waiting" ? "En espera" :
+                                                                status.name === "success" ? "Solucionado" :
+                                                                    status.name==="rejected" && "Rechazado"
+                                                        }
+                                                    </option>
                                                 ))}
                                             </select>
                                             <br></br>
