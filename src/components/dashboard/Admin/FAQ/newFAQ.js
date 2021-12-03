@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios } from '../../../../config/api';
 
-const faqForm = ({ props }) => {
+const FaqForms = ({ props }) => {
 
     const { idCorporation } = props.match.params;
 
@@ -98,4 +98,4 @@ const faqForm = ({ props }) => {
     )
 }
 
-export const NewFaqForm = withRouter(faqForm)
+export const NewFaqForm = withRouter(FaqForms)

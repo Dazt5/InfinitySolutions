@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios,config } from '../../../../config/api';
 
-export const editCorporationForm = ({props}) => {
+export const EditCorporationForms = ({props}) => {
 
     const { id } = props.match.params;
 
@@ -149,4 +149,4 @@ export const editCorporationForm = ({props}) => {
 
 }
 
-export const EditCorporationForm = withRouter(editCorporationForm)
+export const EditCorporationForm = withRouter(EditCorporationForms)

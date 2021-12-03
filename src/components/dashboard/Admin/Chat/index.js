@@ -1,2 +1,2 @@
-export * from './ChatsPanel/'
 import './styles.css';
+export * from './ChatsPanel/'

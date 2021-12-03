@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios } from '../../../../config/api';
 
-export const changeinfo = ({ props }) => {
+export const Changeinfos = ({ props }) => {
 
     const [Info, saveInfo] = useState({
         name: '',
@@ -111,4 +111,4 @@ export const changeinfo = ({ props }) => {
 
 }
 
-export const Changeinfo = withRouter(changeinfo)
+export const Changeinfo = withRouter(Changeinfos)

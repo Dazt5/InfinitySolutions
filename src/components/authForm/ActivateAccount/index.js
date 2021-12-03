@@ -38,7 +38,7 @@ export const ActivateAcc = ({token,history}) => {
         }
 
         activateAccount();
-
+// eslint-disable-next-line
     }, [token]);
 
     return (

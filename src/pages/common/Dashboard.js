@@ -23,16 +23,11 @@ const Dashboard = (props) => {
             } catch (error) {
                 console.log(error);
                 localStorage.removeItem('token');
-                saveAuth({
-                    token: '',
-                    auth: false,
-                    user:{}
-                })
             }
         }
 
         getUser();
-
+// eslint-disable-next-line
     }, []);
 
     return (
