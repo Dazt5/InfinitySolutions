@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { apiAxios } from '../../../config/api';
-import socket from '../../../utils/socket';
+import {socketConnection} from '../../../utils/socket';
 import { Message } from '../message/'
 
 export const Messenger = () => {
@@ -31,7 +31,7 @@ export const Messenger = () => {
     saveMessage('');
   }
 
-  socket.on(`room-${idRoom}`, messages => {
+  socketConnection.on(`room-${idRoom}`, messages => {
     setMessages(messages);
   });
 

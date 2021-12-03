@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 import { Room } from './Room';
-import socket from '../../../../../utils/socket';
+import {socketConnection} from '../../../../../utils/socket';
 
 export const ChatsRooms = ({selectRoom}) => {
 
@@ -22,7 +22,7 @@ export const ChatsRooms = ({selectRoom}) => {
 
         getRooms();
 
-        socket.on("salas", salas => {
+        socketConnection.on("salas", salas => {
             setRooms(salas);
         })
 

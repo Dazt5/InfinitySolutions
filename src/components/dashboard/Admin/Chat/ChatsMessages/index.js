@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
-import socket from '../../../../../utils/socket';
+import {socketConnection} from '../../../../../utils/socket';
 import { Message } from './Message';
 
 export const ChatsMessages = ({ idRoom }) => {
@@ -22,7 +22,7 @@ export const ChatsMessages = ({ idRoom }) => {
 
         getMessages();
 
-        socket.on(`room-${idRoom}`, messages => {
+        socketConnection.on(`room-${idRoom}`, messages => {
             setMessages(messages);
           });
 
