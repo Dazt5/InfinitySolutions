@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../config/api';
 import {socketConnection} from '../../../utils/apisocket';
 import { Message } from '../message/'
@@ -22,7 +22,7 @@ export const Messenger = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await apiAxios.post('/chat', { message });
+      await apiAxios.post('/chat', { message });
       saveMessage('');
     } catch (error) {
       console.log(error);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { apiAxios, config } from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 
 import './style.css';
 import gravatar from '../../../../utils/gravatar';
@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 export const UserProfiles = ({ props }) => {
 
     const { idUser } = props.match.params;
-   
+   // eslint-disable-next-line
     const [user, saveUser] = useState({});
     const [userr, saveUserr] = useState({});
    
@@ -46,7 +46,7 @@ export const UserProfiles = ({ props }) => {
             }
         }
         getUser();
-
+// eslint-disable-next-line
     }, []);
     console.log(userr);
     return (

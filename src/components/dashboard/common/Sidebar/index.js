@@ -31,7 +31,7 @@ export const Sidebar = ({ user, stateMenu }) => {
                             </Link>
                         </li>
                         <li>
-                            {user && user.auth_level == 2
+                            {user && user.auth_level === 2
                                 &&
                                 <Link to={"/admin/ticket"}>
                                     <span className="las la-users"></span>
@@ -63,7 +63,7 @@ export const Sidebar = ({ user, stateMenu }) => {
                             }
                         </li>
 
-                        {user && user.auth_level == 2 &&
+                        {user && user.auth_level === 2 &&
                             <Fragment>
                                 <li>
                                     <Link to={"/admin/document"}>
@@ -80,7 +80,7 @@ export const Sidebar = ({ user, stateMenu }) => {
                             </Fragment>
                         }
 
-                        {user && user.auth_level == 2 &&
+                        {user && user.auth_level === 2 &&
                             <Fragment>
                                 <li>
                                     <Link to={"/admin/adminusers"}>
@@ -91,7 +91,7 @@ export const Sidebar = ({ user, stateMenu }) => {
                             </Fragment>
                         }
 
-                        {user && user.auth_level == 2 &&
+                        {user && user.auth_level === 2 &&
                             <Fragment>
                                 <li>
                                     <Link to={"/admin/chats"}>
@@ -101,9 +101,6 @@ export const Sidebar = ({ user, stateMenu }) => {
                                 </li>
                             </Fragment>
                         }
-
-
-
                     </ul>
                 </div>
             </div>

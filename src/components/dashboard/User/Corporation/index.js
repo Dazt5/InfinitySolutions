@@ -1,2 +1,2 @@
-export * from './ListCorporation/'
 import './styles.css';
+export * from './ListCorporation/'

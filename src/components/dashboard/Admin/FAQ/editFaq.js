@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios } from '../../../../config/api';
 
-export const editFaqForm = ({ props }) => {
+export const EditFaqForms = ({ props }) => {
     const { idFaq } = props.match.params;
 
     const [Faq, saveFaq] = useState({
@@ -109,4 +109,4 @@ export const editFaqForm = ({ props }) => {
 
 }
 
-export const EditFaqForm = withRouter(editFaqForm)
+export const EditFaqForm = withRouter(EditFaqForms)

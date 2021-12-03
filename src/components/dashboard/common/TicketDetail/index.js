@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
 import gravatar from '../../../../utils/gravatar';
 import './style.css';
@@ -258,7 +258,7 @@ export const TicketDetail = ({ props }) => {
             </div>
             <h3>Respuestas</h3>
             <br></br>
-            {(response.length != 0) && response.map(ticketResponse => {
+            {(response.length !== 0) && response.map(ticketResponse => {
                 return <TicketResponseRow
                     key={ticketResponse._id}
                     ticketResponse={ticketResponse}

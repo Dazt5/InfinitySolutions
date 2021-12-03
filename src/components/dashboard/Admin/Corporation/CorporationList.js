@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { CorporationRow } from '.';
 import { apiAxios } from '../../../../config/api';
 
-export const corporationAdminList = () => {
+export const CorporationAdminLists = () => {
 
     const [corporation, saveCorporation] = useState([]);
 
@@ -87,4 +87,4 @@ export const corporationAdminList = () => {
 }
 
 
-export const CorporationAdminList = withRouter(corporationAdminList)
+export const CorporationAdminList = withRouter(CorporationAdminLists)
