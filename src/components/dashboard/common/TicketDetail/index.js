@@ -21,7 +21,7 @@ export const TicketDetail = ({ props }) => {
     const [ticket, saveTicket] = useState({
         corporation: {},
         user: {
-            email: 'email@email.com'
+            email: 'cargando...'
         },
         status: {}
     });
@@ -45,6 +45,18 @@ export const TicketDetail = ({ props }) => {
             [e.target.name]: e.target.value
         });
 
+    }
+
+    const getTicket = async () => {
+
+        try {
+
+            const { data } = await apiAxios.get(`/ticket/${idTicket}`);
+            saveTicket(data.ticket);
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const registerReply = async e => {
@@ -99,6 +111,7 @@ export const TicketDetail = ({ props }) => {
                 title: 'Agregado Correctamente',
                 text: data.message
             });
+            getTicket();
 
         } catch (error) {
             Swal.fire(
@@ -123,17 +136,7 @@ export const TicketDetail = ({ props }) => {
 
         if (user) {
 
-            const getTicket = async () => {
 
-                try {
-
-                    const { data } = await apiAxios.get(`/ticket/${idTicket}`);
-                    saveTicket(data.ticket);
-
-                } catch (error) {
-                    console.log(error);
-                }
-            }
             getTicket();
 
 
@@ -199,7 +202,12 @@ export const TicketDetail = ({ props }) => {
                                     ticket.status.name === "rejected" &&
                                     <div className="px-4 pt-3"><i className="las la-times rejecticon"><p>Rechazado</p></i></div>
                                 }
-                                <div className="px-4 pt-3"> <button onClick={registerReply} type="submit" className="btn btn-primary">Reply</button> </div>
+
+                                {ticket.status.name === "waiting" &&
+                                    <div className="px-4 pt-3"> <button onClick={registerReply} type="submit" className="btn btn-primary">Reply</button> </div>
+
+                                }
+
                             </div>
 
                             {ticket.status.name === "waiting" &&
@@ -212,9 +220,6 @@ export const TicketDetail = ({ props }) => {
                                     />
                                 </div>
                             }
-
-
-
                         </div>
                     </div>
                     {
@@ -240,7 +245,7 @@ export const TicketDetail = ({ props }) => {
                                                 ))}
                                             </select>
                                             <br></br>
-                                            <button onClick={ChangeStatus} type="submit" className="btn btn-primary">Reply</button>
+                                            <button onClick={ChangeStatus} type="submit" className="btn btn-primary mt-2 ">Cambiar</button>
                                         </div>
                                     </form>
                                 </div>

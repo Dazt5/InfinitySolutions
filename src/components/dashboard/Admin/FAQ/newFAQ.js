@@ -19,9 +19,11 @@ const faqForm = ({ props }) => {
             try {
                 const { data } = await apiAxios.get(`/corporation/${idCorporation}`);
 
-            } catch (error) {
-                props.history.push('/dashboard')
+                
 
+            } catch (error) {
+                
+                props.history.push('/dashboard')
             }
         }
       actualCorporation();
@@ -47,6 +49,8 @@ const faqForm = ({ props }) => {
                 title: 'Agregado Correctamente',
                 text: data.message
             });
+
+            props.history.push(`/corporation/${idCorporation}`)
         } catch (error) {
             Swal.fire(
                 'Error en registro',
