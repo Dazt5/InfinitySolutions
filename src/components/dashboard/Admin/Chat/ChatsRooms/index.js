@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 import { Room } from './Room';
-import {socketConnection} from '../../../../../utils/socket';
+import {socketConnection} from '../../../../../utils/apisocket';
 
 export const ChatsRooms = ({selectRoom}) => {
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { apiAxios } from '../../../config/api';
-import {socketConnection} from '../../../utils/socket';
+import {socketConnection} from '../../../utils/apisocket';
 import { Message } from '../message/'
 
 export const Messenger = () => {
