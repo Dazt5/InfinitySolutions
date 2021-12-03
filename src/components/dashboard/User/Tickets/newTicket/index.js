@@ -74,12 +74,10 @@ const TicketForm = ({ props }) => {
         }
     }
 
-    console.log(ticket);
-
     return (
         <main>
             <div className="container-form">
-                <div className="title">Registra la empresa</div>
+                <div className="title">Registra un nuevo ticket</div>
                 <form onSubmit={registerTicket}>
                     <div className="user-details">
                         <div className="input-box">

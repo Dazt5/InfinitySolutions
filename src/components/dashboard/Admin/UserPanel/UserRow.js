@@ -1,11 +1,14 @@
 import React from 'react';
+import dayjs from 'dayjs';
 
 export const UserRow = ({ user }) => {
 
 
     return (
+
         <tr>
-            <td>
+    
+        <td>
                 <p>{user.name}</p>
             </td>
 
@@ -22,14 +25,16 @@ export const UserRow = ({ user }) => {
             </td>
 
             <td>
-                <p>{user.create_at}</p>
+                <p>{dayjs(user.create_at).format('DD/MM/YYYY h:mm A')}</p>
             </td>
 
             <td>
-                <p>{user.last_access}</p>
+                <p>{dayjs(user.last_access).format('DD/MM/YYYY h:mm A')}</p>
             </td>
+        
+    </tr>
 
-        </tr>
+       
     )
 
 }

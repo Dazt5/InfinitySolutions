@@ -1,0 +1,148 @@
+.body.ticket-details{
+    text-align: left;
+    font-size: .88rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.black-text{
+    
+    color: #000;
+  
+}
+.cke_contents {
+    background-color:white;
+    color: #000;
+}
+
+.card.ticket-detail {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    border-width: 0;
+    padding: 10px;
+    transition: all .2s
+}
+.card.ticket-detaill {
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    border-width: 0;
+    padding-left: 30 px;
+    border-radius: 25%;
+    padding: 10px;
+    transition: all .2s
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+.card-header.ticket-detail {
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: .625rem;
+    height: 3.5rem;
+    text-transform: uppercase;
+    background-color: #1D2231;
+    border-bottom: 1px solid rgba(26, 54, 126, 0.125)
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #3f6ad8;
+    border-color: #3f6ad8
+}
+
+.btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    outline: none !important;
+    position: relative;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+}
+
+.card-body.ticket-detail {
+    flex: 1 1 auto;
+    padding: 1.25rem
+}
+.Response{
+    margin-bottom: 40px;
+    
+    
+}
+.divi{
+    border-right: 1px solid grey;
+    height: 100px;
+}
+.card-body p {
+    font-size: 13px
+}
+
+.input-box.status{
+    width: 100%;
+    padding: 10px;
+}
+
+.Container-reply-user{
+    background-color: #06266D;
+    height: auto;
+    width: 100%;
+}
+.Container-reply-admin{
+    background-color: #1D2231;
+    height: auto;
+    width: 100%;
+}
+.media img {
+    width: 40px;
+    height: 40px
+}
+
+i.las p{
+    display: inline;
+    color: white;
+    font-size: 16px;
+}
+.InfoUser{
+    margin-top: 10px;
+    margin-left: 25px;
+  
+
+}
+.top{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.top h5{
+margin-left: 10px;
+}
+.reply{
+    margin-top: 2%;
+    
+}
+.replybox{
+    border-left: grey 1px solid;
+   
+}
+@media (max-width:600px) {
+  .InfoUser{
+    
+     width: 30%;
+  }
+  .replybox h3{
+      font-size: 15pt;
+    
+      padding-top: 15%;
+  }
+  .replybox{
+      width:70%;
+      border-left: none;
+  
+  }
+  .col-sm-2{
+      max-width: 50%;
+  }
+  .col-sm-10{
+max-width:50% ;
+  }
+}
+

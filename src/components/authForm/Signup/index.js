@@ -130,9 +130,9 @@ export const SignUpForm = () => {
     return (
         <form onSubmit={signup}>
             <section className="copy">
-                <h2>Registro</h2>
+                <h2 className="authText">Registro</h2>
                 <div className="login-container">
-                    <p>¿Ya estas registrado? <Link to={"/login"}> <strong>Inicia sesión</strong> </Link></p>
+                    <p className="authText">¿Ya estas registrado? <Link to={"/login"}> <strong>Inicia sesión</strong> </Link></p>
                 </div>
             </section>
 
@@ -189,11 +189,10 @@ export const SignUpForm = () => {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="Must be at least 6 characters"
+                    placeholder="Must be at least 8 characters"
                     onChange={readData}
                     required
                 />
-                <i className="far fa-eye-slash"></i>
             </div>
 
             <div className="input-container password">
@@ -202,28 +201,23 @@ export const SignUpForm = () => {
                     type="password"
                     id="confirmPassword"
                     name="confirmPassword"
-                    placeholder="Must be at least 6 characters"
+                    placeholder="Must be at least 8 characters"
                     onChange={readData}
                     required
                 />
-                <i className="far fa-eye-slash"></i>
             </div>
             <button className="signup-btn" type="submit">
                 Sign Up
             </button>
 
             <section className="copy legal">
-                <p>
+                <p className="authText">
                     <span className="small">
-                        By continuing, you agree to acept our
+                        Al continuar, Acepta todas las 
                         <br />
                         <a href="#">
-                            Privacy Policy
+                            Politicas de privacidad y Terminos y condiciones de InfinitySolutions
                         </a>
-                        &amp;
-                        <a href="#">
-                            Terms of Service
-                        </a>.
                     </span>
                 </p>
             </section>

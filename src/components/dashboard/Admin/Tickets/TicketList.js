@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../config/api';
-import { Ticket } from '../../User';
 import TicketRow from '../AdminPanel/LastTickets/TicketRow';
 
 export const AdminTicketList = () => {
@@ -33,8 +32,8 @@ export const AdminTicketList = () => {
         <main>
             <div className="projects">
                 <div className="card-table">
-                    <div className="card-header">
-                        <h2>Ultimos Tickets Pendientes</h2>
+                    <div className="card-header sections">
+                        <h2>Lista completa de Tickets</h2>
 
                         <button onClick={() => filterTickets("all")}>Todos</button>
 
@@ -42,7 +41,7 @@ export const AdminTicketList = () => {
 
                         <button onClick={() => filterTickets("success")}>Solucionados</button>
 
-                        <button onClick={() => filterTickets("reject")}>Rechazados</button>
+                        <button onClick={() => filterTickets("rejected")}>Rechazados</button>
                     </div>
                     <div className="card-body">
                         <div className="table-responsive">

@@ -104,7 +104,7 @@ export const CorporationForm = (props) => {
                         </div>
                     </div>
 
-                    <div className="input-box">
+                    <div className="input-file">
                         <span className="details">Imagen representativa o Logo </span>
                         <input
                             type="file"

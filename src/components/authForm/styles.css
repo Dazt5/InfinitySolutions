@@ -1,8 +1,12 @@
 :root {
-    --primary: #ffffff;
+    --text-black: #000000;
     --secondary: #8899A6;
     --btnPrimary: #404040;
     --btnHover: #282828;
+}
+
+h1{
+    color: #000;
 }
 
 form input {
@@ -14,13 +18,24 @@ form input {
     padding: 1em;
     margin-bottom: 1.25rem;
     font-size: 1rem;
+    height: 25px;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 0.75rem;
-    color: var(--primary);
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+
+}
+
+.authText{
+    color: #000;
+}
+
+.small{
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .input-container.password {
@@ -90,16 +105,20 @@ label {
 
 .signup-btn {
     display: block;
-    width: 100%;
+margin-left: 70px;
+    width: 50%;
     background: var(--btnPrimary);
     color: white;
-    font-weight: 700;
+    font-weight: 200;
+    text-align: center;
     border: none;
-    padding: 1rem;
+ 
+    margin-top: 15px;
     border-radius: 8px;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    height: 25px;
 }
 
 .signup-btn:hover {

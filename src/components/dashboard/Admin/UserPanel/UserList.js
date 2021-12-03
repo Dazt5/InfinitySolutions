@@ -22,14 +22,9 @@ export const UserList = () => {
     return (
         <main>
             <div className="card-table">
-                <div className="card-header">
+                <div className="card-header sections">
                     <h2>Usuarios registrados</h2>
 
-                    {/*
-            <Link to={'/admin/corporation/new'}><button className="header-button">Agregar una<span className="las-la-arrow-right">
-
-                    </span> </button></Link>
-                */}
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">

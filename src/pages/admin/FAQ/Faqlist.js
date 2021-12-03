@@ -1,15 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import {  Layout, FAQList } from '../../../components/dashboard';
+import { Layout, FAQList } from '../../../components/dashboard';
 
 const faqlist = (props) => {
 
     return (
-      
-            <Layout >
-        <FAQList  props={props}/>
-            </Layout>
-     
+
+        <Layout >
+            <FAQList props={props} />
+        </Layout>
+
     )
 }
 

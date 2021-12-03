@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { Sidebar, Header } from '../../';
-import {apiAxios} from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 
 const layout = ({ history, children }) => {
 
@@ -14,33 +14,42 @@ const layout = ({ history, children }) => {
         lastname: '...'
     });
 
-    useEffect(() => {
+    const [stateMenu, setMenu] = useState(false);
 
-        const getUser = async () => {
-            try {
-                const { data } = await apiAxios.get('/user');
+    const toggleMenu = () => {
+        setMenu(!stateMenu);
+    }
 
-                const user = data.user;
+    const getUser = async () => {
+        try {
+            const { data } = await apiAxios.get('/user');
 
-                saveUser(user)
+            const { user } = data;
 
-            } catch (error) {
-                console.log(error);
-            }
+            saveUser(user)
+
+        } catch (error) {
+            history.push('/login');
+            console.log(error);
         }
+    }
 
+    useEffect(() => {
 
         getUser();
 
     }, []);
-
-
     return (
 
         <Fragment>
-            <Sidebar user={user} />
+            <Sidebar
+                user={user}
+                stateMenu={stateMenu}
+            />
             <div className="main-content">
-                <Header user={user} />
+                <Header user={user}
+                    toggleMenu={toggleMenu}
+                />
                 {children}
             </div>
         </Fragment>

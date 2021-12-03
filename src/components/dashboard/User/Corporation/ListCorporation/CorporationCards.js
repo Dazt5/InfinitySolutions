@@ -26,7 +26,7 @@ export const CorporationCards = () => {
 
     return (
         <main>
-            <div className="card-header">
+            <div className="card-header sections">
                 <h2 className="header-text">Nuestras Compañias</h2>
 
             </div>

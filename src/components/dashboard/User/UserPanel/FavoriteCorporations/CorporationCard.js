@@ -1,9 +1,9 @@
 import React from 'react';
 import { config } from '../../../../../config/api';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import './styles.css';
 
-
-export const CorporationCard = ({corp}) => {
+export const CorporationCard = ({ corp, deleteFavorite }) => {
 
     return (
         <div className="card-body">
@@ -15,9 +15,8 @@ export const CorporationCard = ({corp}) => {
                         {corp.type && <small>{corp.type}</small>}
                     </div>
                 </div>
+                <p className="delete-favorite" onClick={() => deleteFavorite(corp._id)}><i className="las la-trash"></i></p>
             </div>
         </div>
     )
-
-
 }

@@ -1,6 +1,6 @@
 :root {
-    --background: #15202B;
-    --secondary: #b3b3b3;
+    --background: #bababa;
+    --secondary: #817d7d;
     src: url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap);
 }
 
@@ -8,7 +8,8 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 200;
+    
 }
 
 h1 {
@@ -53,13 +54,13 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(https://cdn.pixabay.com/photo/2015/01/08/18/26/man-593333_960_720.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url(../../../assets/static/right.jpg);
     background-size: cover;
     background-position: center;
 }
 
 .left .copy {
-    color: var(--primary);
+    color: var(--text-white);
     text-align: center;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -70,13 +71,13 @@ a:hover {
 }
 
 .right .copy {
-    color: var(--primary);
+    color: var(--text-white);
     text-align: center;
 }
 
 .right .copy p {
     margin: 1.5em 0;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 
 .right form {

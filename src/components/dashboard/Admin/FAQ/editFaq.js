@@ -1,29 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { apiAxios,config } from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 
-export const editFaqForm = ({props}) => {
+export const editFaqForm = ({ props }) => {
+    const { idFaq } = props.match.params;
 
-    const {idFaq} = props.match.params;
-  
-
-  
     const [Faq, saveFaq] = useState({
         title: '',
         description: ''
-        
+
     });
     const [Faqs, saveFaqs] = useState({});
-
 
     const editFaq = async e => {
 
         e.preventDefault();
 
         try {
-
-            const {data} = await apiAxios.put(`/corporation/FAQ/${idFaq}`, Faq);
+            const { data } = await apiAxios.put(`/corporation/FAQ/${idFaq}`, Faq);
 
             Swal.fire({
                 icon: 'success',
@@ -31,68 +26,54 @@ export const editFaqForm = ({props}) => {
                 text: data.message
             });
 
-       
-
         } catch (error) {
             Swal.fire(
                 'Error en registro',
                 error.response.data.message,
                 'error'
             );
-            
-        }
-       
-  
 
+        }
     }
 
-   
-
     const readData = e => {
-
         saveFaq({
             ...Faq,
             [e.target.name]: e.target.value
         });
-   saveFaqs({
+        saveFaqs({
 
-...Faq,
-[e.target.name]: e.target.value
+            ...Faqs,
+            [e.target.name]: e.target.value
 
+        });
 
-   });
-   
-  
     }
 
-   
-
     useEffect(() => {
-         
+
         const actualFaq = async () => {
-    
+
             const { data } = await apiAxios.get(`/corporation/FAQ/${idFaq}`)
-            
+
 
             saveFaqs(data.faq)
-            
-            
+
+
         }
-
         actualFaq();
-
     }, [])
-    
+
     return (
         <main>
             <div className="container-form">
-               
+
                 <form
-                onSubmit={editFaq}
+                    onSubmit={editFaq}
                 >
                     <div className="user-details">
                         <div className="input-box">
-                            <span className="details">Nombre de la empresa</span>
+                            <span className="details">FAQ</span>
                             <input
                                 type="text"
                                 name="title"
@@ -102,7 +83,7 @@ export const editFaqForm = ({props}) => {
                                 required />
                         </div>
                         <div className="input-box">
-                            <span className="details">RIF</span>
+                            <span className="details">Descripcion</span>
                             <input
                                 type="text"
                                 name="description"
@@ -111,14 +92,14 @@ export const editFaqForm = ({props}) => {
                                 onChange={readData}
                                 required />
                         </div>
-                        
+
                     </div>
 
-                    
-                    
+
+
                     <div className="button-box">
                         <div className="button-form">
-                            <input type="submit" value="Editar"/>
+                            <input type="submit" value="Editar" />
                         </div>
                     </div>
                 </form>

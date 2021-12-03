@@ -10,7 +10,10 @@ logs
 **/*.back.*
 
 node_modules
+node_modules1
 bower_components
+package-lock.json
+
 
 *.sublime*
 dist

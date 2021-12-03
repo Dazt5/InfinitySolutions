@@ -11,35 +11,37 @@ const Provider = props => {
         user:{}
     });
 
-    useEffect(() => {
+    const verifySession = async () => {
+
         const token = localStorage.getItem('token')
-        const verifySession = async () => {
-            if (token) {
-                try {
-                    const { data } = await apiAxios.get('/user');
 
-                    const {user} = data
+        if (token) {
+            try {
+                const { data } = await apiAxios.get('/user');
+                const {user} = data
 
-                    if (user) {
-                        saveAuth({
-                            auth: true,
-                            token,
-                            user
-                        })
-                    }
-
-
-                } catch (error) {
-                    console.log(error);
-                    localStorage.removeItem('token');
+                if (user) {
                     saveAuth({
-                        token: '',
-                        auth: false,
-                        user:{}
-                    })
+                        auth: true,
+                        token,
+                        user
+                    });
+                    sessionStorage.setItem("user", JSON.stringify(user));
                 }
+            } catch (error) {
+                console.log(error);
+                localStorage.removeItem('token');
+                saveAuth({
+                    token: '',
+                    auth: false,
+                    user: {}
+                });
+                sessionStorage.removeItem("user")
             }
         }
+    }
+
+    useEffect(() => {
         verifySession();
     }, [])
 

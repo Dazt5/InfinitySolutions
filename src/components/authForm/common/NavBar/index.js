@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../../../assets/static/logo.png';
+import Logo from '../../../../assets/static/logoinfinity.png';
 
 import './styles.css';
 
@@ -13,22 +13,22 @@ export const NavBar = ({ login, signup }) => {
     }
 
     return (
-        <nav>
+        <nav className="color">
             <div className="logo">
                 <img src={Logo} alt="Logo infinity Solutions" />
             </div>
             <ul className={mobileMenu ? "nav-links nav-active" : "nav-links"}>
                 <li>
-                    <Link to={"#"}>Home</Link>
+                    <Link to={"#"}>HOME</Link>
                 </li>
                 <li>
-                    <Link to={"#"}>About</Link>
+                    <Link to={"#"}>ABOUT</Link>
                 </li>
                 <li>
-                    <Link to={"#"}>Contact</Link>
+                    <Link to={"#"}>CONTACT</Link>
                 </li>
                 {signup && <li>
-                    <Link to={"/signup"}>Sign Up</Link>
+                    <Link to={"/signup"}>SIGN UP</Link>
                 </li>}
 
                 {login && <li>

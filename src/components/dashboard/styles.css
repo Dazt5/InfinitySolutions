@@ -1,9 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 :root {
-    --main-color: #0c0f13;
+    --main-color: #1D2231;
     --body-color:#0B0C10;
     --color-dark: #1D2231;
     --text-grey: #8390A2;
+    --text-white: #ffffff;
+    /*Chat Variables*/
+    --primaryGradient: linear-gradient(93.12deg, #0B0C10 0.52%,#6a6a6a 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #0B0C10  -2.14%, #6d6f6f 99.69%);
+    --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    --light: 300;
+    --regular: 400;
+    --semiBold: 600;
+    --extraLight: 300;
+    --italic: 300;
+    --primary:#1F2833;
 }
 
 * {
@@ -127,7 +138,7 @@ button{
 
 /*Header brand superior*/
 header {
-    background: var(--main-color);
+    background: #06266D;
     display: flex;
     justify-content: space-between;
     padding: 1rem 1.5rem;
@@ -249,16 +260,13 @@ main {
     background: #fff;
 }
 
-.card-header{
-    padding: 1rem;
-}
-
-.card-header{
+.card-header.sections{
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 0.5px solid #f0f0f0;
     text-align: center;
+    padding: 1rem;
 }
 
 .card-header h2{
@@ -307,7 +315,6 @@ td .status{
 
 .customer {
     display:flex;
-    justify-content: space-between;
     align-items: center;
     padding: .7rem 1rem;
 }
@@ -320,7 +327,8 @@ td .status{
 .info img{
     border-radius: 50%;
     margin-right: 1rem;
-    object-fit:contain  ;
+    width: 150px;
+    object-fit:contain;
 }
 
 .info h4{
@@ -527,17 +535,20 @@ td .status{
 .fl-table td {
     border-right: 1px solid #1D2231;
     font-size: 16px;
+    color: #ffff;
 }
 
 .fl-table thead th {
     color: #ffffff;
     background: #1D2231;
+    font-size: 16px;
 
 }
 
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
     background: #0c0f13;
+    font-size: 16px;
 
 }
 
@@ -659,14 +670,13 @@ td .status{
     width: 100%;
     height: 125px;
     border-radius: 5px 5px 0 0;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 i{
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
-    justify-content: ;
 }
 
 .time{
@@ -794,6 +804,7 @@ form input[type="file"]{
     border:none;
     cursor: pointer;
     width: 60%;
+    height: 45px;
 }
 
 form .button-form input{
@@ -806,9 +817,62 @@ form .button-form input{
     letter-spacing: 1px;
     background: var(--body-color);
     cursor: pointer;
+    height: 60px;
 }
 
 form .button-form input:hover{
     background: linear-gradient(135deg, var(--color-dark), var(--body-color));
 }
 
+/* CHAT */
+
+/* 300;0,400;0,600;1,300 */
+
+.chatbox__support {
+    background: #f9f9f9;
+    height: 450px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* HEADER */
+.chatbox__header {
+    background: var(--primaryGradient);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox__image--header {
+    margin-right: 10px;
+}
+
+.chatbox__heading--header {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.chatbox__description--header {
+    font-size: .9rem;
+    color: white;
+}
+
+.las.la-bars{
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.header-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}

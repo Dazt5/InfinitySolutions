@@ -1,0 +1,14 @@
+.separator{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.add-favorite{
+    color: chartreuse;
+}
+
+.add-favorite:hover{
+    cursor: pointer;
+}
