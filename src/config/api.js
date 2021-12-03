@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export const apiAxios = axios.create({
-    baseURL: 'https://infinity-solutions-api-71od9aa5i-dazt5.vercel.app'
+    baseURL: 'http://ec2-184-72-118-16.compute-1.amazonaws.com:3000'
+    //baseURL: 'http://localhost:3001/'
 });
 
 apiAxios.interceptors.request.use((request) => {
@@ -16,5 +17,6 @@ apiAxios.interceptors.request.use((request) => {
 })
 
 export const config = {
-    RESOURCES_API_URL: 'https://infinity-solutions-api-71od9aa5i-dazt5.vercel.app',
+    RESOURCES_API_URL: 'http://ec2-184-72-118-16.compute-1.amazonaws.com:3000',
+    //RESOURCES_API_URL: 'http://localhost:3001/',
 }
