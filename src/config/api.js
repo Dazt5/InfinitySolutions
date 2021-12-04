@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const apiAxios = axios.create({
-    baseURL: 'http://localhost:3001'
+    baseURL: 'http://ec2-54-204-236-34.compute-1.amazonaws.com:3001/',
 });
 
 apiAxios.interceptors.request.use((request) => {
@@ -16,5 +16,5 @@ apiAxios.interceptors.request.use((request) => {
 })
 
 export const config = {
-    RESOURCES_API_URL: 'http://localhost:3001',
+    RESOURCES_API_URL: 'http://ec2-54-204-236-34.compute-1.amazonaws.com:3001',
 }
