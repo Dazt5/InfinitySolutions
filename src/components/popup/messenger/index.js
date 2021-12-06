@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../config/api';
-import {socketConnection} from '../../../utils/apisocket';
+import { socketConnection } from '../../../utils/apisocket';
+import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 import { Message } from '../message/'
 
-export const Messenger = () => {
+export const Messenger = ({ props }) => {
 
   const [messages, setMessages] = useState([]);
   const [message, saveMessage] = useState("");
@@ -15,7 +16,8 @@ export const Messenger = () => {
       setRoom(message.data.room._id);
       setMessages(message.data.messages);
     } catch (error) {
-      console.log(error);
+      HttpRequestOnActionHandler(error);
+      props.history.push('/dashboard')
     }
   }
 
@@ -25,8 +27,8 @@ export const Messenger = () => {
       await apiAxios.post('/chat', { message });
       saveMessage('');
     } catch (error) {
-      console.log(error);
-    
+      HttpRequestOnActionHandler(error);
+
     }
     saveMessage('');
   }
@@ -59,7 +61,7 @@ export const Messenger = () => {
       <div>
         <div className="chatBoxBottom">
           <textarea
-          value={message}
+            value={message}
             className="chatMessageInput"
             placeholder="Escribe Algo..."
             onChange={(e) => saveMessage(e.target.value)}

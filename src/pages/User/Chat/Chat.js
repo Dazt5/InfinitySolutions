@@ -3,11 +3,13 @@ import { withRouter } from 'react-router-dom';
 import { Layout } from '../../../components/dashboard';
 import { Messenger } from '../../../components/popup/index';
 
-const Chat = () => {
+const Chat = (props) => {
 
     return (
         <Layout >
-            <Messenger />
+            <Messenger
+            props={props}
+            />
         </Layout>
     )
 }

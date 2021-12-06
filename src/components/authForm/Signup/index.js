@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { apiAxios } from '../../../config/api';
+import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
 export const SignUpForm = () => {
 
@@ -118,11 +119,7 @@ export const SignUpForm = () => {
                 );
 
             } catch (error) {
-                Swal.fire(
-                    'Error al registrar al usuario',
-                    error.response.data.message,
-                    'error'
-                );
+                HttpRequestOnActionHandler(error)
             }
         }
     }

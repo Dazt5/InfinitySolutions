@@ -11,7 +11,7 @@ export const CorporationList = () => {
 
             try {
 
-                const { data } = await apiAxios.get('/corporation');
+                const { data } = await apiAxios.get('/admin/corporation');
 
                 const corporation = data.corporation;
 

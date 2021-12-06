@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import {apiAxios} from '../../../config/api';
 import Swal from 'sweetalert2';
+import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
 export const ResendActivateAccountForm = () => {
 
@@ -23,12 +24,7 @@ export const ResendActivateAccountForm = () => {
             );
 
         } catch (error) {
-            console.log(error);
-            Swal.fire(
-                'Error al registrar al usuario',
-                error.response.data.message,
-                'error'
-            );
+            HttpRequestOnActionHandler(error)
         }
     }
 

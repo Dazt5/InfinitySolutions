@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Context } from '../../../context/Context';
 import './style.css';
 import { apiAxios } from '../../../config/api';
+import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
 const Login = props => {
 
@@ -36,11 +37,7 @@ const Login = props => {
             props.history.push('/dashboard');
 
         } catch (error) {
-            Swal.fire(
-                'Error en inicio de sesión',
-                error.response.data.message,
-                'error'
-            );
+            HttpRequestOnActionHandler(error, props.history)
         }
     }
 

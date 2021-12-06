@@ -1,7 +1,8 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import { Sidebar, Header } from '../../';
 import { apiAxios } from '../../../../config/api';
+import { HttpRequestOnActionHandler } from '../../../../utils/HttpHandler';
 
 const Layouts = ({ history, children }) => {
 
@@ -29,8 +30,7 @@ const Layouts = ({ history, children }) => {
             saveUser(user)
 
         } catch (error) {
-            history.push('/login');
-            console.log(error);
+            HttpRequestOnActionHandler(error,history)
         }
     }
 

@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import {apiAxios} from '../../../config/api';
 import Swal from 'sweetalert2';
+import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
 export const RecoverAccountForm = ({props}) => {
 
@@ -54,12 +55,7 @@ export const RecoverAccountForm = ({props}) => {
             }, 1500);
 
         } catch (error) {
-            console.log(error)
-            Swal.fire(
-                'Error en recuperación',
-                error.response.data.message,
-                'error'
-            );
+            HttpRequestOnActionHandler(error, props.history)
         }
     }
 
