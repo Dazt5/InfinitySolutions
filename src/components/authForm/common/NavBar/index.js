@@ -19,13 +19,13 @@ export const NavBar = ({ login, signup }) => {
             </div>
             <ul className={mobileMenu ? "nav-links nav-active" : "nav-links"}>
                 <li>
-                    <Link to={"#"}>HOME</Link>
+                    <a href={"https://geraldovillalobos.github.io/InfinitySolutionsIndex/"}>HOME</a>
                 </li>
                 <li>
-                    <Link to={"#"}>ABOUT</Link>
+                    <a href={"https://geraldovillalobos.github.io/InfinitySolutionsIndex/#about"}>ABOUT</a>
                 </li>
                 <li>
-                    <Link to={"#"}>CONTACT</Link>
+                <a href={"https://geraldovillalobos.github.io/InfinitySolutionsIndex/#team"}>DEVELOPERS</a>
                 </li>
                 {signup && <li>
                     <Link to={"/signup"}>SIGN UP</Link>
