@@ -30,7 +30,7 @@ export const Ticket = ({ ticket }) => {
             </div>
             <div className="d-flex flex-row align-items-center">
                 <div className="d-flex flex-column mr-2">
-                    <div className="profile-image"><img className="rounded-circle" src={`${config.RESOURCES_API_URL}/${ticket.corporation.image}`} height="60px" width="65px" /></div>
+                    <div className="profile-image"><img className="rounded-circle" src={`${config.RESOURCES_API_URL}/${ticket.corporation.image}`} alt={"user icon" + ticket.name }height="60px" width="65px" /></div>
                 </div>
             </div>
         </li>

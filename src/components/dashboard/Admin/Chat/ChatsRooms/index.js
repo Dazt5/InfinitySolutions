@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
 import { Room } from './Room';
-import {socketConnection} from '../../../../../utils/apisocket';
+import { socketConnection } from '../../../../../utils/apisocket';
 
-export const ChatsRooms = ({selectRoom}) => {
+export const ChatsRooms = ({ selectRoom }) => {
 
     const [rooms, setRooms] = useState([]);
 
@@ -11,7 +11,7 @@ export const ChatsRooms = ({selectRoom}) => {
         try {
             const { data } = await apiAxios.get('/admin/chat/room');
             setRooms(data.rooms);
-            
+
 
         } catch (error) {
             console.log(error)
@@ -25,13 +25,13 @@ export const ChatsRooms = ({selectRoom}) => {
         socketConnection.on("salas", salas => {
             setRooms(salas);
         })
-
-    },[])
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <div className="inbox_chat">
             {
-                (rooms.length != 0) && rooms.map(room => {
+                (rooms.length !== 0) && rooms.map(room => {
                     return <Room
                         key={room._id}
                         room={room}

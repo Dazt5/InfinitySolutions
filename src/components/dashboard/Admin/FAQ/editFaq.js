@@ -62,6 +62,7 @@ export const EditFaqForms = ({ props }) => {
 
         }
         actualFaq();
+        // eslint-disable-next-line
     }, [])
 
     return (

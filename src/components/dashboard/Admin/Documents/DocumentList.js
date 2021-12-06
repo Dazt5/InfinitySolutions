@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { apiAxios, config } from '../../../../config/api';
+import { apiAxios } from '../../../../config/api';
 import { DocumentCard } from './DocumentCard';
 import './style.css';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,7 @@ export const DocumentList = ({ props }) => {
     useEffect(() => {
 
         getCorporationDocuments();
-
+        // eslint-disable-next-line
     }, [])
 
     return (

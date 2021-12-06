@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import { apiAxios } from '../../../../config/api';
 import FaqRow from './FaqRow';
@@ -24,24 +24,11 @@ export const FaqList = (props) => {
         }
     }
 
-
-    const deletefaq = async (idFaq) => {
-
-        try {
-
-            await apiAxios.delete(`/corporation/FAQ/${idFaq}`);
-
-
-
-        } catch (error) {
-            console.log(error);
-        }
-    }
     useEffect(() => {
 
         getFaqs();
 
-
+        // eslint-disable-next-line
     }, [])
 
     return (

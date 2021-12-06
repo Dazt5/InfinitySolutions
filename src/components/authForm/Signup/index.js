@@ -86,7 +86,7 @@ export const SignUpForm = () => {
             );
             return false;
 
-        } else if (password != confirmPassword) {
+        } else if (password !== confirmPassword) {
             Swal.fire(
                 'Datos incompletos',
                 'Las contraseñas no coinciden',
@@ -212,7 +212,8 @@ export const SignUpForm = () => {
                     <span className="small">
                         Al continuar, Acepta todas las 
                         <br />
-                        <a href="#">
+                        {/* eslint-disable-next-line*/}
+                        <a>
                             Politicas de privacidad y Terminos y condiciones de InfinitySolutions
                         </a>
                     </span>

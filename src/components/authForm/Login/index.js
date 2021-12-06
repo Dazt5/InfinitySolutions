@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import Swal from 'sweetalert2';
 import { Link, withRouter } from 'react-router-dom';
 import { Context } from '../../../context/Context';
 import './style.css';
@@ -8,6 +7,7 @@ import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
 const Login = props => {
 
+    // eslint-disable-next-line
     const [auth,saveAuth] = useContext(Context);
 
     const [credentials, saveCredentials] = useState({});

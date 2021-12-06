@@ -44,7 +44,7 @@ const TicketForm = ({ props }) => {
             }
             setCorporation();
         }
-
+// eslint-disable-next-line
     }, [])
 
     const readData = e => {

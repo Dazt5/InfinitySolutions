@@ -17,18 +17,19 @@ const FaqForms = ({ props }) => {
 
         const actualCorporation = async () => {
             try {
-                const { data } = await apiAxios.get(`/corporation/${idCorporation}`);
+                await apiAxios.get(`/corporation/${idCorporation}`);
 
-                
+                props.history.push('/dashboard')
 
             } catch (error) {
-                
+
                 props.history.push('/dashboard')
             }
         }
-      actualCorporation();
-     }, []) 
- 
+        actualCorporation();
+        // eslint-disable-next-line
+    }, [])
+
     const readData = e => {
         saveFaq({
             ...Faq,
@@ -56,7 +57,7 @@ const FaqForms = ({ props }) => {
                 'Error en registro',
                 error.response.data.message,
                 'error'
-            );  
+            );
         }
     }
 

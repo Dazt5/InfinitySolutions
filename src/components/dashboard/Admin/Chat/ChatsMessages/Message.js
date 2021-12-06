@@ -10,7 +10,7 @@ export const Message = ({ message }) => {
 
     return (
         <Fragment>
-            {user.auth_level == 1 ?
+            {user.auth_level === 1 ?
                 <div className="incoming_msg">
                     <div className="incoming_msg_img"> <img src={gravatar(user.email)} alt="sunil" /> </div>
                     <div className="received_msg">

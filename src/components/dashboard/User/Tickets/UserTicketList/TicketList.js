@@ -24,6 +24,7 @@ export const TicketList = () => {
             }
         }
         getTickets();
+    // eslint-disable-next-line
     }, []);
 
     const filterTickets = status => setStatus(status)
@@ -57,6 +58,7 @@ export const TicketList = () => {
                                                 ticket={ticket} />
                                         )
                                     }
+                                    return null;
                                 })}
                             </ul>
                         </div>

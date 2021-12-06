@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {apiAxios} from '../../../config/api';
+import { apiAxios } from '../../../config/api';
 import Swal from 'sweetalert2';
 import { HttpRequestOnActionHandler } from '../../../utils/HttpHandler';
 
-export const RecoverAccountForm = ({props}) => {
+export const RecoverAccountForm = ({ props }) => {
 
     const [passwords, savePasswords] = useState({});
     const [validToken, setValid] = useState(false);
@@ -35,6 +35,7 @@ export const RecoverAccountForm = ({props}) => {
             }
         }
         verifyToken();
+        // eslint-disable-next-line
     }, [])
 
     const recoverPassword = async e => {
@@ -42,7 +43,7 @@ export const RecoverAccountForm = ({props}) => {
 
         try {
 
-            const { data } = await apiAxios.post(`/recover/${token}`,passwords)
+            const { data } = await apiAxios.post(`/recover/${token}`, passwords)
 
             Swal.fire(
                 'Contraseña cambiada',
@@ -95,7 +96,7 @@ export const RecoverAccountForm = ({props}) => {
 
                     <button className="signup-btn" type="submit">
                         Cambiar contraseña
-                </button>
+                    </button>
                 </form>
                 :
                 <h3><Link to={"/send/recover"}>Volver a intentar la recuperación</Link></h3>

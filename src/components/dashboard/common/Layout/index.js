@@ -37,7 +37,7 @@ const Layouts = ({ history, children }) => {
     useEffect(() => {
 
         getUser();
-
+// eslint-disable-next-line
     }, []);
     return (
 

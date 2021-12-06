@@ -10,7 +10,6 @@ export const CorporationProfiles = ({ props }) => {
     const { idCorporation } = props.match.params;
 
     const [corporation, saveCorporation] = useState({});
-    const [contactInfo, saveContactInfo] = useState([]);
     const [faq, saveFaq] = useState([]);
 
     const user = JSON.parse(sessionStorage.getItem("user"));
@@ -32,10 +31,8 @@ export const CorporationProfiles = ({ props }) => {
         const getCorporationData = async () => {
 
             const CorporationInfo = await apiAxios(`/corporation/${idCorporation}`);
-            const Contactcorporation = await apiAxios(`/corporation/${idCorporation}/contact`);
 
             saveCorporation(CorporationInfo.data.corporation);
-            saveContactInfo(Contactcorporation.data.contactCorporation);
 
         }
 
@@ -43,6 +40,7 @@ export const CorporationProfiles = ({ props }) => {
 
 
         Faqs();
+        // eslint-disable-next-line
     }, []);
     return (
         <main>
@@ -67,7 +65,7 @@ export const CorporationProfiles = ({ props }) => {
                                             <Link to={`/ticket/new/${corporation._id}`}><button className="btn btn-primary">Crear Ticket</button></Link>
                                             <Link to={`/ticket/`}><button className="btn btn-outline-primary">Mis Tickets</button></Link>
                                             {
-                                                user && user.auth_level == 2 &&
+                                                user && user.auth_level === 2 &&
                                                 <Link to={`/admin/faq/new/${corporation._id}`}><button className="btn btn-outline-primary">Agregar FAQ</button></Link>
                                             }
                                         </div>
@@ -111,7 +109,7 @@ export const CorporationProfiles = ({ props }) => {
                                                         key={faq._id}
                                                         faq={faq}
                                                         getFaqs={Faqs}
-                                                        />
+                                                    />
                                                 ))}
 
                                             </div>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { apiAxios,config } from '../../../../config/api';
+import { apiAxios, config } from '../../../../config/api';
 
-export const EditCorporationForms = ({props}) => {
+export const EditCorporationForms = ({ props }) => {
 
     const { id } = props.match.params;
 
@@ -17,9 +17,9 @@ export const EditCorporationForms = ({props}) => {
 
 
     const editCorporation = async e => {
-        
+
         e.preventDefault();
-        
+
         const corporationData = new FormData();
 
         corporationData.append('name', corporation.name);
@@ -29,7 +29,7 @@ export const EditCorporationForms = ({props}) => {
 
         try {
 
-            const {data} = await apiAxios.put(`/corporation/${id}`, corporationData, {
+            const { data } = await apiAxios.put(`/corporation/${id}`, corporationData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }
@@ -41,7 +41,7 @@ export const EditCorporationForms = ({props}) => {
                 text: data.message
             });
 
-        
+
         } catch (error) {
             Swal.fire(
                 'Error en inicio de sesión',
@@ -67,27 +67,27 @@ export const EditCorporationForms = ({props}) => {
     }
 
     useEffect(() => {
-        
+
         const actualCorporation = async () => {
-    
+
             const { data } = await apiAxios.get(`/corporation/${id}`)
-            
+
 
             saveCorporation(data.corporation)
-            
-            
+
+
         }
 
         actualCorporation();
-
+        // eslint-disable-next-line
     }, [])
-    
+
     return (
         <main>
             <div className="container-form">
                 <div className="title">Editar la empresa {corporation.name}</div>
                 <form
-                onSubmit={editCorporation}
+                    onSubmit={editCorporation}
                 >
                     <div className="user-details">
                         <div className="input-box">
@@ -135,11 +135,11 @@ export const EditCorporationForms = ({props}) => {
                         <small className="input-requeriment">Solo PNG y JPG</small>
                     </div>
                     <p>Imagen actual</p>
-                    <img className="img-form" src={`${config.RESOURCES_API_URL}/${corporation.image || null}`}/>
+                    <img className="img-form" src={`${config.RESOURCES_API_URL}/${corporation.image || null}`} alt={"icon " + corporation.name} />
 
                     <div className="button-box">
                         <div className="button-form">
-                            <input type="submit" value="Editar"/>
+                            <input type="submit" value="Editar" />
                         </div>
                     </div>
                 </form>

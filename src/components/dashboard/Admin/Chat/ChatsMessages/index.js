@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiAxios } from '../../../../../config/api';
-import {socketConnection} from '../../../../../utils/apisocket';
+import { socketConnection } from '../../../../../utils/apisocket';
 import { Message } from './Message';
 
 export const ChatsMessages = ({ idRoom }) => {
@@ -24,8 +24,8 @@ export const ChatsMessages = ({ idRoom }) => {
 
         socketConnection.on(`room-${idRoom}`, messages => {
             setMessages(messages);
-          });
-
+        });
+        // eslint-disable-next-line
     }, [idRoom])
 
     return (
@@ -43,6 +43,6 @@ export const ChatsMessages = ({ idRoom }) => {
             }
         </div>
 
-        
+
     )
 }

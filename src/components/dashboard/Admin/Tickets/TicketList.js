@@ -23,7 +23,7 @@ export const AdminTicketList = () => {
         }
 
         getAllTickets();
-
+        // eslint-disable-next-line
     }, []);
 
     const filterTickets = status => setStatus(status)
@@ -71,6 +71,7 @@ export const AdminTicketList = () => {
                                                         ticket={ticket} />
                                                 )
                                             }
+                                            return null;
                                         })}
                                     </tbody>
                                 </table>

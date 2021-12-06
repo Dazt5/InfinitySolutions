@@ -37,7 +37,7 @@ export const CorporationCard = ({ corp }) => {
         <div className="separator">
             <Link to={`/corporation/${corp._id}`}>
                 <div className="card-corporation">
-                    <img className="img-corp" src={`${config.RESOURCES_API_URL}/${corp.image}`} width="100%" height="100px" />
+                    <img className="img-corp" src={`${config.RESOURCES_API_URL}/${corp.image}`} alt={"corp icon" + corp.name} width="100%" height="100px" />
                     <div className="container">
                         <h4><b>{corp.name}</b></h4>
                         {corp.type && <p>{corp.type}</p>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { apiAxios, config } from '../../../../config/api';
+import { config } from '../../../../config/api';
 import { Link, withRouter } from 'react-router-dom';
 
 const corporationRow = ({ desactiveCorporation, corp }) => {
@@ -8,7 +8,7 @@ const corporationRow = ({ desactiveCorporation, corp }) => {
     return (
         <tr>
             <td >
-                <img className="img-table" src={`${config.RESOURCES_API_URL}/${corp.image}`} />
+                <img className="img-table" src={`${config.RESOURCES_API_URL}/${corp.image}`} alt={"icon " + corp.name} />
             </td>
             <td><Link to={`/corporation/${corp._id}`}>{corp.name} </Link></td>
             <td>{corp.rif}</td>

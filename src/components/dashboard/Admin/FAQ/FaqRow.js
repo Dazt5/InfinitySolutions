@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { apiAxios, config } from '../../../../config/api';
-import { Link, withRouter } from 'react-router-dom';
+import { apiAxios } from '../../../../config/api';
+import { Link } from 'react-router-dom';
 import './style.css';
 const FaqRow = ({ faq, getFaqs }) => {
 

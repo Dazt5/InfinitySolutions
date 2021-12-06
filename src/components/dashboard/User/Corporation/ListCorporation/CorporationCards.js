@@ -21,7 +21,7 @@ export const CorporationCards = () => {
 
     useEffect(() => {
         getCorporations();
-
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -39,6 +39,7 @@ export const CorporationCards = () => {
                             corp={corp}
                         />
                     }
+                    return null;
                 })}
             </div>
         </main>

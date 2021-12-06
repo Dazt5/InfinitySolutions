@@ -39,6 +39,7 @@ export const Messenger = ({ props }) => {
 
   useEffect(() => {
     getMessages();
+    // eslint-disable-next-line
   }, [idRoom])
 
   return (

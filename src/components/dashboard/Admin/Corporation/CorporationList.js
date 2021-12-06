@@ -38,12 +38,12 @@ export const CorporationAdminLists = () => {
 
     useEffect(() => {
         getCorporations();
-
-    }, [])  
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <main>
- 
+
             <div className="card-table">
                 <div className="card-header">
                     <h2>Compañias registradas</h2>
@@ -74,7 +74,7 @@ export const CorporationAdminLists = () => {
                                             corp={corp}
                                             desactiveCorporation={desactiveCorporation}
                                         />
-                                ))}
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

@@ -23,7 +23,7 @@ export const CorporationMenuCard = () => {
 
     useEffect(() => {
         getCorporations();
-
+        // eslint-disable-next-line
     }, [])
 
 
@@ -42,6 +42,7 @@ export const CorporationMenuCard = () => {
                             corp={corp}
                         />
                     }
+                    return null;
                 })}
             </div>
         </main>

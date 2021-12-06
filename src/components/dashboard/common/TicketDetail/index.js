@@ -155,7 +155,7 @@ export const TicketDetail = ({ props }) => {
                 getStatuses();
             }
         }
-
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -166,7 +166,7 @@ export const TicketDetail = ({ props }) => {
                         <div className="card ticket-detail mb-4">
                             <div className="card-header ticket-detail">
                                 <div className="media flex-wrap w-100 align-items-center"> <img src={gravatar(ticket.user.email)} className="d-block ui-w-40 rounded-circle" alt="" />
-                                    <div className="media-body ml-3"> {ticket.user.name} {ticket.user.lastname}<a href="" data-abc="true"> </a>
+                                    <div className="media-body ml-3"> {ticket.user.name} {ticket.user.lastname}
                                     </div>
                                     <div className="text-muted small ml-3">
                                         <div>Ticket generado el <strong>{dayjs(ticket.create_at).format('DD-MM-YY')}</strong></div>

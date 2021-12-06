@@ -45,13 +45,14 @@ export const FavoriteCorporations = () => {
                 </div>
 
                 {favorites.map(({ corporation }) => {
-                    if (corporation.active == 1) {
+                    if (corporation.active === 1) {
                         return <CorporationCard
                             key={corporation._id}
                             corp={corporation}
                             deleteFavorite={deleteFavorite}
                         />
                     }
+                    return null;
                 })}
 
             </div>
