@@ -58,14 +58,15 @@ const App = () => {
         <Router>
             <Switch>
                 {/*Auth Routes */}
+                <Route exact path="/" component={() => window.location.href = 'https://geraldovillalobos.github.io/InfinitySolutionsIndex/'} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/activate/:token" component={ActivateAccount} />
                 <Route exact path="/send/activate" component={ResendActivateAccount} />
                 <Route exact path="/send/recover" component={SendRecoverAccount} />
                 <Route exact path="/recover/:token" component={RecoverAccount} />
+
                 <Provider value={[auth, saveAuth]}>
-                    
                     {/*User Routes and Common Routes*/}
                     <Route exact path="/corporation" component={ListCardCorporation} />
                     <Route exact path="/corporation/:idCorporation" component={CorporationProfile} />
@@ -77,7 +78,7 @@ const App = () => {
                     <Route exact path="/ticket/new/:idCorporation" component={NewTicket} />
                     <Route exact path="/chat" component={Chat} />
                     <Route exact path="/dashboard" component={Dashboard} />
-                    
+
                     {/*Admin Routes*/}
                     <Route exact path="/admin/corporation" component={CorporationList} />
                     <Route exact path="/admin/corporation/new" component={newCorporation} />
