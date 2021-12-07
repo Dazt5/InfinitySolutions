@@ -17,9 +17,7 @@ const FaqForms = ({ props }) => {
 
         const actualCorporation = async () => {
             try {
-                await apiAxios.get(`/corporation/${idCorporation}`);
-
-                props.history.push('/dashboard')
+                await apiAxios.get(`/corporation/${idCorporation}`);  
 
             } catch (error) {
 
